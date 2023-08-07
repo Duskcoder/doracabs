@@ -58,29 +58,32 @@
         <div class="col-md-3 footer_list1">
 
             <h6 class="heading pb-3">Contact Us</h6>
-            <p><span>Head office:</span> No.10 V.O.C street, Meenambakkam, Chennai – 27. </p>
+            <p><span>Head office:</span> No.21 Sekkizhar street, Visvanathan nagar, Depasimpet, Pondicherry - 605 003. </p>
             <!-- <p><span class="yellow">Branch office:</span> No. 38 M.G road, Kottakuppam, Town Puducherry, Villupuram dist., Tamil Nadu. 605104. </p> -->
             <ul class="address" style="padding-left: 0!important;">
-                <li class="ss-ph-hlt"><span class="fa fa-phone"></span><a href="tel:8220174555">8220174555</a></li>
-                <li class="ss-ph-hlt"><span class="fa fa-phone"></span><a href="tel:8220163555">8220163555</a></li>
-                <li><a><span class="fa fa-envelope"></span><a
-        href="mailto:info@safartravelstn.com">support@safartravelstn.com</a></li>
+                <li class="ss-ph-hlt"><span class="fa fa-phone"></span><a href="tel:8220174555">8015521177</a></li>
+                <li class="ss-ph-hlt"><span class="fa fa-phone"></span><a href="tel:8220163555">8015355460</a></li>
+                <li><span class="fa fa-envelope"></span><a
+        href="mailto:a.karthikmmv@gmail.com">a.karthikmmv@gmail.com</a></li>
             </ul>
 
         </div>
         <div class="col-md-4 footer_list1">
             <h4 class="heading pb-2">Location</h4>
             <div class="ss-map-location">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.7623392667115!2d80.17208081482218!3d12.987046990845732!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTLCsDU5JzEzLjQiTiA4MMKwMTAnMjcuNCJF!5e0!3m2!1sen!2sin!4v1632317294218!5m2!1sen!2sin"
-                    style="border:0;border-radius: 25px;" allowfullscreen="" loading="lazy" width="100%" height="180"></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3903.3182136486184!2d79.82840577512982!3d11.95245623640194!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5363df756de349%3A0xb2de02922f397f41!2sSekkizhar%20St%2C%20Depasimpet%2C%20Puducherry%2C%20605012!5e0!3m2!1sen!2sin!4v1683627038540!5m2!1sen!2sin" width="300" height="230" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
         </div>
+        <div id="scrollUp" style="display: block;">
+        <i class="fa fa-angle-up"></i>
+    </div>
     </div>
 </div>
 </div>
 
 <div class="row copyright" id="footer_list2">
-<p>Copyright ©. Dora cabs ™ is trademark of Go My Car Rentals Pvt. Ltd. . All rights Reserved.</p>
+<p>Copyright © 2023. Dora Cabs All rights Reserved. Designed &amp; Developed By <a href="http://duskcoder.com/">DuskCoder TechnoSoft Corp.</a></p>
+</p>
 </div>
 
 </footer>
@@ -90,15 +93,15 @@
 <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="./assets/frontuser/js/tabs.js"></script>
-<script src="./assets/frontuser/js/owl.carousel.min.js" defer=""></script>
+<script src="{{ asset('/assets/frontuser/js/tabs.js')}}"></script>
+<script src="{{ asset('/assets/frontuser/js/owl.carousel.min.js')}}" defer=""></script>
 
 
-<script src="./assets/frontuser/js/jquery.datetimepicker.full.js"></script>
+<script src="{{ asset('/assets/frontuser/js/jquery.datetimepicker.full.js')}}"></script>
 
-<script src="./assets/frontuser/js/validation.js"></script>
-<script src="./assets/frontuser/js/custom.js"></script>
-<script src="./assets/frontuser/js/datevalidation.js"></script>
+<script src="{{ asset('/assets/frontuser/js/validation.js')}}"></script>
+<script src="{{ asset('/assets/frontuser/js/custom.js')}}"></script>
+<script src="{{ asset('/assets/frontuser/js/datevalidation.js')}}"></script>
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>

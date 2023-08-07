@@ -1,0 +1,222 @@
+.menu a{
+    font-weight: 600;
+    color: black;
+    font-size: 15px;
+    margin-left: 20px;    
+}
+.booking-form .button button,.form .button button{
+    cursor: pointer;
+}
+.company-number{
+   background-color: #FFBF00;
+   border-radius: 40px;    
+}
+.company-number a{
+    color: black;
+    font-weight: bold;
+    font-size: 14px;
+}
+.one-way{
+    background-color: #FFBF00;
+    color: black;
+    border-radius: 20px 0 0 20px;
+}
+.round{
+   background-color: black;
+   color: #FFBF00;
+   border-radius: 0 20px 20px 0;
+}
+
+.booked{
+    background-color: #FFBF00;
+    border-radius: 30px;
+    font-weight: bold;
+}
+.booked a{
+    color: black;
+}
+#popular-locations,#footer{
+    background-color: black;
+}
+div.card.card.mb-3.calculation{margin-top:1rem;}
+/* .section-3 h3,.section-3 h5,#about .card-title{
+    color: #FFBF00;
+} */
+#home_page .section-3 .info-text{
+    font-size: 13px;
+}
+#popular-locations .h5{
+    color: #FFBF00;
+}
+#popular-locations li a{
+    color: white;
+}
+#footer{
+    color: rgb(170, 168, 168);
+}
+#popular-locations li{
+    line-height: 30px;
+}
+#features .circle{
+    border-radius: 50%;
+    border:1px solid red;
+    width: 40%;
+    height: 50%;
+}
+.card-img-top{
+    object-fit:scale-down;
+    outline: 1px solid #FFBF00;
+    outline-offset: 5px;
+}
+.left-content img{
+    width: 90%;
+}
+.carousel-control-prev-icon{
+    color: #FFBF00;
+}
+.car{
+    border: 2px solid #FFBF00;
+    border-radius: 15px;
+}
+.prev{
+    transform: rotate(90deg);
+    position: absolute;
+    top: 4%;
+    left: 30%;
+    color: #FFBF00;
+    font-size: 25px;
+}
+.next{
+    transform: rotate(90deg);
+    position: absolute;
+    top:88%;
+    right: 68.7%;
+    color: #FFBF00;
+    font-size: 25px;
+}
+#carouselExampleFade{
+    position: relative;
+}
+.calculation .card-title{
+    font-size: 13px;
+    text-align: center;
+}
+/*.car-logo{
+    border: 5px solid #FFBF00;
+    border-radius: 20px;
+}*/
+.booking-form{
+    background-image: url('assets/images/background.jpg');
+    background-size: cover;
+    background-position: center;
+}
+.feedback{
+    background-image: url("assets/images/customer/customer\ bg\ image.jpg");
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-position: right;
+}
+.donate-now input[type="radio"] {
+    opacity: 0.011;
+    z-index: 100;
+}
+.donate-now label, .donate-now input {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 2px solid #fdb81300;
+
+}
+
+/*.form .proceed-btn{
+    background-color: #FFBF00;
+    border-radius: 20px;
+}*/
+.form .proceed-btn a{
+    color: black;
+    font-weight: bold;
+}
+
+#services .thead{
+    background-color: #FFBF00; 
+}
+
+#contact_us .send{
+   background-color: #FFBF00;
+   color: black;
+}
+@media only screen and (max-width:600px) {
+    .company-number{
+        display: none;
+    }
+
+    #main .section-3 h2,#main .section-3 .title{
+        font-size: 18px;
+        text-align: center;
+        margin-top: 20px;
+    }   
+    #main .section-3 .info-text{
+        font-size: 12px;
+        text-align: center;
+    }
+    #main .section-3 .sub-heading{
+        font-size: 12px;
+    } 
+    #main #slides .right-content{
+        text-align: center;
+        margin-left: 20px;
+        margin-top: 20px;
+    }
+    #main #slides .muv{
+        margin: 0;
+        margin-right: -30px;
+    }
+    #main .section-3 .align-content-between{
+        margin-left: 0px;
+    }
+    #main .prev{
+        transform: rotate(90deg);
+        position: absolute;
+        top: 0;
+        left: 50%;
+        color: #FFBF00;
+        font-size: 20px;
+    }
+    #main .next{
+        transform: rotate(90deg);
+        position: absolute;
+        top:42%;
+        right: 47%;
+        color: #FFBF00;
+        font-size: 20px;
+    }
+    #main #app h2{
+        font-size: 20px;
+        text-align: center;
+    }  
+    #main #app .info-text{
+        font-size: 14px;
+        text-align: center;
+    }
+
+    .form .card-title{
+        font-size: 12px;
+        line-height: 15px;
+    }
+    .form .col-4{
+        margin-top: 5px;
+    }
+    .form .col-3{
+        margin-top: 20px;
+    }    
+    .form .calculation .card-title{
+    font-size: 10px;
+    text-align: center;
+    }
+   
+    
+}
+

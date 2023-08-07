@@ -332,6 +332,10 @@ input#inputAddress2::placeholder {
   padding: 10px;
   border-left: none;
 }
+.top_form input[type="time"] {
+  border-radius: 25px;
+  padding: 10px;
+}
 .top_form input[type="text"]:focus {
   box-shadow: none;
 }
@@ -726,7 +730,7 @@ input#inputAddress2::placeholder {
 #footer_list2 {
   text-align: center;
   background-color: #fbb53c;
-  padding: 12px 0px 0px 0px;
+  padding: 25px 0px 0px 0px;
  color:#000;
   /*margin-bottom: 60px;*/
   font-size: 14px;
@@ -1221,7 +1225,7 @@ p.facility {
 .footer_list1 ul li a {
   transition: all 0.5s;
   position: relative;
-  left: 0;
+  left: 10px;
 }
 div#rt_inners,
 #rt_inner {
@@ -1299,9 +1303,9 @@ h5#ptd {
   color: #ef3c3c;
 }
 
-.card-body {
+/* .card-body {
   min-height: 239px !important;
-}
+} */
 
 .tabs_menu_inner #pills-tab {
   margin: 15px 0 !important;

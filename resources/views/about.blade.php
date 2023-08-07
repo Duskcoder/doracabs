@@ -13,7 +13,7 @@
 	
 	<div class="container about_sec_text">
             <div class="inrabt_img ">
-                <img src="./assets/frontuser/images/Toyota1.png" style="padding-top:10px; padding-bottom: 10px ;">
+                <img src="./assets/frontuser/images/Toyota1.png" style="padding-top:10px; padding-bottom: 10px; width:70%;">
 		    </div>
 		<p><a href="#">Dora Cabs </a>&nbsp;provides safe and reliable taxi services from chennai for both local and outstation taxi service. We provide all types of car rental requirements as per the customer choice at the single platform. We are dedicated to delivering comfortable, <strong>reliable and hassle free taxi service rides</strong> for you and always endeavor to maintain your convenience at the top most priority.&nbsp;<br />
 <br />

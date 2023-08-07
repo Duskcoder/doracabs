@@ -1,7 +1,6 @@
 @include('common.header')
-    <section>
         <div class="container mt-4">
-
+       
             <section>
                 <div class="row">
                     <div class="col-sm-6 tabs_img">
@@ -17,14 +16,14 @@
                             <div class="tabs_menu_inner">
                                 <ul class="nav nav-tabs tab" id="myTab" role="tablist">
                                     <li class="nav-item" role="presentation">
-                                        <button class="nav-link  tablinks active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">One way Trip</button>
+                                        <button class="nav-link  tablinks active"data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true" onclick="oneway_round('Oneway');"><b>One way Trip</b></button>
                                     </li>
                                     <li class="nav-item" role="presentation">
-                                        <button class="nav-link tablinks " id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">Round Trip</button>
+                                        <button class="nav-link tablinks " data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false"  id="contact-tab"onclick="oneway_round('Round');"><b>Round Trip</b></button>
                                     </li>
-                                </ul>
+                                </ul> 
 
-                                <!---- Start Outer Tabs ----->
+                                <!---- Start Outer Tabs --->
 
                                 <div class="tab-content tab_section" id="myTabContent">
                                     <!----- Start first outer tab ----->
@@ -35,13 +34,13 @@
                                         <div class="tab-content pt-4" id="pills-tabContent">
                                             <!---- Start First Inner Tab ----->
                                             <div class="tab-pane   inner_tabs show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-                                                <form class="row g-3 top_form" action="{{route('book-now')}}" method="get">
+                                                <form class="row g-3 top_form" action="{{route('book-now')}}" method="get" autocomplete="off">
                                                     <div class="col-12">    
                                                         <div class='input-group pickLoc'>
                                                             <div class="input-group mb-3 form_clock">
                                                                 <span class="input-group-text"><i class="fa fa-circle-o" aria-hidden="true"></i></span>
                                                                 <!--<input type="text" name="source" required="" value="" class="form-control oneway" id="onewaysource" placeholder= "Pick-Up Location">   -->
-                                                                <input type="text" name="source" required="" value="" class="form-control outcity" id="onewaysource" placeholder="Pick-Up Location" required>
+                                                                <input type="text" name="source" required="" value="" class="form-control" id="fromLocation1" placeholder="Pick-Up Location" required>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -49,7 +48,7 @@
                                                         <div class='input-group Desti'>
                                                             <div class="input-group mb-3 form_clock">
                                                                 <span class="input-group-text"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
-                                                                <input type="text" name="destination" value="" required="" class="form-control" id="location" placeholder="Your Destination" required>
+                                                                <input type="text" name="destination"required=""  value=""  class="form-control" id="toLocation1" placeholder="Your Destination" required>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -57,25 +56,33 @@
                                                         <div class='input-group date'>
                                                             <div class="input-group mb-3 form_clock form_dnt">
                                                                 <span class="input-group-text"><i class="fa fa-calendar" aria-hidden="true"></i></span>
-                                                                <input type="text" name="pickupdate" value="01-02-2023" min="01-02-2023" max="31-12-2023" required="" class="form-control datetimepickerON" id="datepicker" placeholder="Select Date" required>
+                                                                <input type="text" name="pickupdate" id="datepicker3"  class="form-control datetimepickerON"  placeholder="Depart Date" required onchange="calc_amount();">
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6 col-6">
                                                         <div class="input-group mb-3 form_clock form_dnt">
-                                                            <span class="input-group-text"><i class="fa fa-clock-o" aria-hidden="true"></i></span>
-                                                            <!--<input type="text" name="pickuptime" value="08:33 PM" required="" class="form-control timeON" id="airTime id="Time" placeholder= "Select Time">    -->
-                                                            <input name="pickuptime" value="08:33 PM" type="text" required="" class="form-control timepicker" id="datetimepickernew" placeholder="Select Time" required>
+                                                            <input type="time" name="pickuptime" required="" class="form-control timepicker" id="" placeholder= "Select Time">   
                                                         </div>
                                                     </div>
-                                                    <input type="hidden" name="triptype" value="oneway">
-                                                    <input type="hidden" name="tripmode" value="oneway">
-                                                    <input type="hidden" name="ptype" value="rent">
-                                                    <input type="hidden" name="trip_category" value="budget">
+                                                    <input type="hidden" name="trip" id="tripo" class="tripo" value="Oneway">
+                                                    <div id ="onewayh">
+                                                    <input type="hidden" name="latOrg1" id="latOrg1o" value="">
+                                                    <input type="hidden" name="lagOrg1" id="lagOrg1o" value="">
+                                                    <input type="hidden" name="Org2" id="Org2o" value="">
+                                                    <input type="hidden" name="desA" id="desAo" value="">
+                                                    <input type="hidden" name="desBlat" id="desBlato" value="">
+                                                    <input type="hidden" name="desBlag" id="desBlago" value="">
+                                                    <input type="hidden" name="distance" id="distance1o" value="">
+                                                    <input type="hidden" name="duration" id="duration1o" value="">
+                                                    </div>
                                                     <div class="col-md-4 form_button pt-4 ">
                                                         <!-- <button class="btn" id="form_btn"> -->
                                                         <button type="submit" id="form_btn">Search Cabs</button>
                                                     </div>
+                                                    
+                                                    <input type="hidden" name="oneway_round" id="oneway_round" value="Oneway">
+                                                   
                                                 </form>
                                             </div>
 
@@ -90,12 +97,12 @@
                                         <div class="tab-pane  show inner_tabs active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
 
 
-                                            <form class="row g-3 top_form" action= "{{route('book-now')}}" method="get">
+                                            <form class="row g-3 top_form" action= "{{route('book-now')}}" method="get" autocomplete="off">
                                                 <div class="col-12">
                                                     <div class='input-group pickLoc'>
                                                         <div class="input-group mb-3 form_clock">
                                                             <span class="input-group-text"><i class="fa fa-circle-o" aria-hidden="true"></i></span>
-                                                            <input type="text" name="source" required="" value="" class="form-control outcity" id="soucemulti" placeholder="Pick-Up Location">
+                                                            <input type="text" name="source" required="" value="" class="form-control" id="fromLocation2" placeholder="Pick-Up Location">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -104,57 +111,61 @@
                                                     <div class='input-group Desti'>
                                                         <div class="input-group mb-3 form_clock">
                                                             <span class="input-group-text"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
-                                                            <input type="text" name="destination[]" value="" required="" class="form-control" id="location2" placeholder="Your Destination">
+                                                            <input type="text" name="destination" required=""  value="" class="form-control" id="toLocation2" placeholder="Your Destination">
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <!-- <div class="col-md-12 wrappr">
-                                                    <div class="col-md-12" id="rt_inners">
-                                                    </div>
-                                                    <div class="col-md-12" id="rt_inner">
-                                                        <a href="#" class="addmore"><b>+</b></a>
-                                                    </div>
-                                                </div>-->
 
                                                 <div class="col-md-4 col-6 mt0">
                                                     <div class='input-group date'>
                                                         <div class="input-group mb-3 form_clock form_dnt">
                                                             <span class="input-group-text"><i class="fa fa-calendar" aria-hidden="true"></i></span>
-                                                            <input type="text" name="pickupdate" required="" value="01-02-2023" class="form-control dateOU" id="datepicker3"  placeholder="Select Date">
+                                                            <input type="text" name="pickupdate" required="" value="" class="form-control dateOU" id="datepicker4"  placeholder="Depart Date">
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4 col-6 mt0">    
                                                     <div class="input-group mb-3 form_clock form_dnt">
-                                                        <span class="input-group-text"><i class="fa fa-clock-o" aria-hidden="true"></i></span>
-                                                        <!--<input type="text" name="pickuptime" value="08:33 PM" required="" class="form-control timepicker" placeholder= "Select Time">    -->
-                                                        <input name="pickuptime" value="08:33 PM" type="text" required="" class="form-control timeOU" id="datetimepickernew1" placeholder="Select Time">
+                                                        <!-- <span class="input-group-text"><i class="fa fa-clock-" aria-hidden="true"></i></span> -->
+                                                        <input type="time" name="pickuptime"  required="" class="form-control timeOU" id="datetimepickernew1" placeholder="pickuptime">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4 col-6 mt0">
                                                     <div class='input-group date'>
                                                         <div class="input-group mb-3 form_clock form_dnt">
                                                             <span class="input-group-text"><i class="fa fa-calendar" aria-hidden="true"></i></span>
-                                                            <input type="text" name="returndate" required="" value="01-02-2023" class="form-control" id="datepicker4" placeholder="Return Date">
+                                                            <input type="text" name="returndate"   value="" class="form-control" id="datepicker1" placeholder="Return Date" onchange="calc_amount();">
                                                         </div>
                                                     </div>
                                                 </div>
-
-                                                <input type="hidden" name="triptype"value="outstation">
+                                                <input type="hidden" name="trip" id="tripo" class="tripo" value="Round">
+                                                <div id ="roundh">
+                                                <input type="hidden" name="latOrg1" id="latOrg1r" value="">
+                                                <input type="hidden" name="lagOrg1" id="lagOrg1r" value="">
+                                                <input type="hidden" name="Org2" id="Org2r" value="">
+                                                <input type="hidden" name="desA" id="desAr" value="">
+                                                <input type="hidden" name="desBlat" id="desBlatr" value="">
+                                                <input type="hidden" name="desBlag" id="desBlagr" value="">
+                                                <input type="hidden" name="distance" id="distance1r" value="">
+                                                <input type="hidden" name="duration" id="duration1r" value="">
+                                                </div>
+                                                <!-- <input type="hidden" name="triptype"value="outstation">
                                                 <input type="hidden" name="tripmode" value="multicity">
                                                 <input type="hidden" name="ptype" value="rent">
-                                                <input type="hidden" name="trip_category" value="budget">
+                                                <input type="hidden" name="trip_category" value="budget"> -->
                                                 <div class="col-md-4 form_button pt-4 ">
                                                     <!-- <button class="btn" id="form_btn"> -->
                                                     <button type="submit" id="form_btn">Search Cabs</button>
                                                 </div>
+                                               
+                                                <input type="hidden" name="oneway_round" id="oneway_round" value="Round">
+                                              
                                             </form>
+                                          
                                         </div>
                                     </div>
                                 </div>
-
                             </div>
-
                         </div>
                     </div>
                 </div>
@@ -255,7 +266,7 @@
                             <p>Launching our all new Android application with completely redesigned user interface. Now book your cab in just 20 seconds. Book Outstation cabs, pay only for Oneway. Download Dora Cabs app now.</p>
                             <div class="row">
                                 <div class="col-md-4 col-6 mobile_sec_text">
-                                    <a href="https://play.google.com/store/apps/details?id=com.hiremetaxi">
+                                    <!-- <a href="https://play.google.com/store/apps/details?id=com.hiremetaxi"> -->
                                         <img src="./assets/frontuser/images/gpay.png">
                                     </a>
                                 </div>
@@ -560,8 +571,8 @@ var oneway_round = document.getElementById('oneway_round').value;
 var trip = $('#tripo').val(oneway_round);
 var fromLocation1 = document.getElementById('fromLocation1').value;
 var toLocation1 = document.getElementById('toLocation1').value;
-//var fromLocation2 = document.getElementById('fromLocation2').value;
-//var toLocation2 = document.getElementById('toLocation2').value;
+var fromLocation2 = document.getElementById('fromLocation2').value;
+var toLocation2 = document.getElementById('toLocation2').value;
 if (oneway_round == 'Oneway' && fromLocation1 != '' && toLocation1 != '') {
 var place = autocomplete.getPlace();
 var place2 = autocomplete2.getPlace();
@@ -574,17 +585,16 @@ document.getElementById('desAo').value = place2.formatted_address;
 initMap();
 
 }
-
-if (oneway_round == 'Round' && fromLocation1 != '' && toLocation1 != '') {
-var place = autocomplete.getPlace();
-var place2 = autocomplete2.getPlace();
-document.getElementById('latOrg1o').value = place.geometry.location.lat();
-document.getElementById('lagOrg1o').value = place.geometry.location.lng();
-document.getElementById('desBlato').value = place2.geometry.location.lat();
-document.getElementById('desBlago').value = place2.geometry.location.lng();
-document.getElementById('Org2o').value = place.formatted_address;
-document.getElementById('desAo').value = place2.formatted_address;
-initMap();
+if (oneway_round == 'Round' && fromLocation2 != '' && toLocation2 != '') {
+var place = autocomplete3.getPlace();
+var place2 = autocomplete4.getPlace();
+document.getElementById('latOrg1r').value = place.geometry.location.lat();
+document.getElementById('lagOrg1r').value = place.geometry.location.lng();
+document.getElementById('desBlatr').value = place2.geometry.location.lat();
+document.getElementById('desBlagr').value = place2.geometry.location.lng();
+document.getElementById('Org2r').value = place.formatted_address;
+document.getElementById('desAr').value = place2.formatted_address;
+initMap();  
 }
 }
 
@@ -644,14 +654,15 @@ desA = document.getElementById('desAo').value;
 desBlat = Number(document.getElementById('desBlato').value);
 desBlag = Number(document.getElementById('desBlago').value);
 }
-if(oneway_round == "Round"){
-latOrg1 = Number(document.getElementById('latOrg1o').value);
-lagOrg1 = Number(document.getElementById('lagOrg1o').value);
-Org2 = document.getElementById('Org2o').value;
-desA = document.getElementById('desAo').value;
-desBlat = Number(document.getElementById('desBlato').value);
-desBlag = Number(document.getElementById('desBlago').value);
+else if((oneway_round == "Round")){
+latOrg1 = Number(document.getElementById('latOrg1r').value);
+lagOrg1 = Number(document.getElementById('lagOrg1r').value);
+Org2 = document.getElementById('Org2r').value;
+desA = document.getElementById('desAr').value;
+desBlat = Number(document.getElementById('desBlatr').value);
+desBlag = Number(document.getElementById('desBlagr').value);
 }
+
 const origin1 = {
 lat: latOrg1,
 lng: lagOrg1
@@ -679,15 +690,15 @@ var distanceInKm = (distance / 1000);
 var oneway_round = document.getElementById('oneway_round').value;
 var fromLocation1 = document.getElementById('fromLocation1').value;
 var toLocation1 = document.getElementById('toLocation1').value;
-//var fromLocation2 = document.getElementById('fromLocation2').value;
-//var toLocation2 = document.getElementById('toLocation2').value;
+var fromLocation2 = document.getElementById('fromLocation2').value;
+var toLocation2 = document.getElementById('toLocation2').value;
 if (oneway_round == 'Oneway' && fromLocation1 != '' && toLocation1 != '') {
 document.getElementById('distance1o').value = Math.round(distanceInKm);
 document.getElementById('duration1o').value = durationText;
 }
-if (oneway_round == 'Round' && fromLocation1 != '' && toLocation1 != '') {
-document.getElementById('distance1o').value = Math.round(distanceInKm);
-document.getElementById('duration1o').value = durationText;
+if (oneway_round == 'Round' && fromLocation2 != '' && toLocation2 != '') {
+document.getElementById('distance1r').value = Math.round(distanceInKm);
+document.getElementById('duration1r').value = durationText;
 }
 
 // show on map
@@ -708,18 +719,20 @@ markersArray = [];
 <script>
 function oneway_round(type) {
 document.getElementById('oneway_round').value = type;
-//document.getElementById('oneway_round').value = type;
+// document.getElementById('oneway_round').value = type;
 if( type == 'Oneway'){
 $('#oneway').addClass('active').css("background", "#FFBF00").css("color","black");
 $ ('#round').addClass('active').css("background", "black").css("color","#FFBF00");
-}else{
+}else if( type == 'Round'){ 
 $ ('#round').addClass('active').css("background", "#FFBF00").css("color","black");
 $ ('#oneway').addClass('active').css("background", "black").css("color","#FFBF00");
-}Oneway
+}
 }
 </script>
 <script>
 jQuery(document).ready(function($) {
+
+
 tab = $('.tabs h3 a');
 
 tab.on('click', function(event) {
@@ -736,8 +749,10 @@ setTimeout(function() {
 $('.forms').addClass('ss-fast');
 }, 1000);
 document.getElementById('oneway_round').value = "Oneway";
+document.getElementById('oneway_round').value = "Round";
 /*document.getElementById('distance1o').value = 0;
 document.getElementById('duration1o').value = 0;
 document.getElementById('fromLocation1').value = "";
 document.getElementById('toLocation1').value = "";*/
+
 </script>

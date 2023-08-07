@@ -1,9 +1,10 @@
 @component('mail::message')
-# Dear DoraCabs,
+# Dear Customer,
+<!-- 
+Thank you for your registration!.
+You will receive a confirmation call from us.  
 
-A Booking received!.
-
-<u>Booking Point Information:</u><br>
+<u>Your Booking Point Information:</u><br>
 Pick-up Point: {{$data['from_place']}}.<br>
 Drop Point: {{$data['to_place']}}.<br>
 Trip: {{$data['oneway_round']}}.<br>
@@ -32,19 +33,23 @@ Distance Cover: {{$data['distance']}}Km.<br>
 Base Fare: ₹ {{$data['actual_amount']}}.<br>
 Driver Allowance: ₹ {{$data['driver_bata']}}.<br>
 Total Fare: ₹ {{$data['amount']}}.<br>
-<br>
+<br> -->
 <small>* Excludes tolls and parking. Hillstation charges applicable.</small><br>
 <small>* Additional km charges are applicable based on the type of vehicle.</small><br>
 <small>* Inter state permit charges are applicable.</small><br>
-
-<u>Contact Information:</u><br>
-Customer Name: {{$data['cust_name']}}<br>
+<!-- 
+<u>Your Contact Information:</u><br>
+Name: {{$data['cust_name']}}<br>
 @if($data['cust_mbl'])
-Phone Number 1: <a href="tel:{{$data['cust_mbl']}}">{{$data['cust_mbl']}}</a><br>
+Phone Number 1: {{$data['cust_mbl']}}<br>
 @endif
+@if($data['cust_email'])
+Email: {{$data['cust_email']}}<br>
+@endif -->
+
+If you have any questions, please call <a href="tel:8220174555">8220174555</a>, <a href="tel:8220163555">8220163555</a>.​
 
 
-For More Information <a href="{{ url('/') }}">Login To DoraCabs</a>.<br>
-Thanks and Regards,<br>
-DoraCabsIn
+Thanks,<br>
+<a href="{{ route('home') }}">www.doracabstaxi.com</a>
 @endcomponent

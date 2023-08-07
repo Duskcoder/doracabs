@@ -5,24 +5,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="icon" type="image/png" href="uploads/favicon.png" />
-    <title>Dora Cabs - One way, Outstation, Car Rental, Local & Airport Taxi</title>
+    <!-- <link rel="icon" type="image/png" href="uploads/favicon.png" /> -->
+    
+    <!-- <title>Doracabsoffers</title> -->
     <meta name="description" content=" Dora Cabs For One way,Outstation, Car Rental, Local & Airport Taxi - Hire Me Cabs @ 9990965965">
     <meta name="keywords" content="One way cab,Outstation taxi, Car Rental service , Local taxi hire, Airport Taxi service">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="./assets/frontuser/css/style.css">
-    <link rel="stylesheet" type="text/css" href="./assets/frontuser/css/owl.carousel.min.css" />
-    <link rel="stylesheet" type="text/css" href="./assets/frontuser/css/owl.theme.default.min.css" />
+    <link rel="stylesheet" href="{{ asset('/assets/frontuser/css/style.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('/assets/frontuser/css/owl.carousel.min.css')}}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('/assets/frontuser/css/owl.theme.default.min.css')}}" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
 
+    <link href="{{ asset('style.css')}}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <link href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css" rel="stylesheet">
 
-    <link href="./assets/frontuser/css/jquery.datetimepicker.min.css" rel="stylesheet">
-    <link href="./assets/frontuser/css/jquery.datetimepicker.min.css" rel="stylesheet" type="text/css" media="all">
+    <link href="{{ asset('/assets/frontuser/css/jquery.datetimepicker.min.css')}}" rel="stylesheet">
+    <link href="{{ asset('/assets/frontuser/css/jquery.datetimepicker.min.css')}}" rel="stylesheet" type="text/css" media="all">
 
 
 </head>
@@ -30,11 +32,10 @@
 
 <body>
 <div class="container">
-
 <div class="row hdrrow ">
     <div class="col-md-3 col-3 nav_logo">
         <a class="navbar-brand" href="/">
-            <img src="./uploads/dora_cabs1-removebg-preview.png" alt="Dora cabs">
+            <img src="{{ asset('/assets/frontuser/images/dora_cabs1.png')}}" alt="Dora cabs">
         </a>
     </div>
     <div class="col-md-9 col-9 nav_bar">
@@ -53,9 +54,8 @@
                     <li><a href="{{ route('contact') }}" class="nav-link" >Contact</a></li>
                     </ul>
                 </div>
-                <a href="tel:+919990965965" class="btn" id="top_call"><i class="fa fa-phone" aria-hidden="true"></i>
-    +91 9990965965 </a>
-
+                <a href="tel:+91 8015521177" class="btn" id="top_call"><i class="fa fa-phone" aria-hidden="true"></i>
+                +91 8015521177 </a>
             </div>
 
         </nav>

@@ -1,4 +1,5 @@
 @include('common.header')
+
 <section>
     <div class="bred_crumb">
         <img src="#" alt="" sizes="100vw">
@@ -19,15 +20,15 @@
                 <div class="row contact_thing">
                     <div class="col-md-4 contact_items cont_item_1">
                         <i class="fa fa-phone" aria-hidden="true"></i>
-                        <h6> You can call our team</h6><p>+91-9990965965 </p>
+                        <h6> You can call our team</h6><p>+91-8015521177 </p>
                     </div>
                     <div class="col-md-4 contact_items cont_item_2">
                         <i class="fa fa-map-marker" aria-hidden="true"></i>
-                        <h6>Visit my address</h6><p>Head office: No.10 V.O.C street, Meenambakkam, Chennai – 27.</p>
+                        <h6>Visit my address</h6><p> No.21 Sekkizhar street, Visvanathan nagar, Depasimpet, Pondicherry - 605 003.</p>
                     </div>
                     <div class="col-md-4 contact_items cont_item_3">
                         <i class="fa fa-envelope-o" aria-hidden="true"></i>
-                        <h6>Email us a</h6><p>info@doracabs.com</p>
+                        <h6>Email us a</h6><p>a.karthikmmv@gmail.com</p>
                     </div>
                 </div>
         

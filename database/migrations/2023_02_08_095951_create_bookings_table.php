@@ -27,6 +27,11 @@ return new class extends Migration
             $table->string('cust_name')->nullable();
             $table->string('cust_email')->nullable();
             $table->string('cust_mbl')->nullable();
+            $table->string('pickup_add')->nullable();
+            $table->string('drop_add')->nullable();
+            $table->integer('days')->nullable();
+            $table->double('actual_amount', 8, 2)->nullable();
+            $table->double('driver_bata', 8, 2)->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

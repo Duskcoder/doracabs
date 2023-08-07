@@ -56,7 +56,7 @@
                     <tr >
                       <td >Tempo Traveller</td>
                       <td >Not Available</td>
-                      <td >Rs. 18/km</td>
+                      <td >Rs. 23/km</td>
                     </tr>
                   </tbody>
                 </table>

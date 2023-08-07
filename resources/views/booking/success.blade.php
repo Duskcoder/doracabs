@@ -1,5 +1,7 @@
 @include('common.header')
-    <div class="background"></div>
+<script src="https://momentjs.com/downloads/moment.min.js"></script>
+<section>
+
 <div class="container">
 	<div class="row">
 		<div class="modalbox success col-sm-8 col-md-6 col-lg-5 center animate">
@@ -13,36 +15,6 @@
 			<p>We've sent a confirmation to your e-mail
 				<br>for verification.</p>
 				
-			<!-- <div class="ss-address-fm">
-				<div class="form-group">
-					<input type="text" class="form-control" id="autocomplete" 
-							placeholder="Full Name">
-					<input type="street" 
-							class="form-control" 
-							id="autocomplete" 
-							placeholder="Street">
-					
-					<input type="city" 
-							class="form-control" 
-							id="inputCity" 
-							placeholder="City">
-					
-					<input type="state" 
-							class="form-control" 
-							id="inputState" 
-							placeholder="State">
-					
-					<input type="zip" 
-							class="form-control" 
-							id="inputZip" 
-							placeholder="Zip">
-							
-					<input type="country" 
-							class="form-control" 
-							id="inputCountry" 
-							placeholder="Country">
-				</div>
-			</div>	 -->
 			<div class="ss-success-dtl">
 				<div class="ss-location-cnt">
 					<div class="ss-location">
@@ -102,14 +74,6 @@
 		</div>
 	</div>
 </div>
+	</section>
 @include('common.footer')
 <script src="{{ asset('user-theme/assets/js/jquery-3.3.1.min.js') }}"></script>
-<script>
-    $(document).ready(function() {
-		$('.redo').click(function() {
-			$('.success, .error').toggle();
-		});
-});
-</script>
-</body>
-</html>

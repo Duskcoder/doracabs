@@ -130,7 +130,7 @@ $(window).on("load", function () {
     var datdd = dd[0];
     var mm = dd[1];
     var yyy = dd[2];
-    // alert(string);
+    alert(string);
     jQuery("#datepicker4").datetimepicker({
       i18n: {
         en: {
@@ -605,7 +605,7 @@ $(window).on("load", function () {
     closeOnDateSelect: !0,
     minDate: 0,
     weeks: !1,
-  }),
+  });
   jQuery("#datepicker6").datetimepicker({
     i18n: {
       en: {
