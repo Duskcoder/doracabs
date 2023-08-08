@@ -8,22 +8,30 @@
         <div class="col-md-6">
           @if(Request::get('trip') == 'Round')
           @foreach($cars as $car)
-          <div class="mb-3">
-          <li>
+          <table> 
+            <tbody>
+            <td>
             <input type="radio" id="car1{{$car->id}}" name="car1" onclick="km_cost({{$car->id}},{{$car->oneway_km_cost}},{{$car->round_km_cost}})">
-            <label for="car1{{$car->id}}">
-             
+              <label for="car1{{$car->id}}">
+
                 <img src="{{ URL::asset($car->file_path.'/'.$car->file_name) }}" alt="{{$car->model_name}}" class="w-100 p-lg-3 car-logo p-1" style="width:25% !important">
-             
-              <div class="col-5 col-md-5">
-                <p style="float:right">
-                  <small>{{$car->model_name}}<br>({{$car->round_km_cost}}/km)</small>
-                  <i data-toggle="tooltip" title="{{$car->model_name}}" class="fa fa-snowflake-o"></i>
-                </p>
-              </div>
-            </label>
-          </li>
-</div>
+
+                <div class="col-5 col-md-5">
+                  <p style="float:right">
+                    <small>{{$car->model_name}}<br>({{$car->round_km_cost}}/km)</small>
+                    <i data-toggle="tooltip" title="{{$car->model_name}}" class="fa fa-snowflake-o"></i>
+                  </p>
+                </div>
+              </label>
+            </td>
+            </tbody>
+            
+         </table>
+          <!-- <div class="mb-3">
+            <li>
+              
+            </li>
+          </div> -->
 
 
           @endforeach
@@ -34,11 +42,11 @@
             <div class="mb-3">
               <input type="radio" id="car1{{$car->id}}" name="car1" onclick="km_cost({{$car->id}},{{$car->oneway_km_cost}},{{$car->round_km_cost}})">
               <label for="car1{{$car->id}}">
-                
-                  <img src="{{ URL::asset($car->file_path.'/'.$car->file_name) }}" alt="{{$car->model_name}}" class="w-100 p-lg-3 car-logo p-1" style="width:25% !important">
-                
+
+                <img src="{{ URL::asset($car->file_path.'/'.$car->file_name) }}" alt="{{$car->model_name}}" class="w-100 p-lg-3 car-logo p-1" style="width:25% !important">
+
                 <div class="col-5 col-md-5">
-                    <p style="float:right">
+                  <p style="float:right">
                     <small>{{$car->model_name}}<br>({{$car->oneway_km_cost}}/km)</small>
                     <i data-toggle="tooltip" title="{{$car->model_name}}" class="fa fa-snowflake-o"></i>
                   </p>
@@ -72,7 +80,6 @@
                       @endforeach -->
         </div>
         <div class="col-md-6 ">
-
           <h2>PLAN YOUR TRIP</h2>
           <div class="tab-content tab_section" id="myTabContent">
             <!----- Start first outer tab ----->
@@ -119,6 +126,11 @@
                     <input type="text" class="form-control" name="dropAddress" id="dropAddress" placeholder="" required>
                   </div>
                 </div>
+                <div class="col-lg-8 col-12">
+                    <div class="form-group mt-3">
+                      <label for="pickup-location"><b>Enter Your Phone Number</b></label>
+                      <input type="text" class="form-control" name="cust_mbl1" id="pickup-location" aria-describedby="emailHelp" placeholder="Phone Number" required>
+                    </div>
               </div>
               <br />
               <div class="card mb-3 calculation">
@@ -141,18 +153,26 @@
                       <h6 class="text-center" id="durationText1">0 hours 0 mins</h6>
                     </div>
                   </div>
+                  <!-- <div class="col-12 row mt-4"> -->
+                 
+                  <!-- </div> -->
+                </div>
                 </div>
                 <!-- <button type="submit" class="booked w-100 border-0 p-2 mt-4">PLACE A BOOKING</button> -->
-                <div class="col-12 row mt-4">
-                  <div class="col-lg-8 col-12">
-                    <div class="form-group mt-3">
-                      <label for="pickup-location"><b>Enter Your Phone Number</b></label>
-                      <input type="text" class="form-control" name="cust_mbl1" id="pickup-location" aria-describedby="emailHelp" placeholder="Phone Number" required>
-                    </div>
-                  </div>
-                </div>
+             
+                <div>
+            <h6>Tariff Information</h6>
+            <ul>
+              <li>One way minimum of 130 kms per calendar day.</li>
+              <li>400 rupees driver bata.</li>
+              <li>Toll Permit, Inter State Permit, Parking charges should be pay by customer.</li>
+              <li>Round trip minimum of 250 kms per calendar day.</li>
+              <li>Hill station charges.</li>
+              <li>Waiting Charges are Applicable.</li>
+            </ul>
+          </div>
                 <div class="col-lg-4 col-12 my-lg-5 mb-4 proceed-btn">
-                  <button type="submit" class="btn btn-warning" style="border-radius:50px;">PLACE A BOOKING</button>
+                  <button type="submit" class="btn btn-warning" style="border-radius:5px;font-weight:700">PLACE A BOOKING</button>
                   <!-- <button type="submit" class="booked w-100 border-0 p-2 mt-4"></button>-->
                 </div>
               </div>
@@ -183,7 +203,7 @@
                 <div class="col-6">
                   <div class="form-group mt-4">
                     <label for="name"><b>Full Name</b></label>
-                    <input type="text" class="form-control" name="cust_name" id="cust_name" placeholder="" required>
+                    <input type="text" class="form-control" name="cust_name" id="cust_name" placeholder="Full Name" required>
                   </div>
                 </div>
                 <div class="col-6">
@@ -197,16 +217,25 @@
                 <div class="col-6">
                   <div class="form-group mt-4">
                     <label for="pickup"><b>Pick Up Address</b></label>
-                    <input type="text" class="form-control" name="pickUpAddress" id="pickUpAddress" placeholder="" required>
+                    <input type="text" class="form-control" name="pickUpAddress" id="pickUpAddress" placeholder="pickUpAddress" required>
                   </div>
                 </div>
                 <div class="col-6">
                   <div class="form-group mt-4">
                     <label for="drop"><b>Drop Address</b></label>
-                    <input type="text" class="form-control" name="dropAddress" id="dropAddress" placeholder="" required>
+                    <input type="text" class="form-control" name="dropAddress" id="dropAddress" placeholder="dropAddress" required>
                   </div>
                 </div>
+                <!-- <div class="col-12 row mt-4"> -->
+                  <div class="col-lg-6 col-12">
+                    <div class="form-group mt-3">
+                      <label for="pickup-location"><b>Enter Your Phone Number</b></label>
+                      <input type="text" class="form-control" name="cust_mbl1" id="pickup-location" aria-describedby="emailHelp" placeholder="Phone Number" required>
+                    </div>
+                  </div>
+                <!-- </div> -->
               </div>
+
 
               <div class="card mb-3 calculation">
                 <div class="row">
@@ -237,17 +266,22 @@
                 </div>
               </div>
           </div>
-          <!-- <button type="submit" class="booked w-100 border-0 p-2 mt-4">PLACE A BOOKING</button> -->
-          <div class="col-12 row mt-4">
-            <div class="col-lg-8 col-12">
-              <div class="form-group mt-3">
-                <label for="pickup-location"><b>Enter Your Phone Number</b></label>
-                <input type="text" class="form-control" name="cust_mbl1" id="pickup-location" aria-describedby="emailHelp" placeholder="Phone Number" required>
-              </div>
-            </div>
+
+          <div>
+            <h6>Tariff Information</h6>
+            <ul>
+              <li>One way minimum of 130 kms per calendar day.</li>
+              <li>400 rupees driver bata.</li>
+              <li>Toll Permit, Inter State Permit, Parking charges should be pay by customer.</li>
+              <li>Round trip minimum of 250 kms per calendar day.</li>
+              <li>Hill station charges.</li>
+              <li>Waiting Charges are Applicable.</li>
+            </ul>
           </div>
+          <!-- <button type="submit" class="booked w-100 border-0 p-2 mt-4">PLACE A BOOKING</button> -->
+
           <div class="col-lg-4 col-12 my-lg-5 mb-4 proceed-btn">
-            <button type="submit" class="btn btn-warning" style="border-radius:50px;">PLACE A BOOKING</button>
+            <button type="submit" class="btn btn-warning" style="border-radius:5px; font-weight:700">PLACE A BOOKING</button>
             <!-- <button type="submit" class="booked w-100 border-0 p-2 mt-4"></button>-->
           </div>
         </div>
