@@ -29,9 +29,9 @@ h6 {
   background-color: #000!important;
 }
 
-/* img {
+img {
   max-width: 100%;
-} */
+}
 
 #blue_btn:hover {
   background-color: #fff;
@@ -86,13 +86,16 @@ h6 {
   /* border: 1px solid #cdcdcd; */
   border-radius: 25px;
   background: #fbb53c;
- color:#000;
+ /* color:#000; */
+ position:fixed;
+ top: 15px;
+ right: 30px;
   padding: 1px 15px;
 }
 #top_call2:hover {
   /* border: 1px solid #fbb53c; */
-  background: #000 ;
-  color: #fbb53c;
+  /* background: #000 ; */
+  color: #0c0c0c;
 }
 #top_call2 p {
   margin-bottom: 0;
@@ -1504,7 +1507,7 @@ a.link_inner {
   }
   a.navbar-brand img {
     /* width: 100% !important; */
-    max-width: 215px;
+    max-width: 160px;
   }
   .seo_text .cab_car_list img {
     height: auto;
@@ -2213,10 +2216,11 @@ a.addmore {
     /*width: 110px;*/
     order: 2;
     position: absolute;
-    left: 145px;
+    top: 3px;
+    left: 120px;
     display: flex;
     z-index: 99999;
-    width: 35%;
+    width: 37%;
     /*justify-content: space-around;*/
   }
   button#toggle_icon {
@@ -2743,5 +2747,3 @@ a.addmore {
     font-size: 14px !important;
   }
 }
-
-
