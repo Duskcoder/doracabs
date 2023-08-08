@@ -65,7 +65,10 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-md-6 col-6">
+
+                                               {{-- depart date and time hide START--}}
+
+                                            {{-- <div class="col-md-6 col-6">
                                                 <div class='input-group date'>
                                                     <div class="input-group mb-3 form_clock form_dnt">
                                                         <span class="input-group-text"><i class="fa fa-calendar"
@@ -83,7 +86,10 @@
                                                         class="form-control timepicker" id=""
                                                         placeholder="Select Time">
                                                 </div>
-                                            </div>
+                                            </div> --}}
+
+                                               {{-- depart date and time hide END--}}
+
                                             <input type="hidden" name="trip" id="tripo" class="tripo"
                                                 value="Oneway">
                                             <div id="onewayh">
@@ -118,7 +124,7 @@
                             <div class="tab-pane tabcontent " id="contact" role="tabpanel"
                                 aria-labelledby="contact-tab">
 
-                                <div class="tab-pane  show inner_tabs active" id="pills-home" role="tabpanel"
+                                <div class="tab-pane  pt-4 show inner_tabs active" id="pills-home" role="tabpanel"
                                     aria-labelledby="pills-home-tab">
 
 
@@ -148,7 +154,9 @@
                                             </div>
                                         </div>
 
-                                        <div class="col-md-4 col-6 mt0">
+                                        {{-- depart date and time hide START--}}
+
+                                        {{-- <div class="col-md-4 col-6 mt0">
                                             <div class='input-group date'>
                                                 <div class="input-group mb-3 form_clock form_dnt">
                                                     <span class="input-group-text"><i class="fa fa-calendar"
@@ -166,8 +174,8 @@
                                                     class="form-control timeOU" id="datetimepickernew1"
                                                     placeholder="pickuptime">
                                             </div>
-                                        </div>
-                                        <div class="col-md-4 col-6 mt0">
+                                        </div> --}}
+                                        {{-- <div class="col-md-4 col-6 mt0">
                                             <div class='input-group date'>
                                                 <div class="input-group mb-3 form_clock form_dnt">
                                                     <span class="input-group-text"><i class="fa fa-calendar"
@@ -177,7 +185,10 @@
                                                         placeholder="Return Date" onchange="calc_amount();">
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div> --}}
+
+                                           {{-- depart date and time hide END--}}
+                                           
                                         <input type="hidden" name="trip" id="tripo" class="tripo"
                                             value="Round">
                                         <div id="roundh">
