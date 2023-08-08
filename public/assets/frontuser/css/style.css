@@ -82,6 +82,23 @@ h6 {
   padding: 5px;
   font-size: 12px !important;
 }
+#top_call2 {
+  /* border: 1px solid #cdcdcd; */
+  border-radius: 25px;
+  background: #fbb53c;
+ color:#000;
+  padding: 1px 15px;
+}
+#top_call2:hover {
+  /* border: 1px solid #fbb53c; */
+  background: #000 ;
+  color: #fbb53c;
+}
+#top_call2 p {
+  margin-bottom: 0;
+  padding: 5px;
+  font-size: 12px !important;
+}
 
 .tab {
   overflow: hidden;
@@ -2116,6 +2133,11 @@ a.addmore {
     font-size: 12px;
   }
 }
+@media (min-width: 1200px) {
+  #top_call2 {
+    display: none;
+  }
+}
 
 @media (max-width: 600px) {
   .row.pt-5.pb-5.blog_content {
@@ -2191,8 +2213,7 @@ a.addmore {
     /*width: 110px;*/
     order: 2;
     position: absolute;
-    margin-top: 5px;
-    left: 65px;
+    left: 145px;
     display: flex;
     z-index: 99999;
     width: 35%;
@@ -2230,6 +2251,7 @@ a.addmore {
     left: -20px;
     margin-top: 4px;
   }
+  
 
   #top_call_icon span a {
     margin-right: 10px;
@@ -2247,7 +2269,7 @@ a.addmore {
     box-shadow: 1px 1px 5px 1px #cdcdcd;
     position: absolute;
     margin-top: 185px;
-    width: 100%;
+    width: 40%;
     border-radius: 5px;
     /* left: 60px; */
   }
@@ -2262,6 +2284,7 @@ a.addmore {
   #top_call {
     display: none;
   }
+  
 
   .tabs_menu {
     order: 1;

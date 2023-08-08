@@ -25,25 +25,25 @@
 
     <link href="{{ asset('/assets/frontuser/css/jquery.datetimepicker.min.css')}}" rel="stylesheet">
     <link href="{{ asset('/assets/frontuser/css/jquery.datetimepicker.min.css')}}" rel="stylesheet" type="text/css" media="all">
-
-
+    <link rel="stylesheet" href="{{ URL::asset('build/libs/aos/aos.css') }}" />
 </head>
 
 
 <body>
-<div class="container">
-<div class="row hdrrow ">
-    <div class="col-md-3 col-3 nav_logo">
-        <a class="navbar-brand" href="/">
-            <img src="{{ asset('/assets/frontuser/images/dora_cabs1.png')}}" alt="Dora cabs">
-        </a>
-    </div>
-    <div class="col-md-9 col-9 nav_bar">
-
-        <nav class="navbar navbar-expand-sm pb-lg-4 pb-0 pt-lg-4 pt-3 " id="top-menu">
-            <div class="container-fluid">
-
-                <button class="navbar-toggler" id="toggle_icon" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+    <div class="container">
+        <div class="row hdrrow ">
+            <div class="col-md-3 col-3 nav_logo">
+                <a class="navbar-brand" href="/">
+                    <img src="{{ asset('/assets/frontuser/images/dora_cabs1-removebg-preview.png')}}" alt="Dora cabs">
+                </a>
+            </div>
+            
+            <div class="col-md-9 col-9 nav_bar">
+                
+                <nav class="navbar navbar-expand-sm pb-lg-4 pb-0 pt-lg-4 pt-3 " id="top-menu">
+                    <div class="container-fluid">
+                        
+                        <button class="navbar-toggler" id="toggle_icon" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
     <span class="navbar-toggler-icon"><i class="fa fa-bars" aria-hidden="true"></i></span>
   </button>
                 <div class="collapse navbar-collapse" id="collapsibleNavbar">
@@ -52,17 +52,20 @@
                     <li><a href="{{ route('about') }}" class="nav-link" >About</a></li>
                     <li><a href="{{ route('tariff') }}" class="nav-link" >Tariff</a></li>
                     <li><a href="{{ route('contact') }}" class="nav-link" >Contact</a></li>
-                    </ul>
-                </div>
-                <a href="tel:+91 8015521177" class="btn" id="top_call"><i class="fa fa-phone" aria-hidden="true"></i>
-                +91 8015521177 </a>
+                </ul>
             </div>
+            <a href="tel:+91 8015521177" class="btn" id="top_call"><i class="fa fa-phone" aria-hidden="true"></i>
+            +91 8015521177 </a>
+            <a  class="btn " id="top_call2"><i class="fa fa-phone" aria-hidden="true"></i>
+          </a>
+        </div>
 
-        </nav>
+    </nav>
     </div>
+    
 </div>
 </div>
 
-
+<script src="{{ URL::asset('build/libs/aos/aos.js') }}"></script>
 </body>
 </html>
