@@ -21,6 +21,7 @@ class BookingController extends Controller
 {
     //
     public function bookNowStep2()
+
     {
         $cars = Car::orderBy('created_at', 'asc')->get();
         // dd($cars);
