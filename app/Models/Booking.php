@@ -13,9 +13,9 @@ class Booking extends Model
         'id',
         'from_place',
         'to_place',
-        'car_id', 
+        'car_id',
         'status',
-        'oneway_round', 
+        'oneway_round',
         'charge_per_km',
         'distance',
         'amount',
@@ -24,23 +24,23 @@ class Booking extends Model
         'cust_email',
         'cust_mbl',
         'pickup_add',
-        'drop_add', 
+        'drop_add',
         'days',
-        'actual_amount', 
+        'actual_amount',
         'driver_bata'
-     ];
-     public function driver()
-     {
-         return $this->hasOne(Driver::class,'booking_id','id');
-     }
- 
-     public function vehicle()
-     {
-         return $this->hasOne(Vehicle::class,'booking_id','id');
-     }
- 
-     public function payment()
-     {
-         return $this->hasOne(Payment::class,'booking_id','id');
-     }
+    ];
+    public function driver()
+    {
+        return $this->hasOne(Driver::class, 'booking_id', 'id');
+    }
+
+    public function vehicle()
+    {
+        return $this->hasOne(Vehicle::class, 'booking_id', 'id');
+    }
+
+    public function payment()
+    {
+        return $this->hasOne(Payment::class, 'booking_id', 'id');
+    }
 }

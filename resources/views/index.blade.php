@@ -16,10 +16,14 @@
                     <div class="tabs_menu_inner">
                         <ul class="nav nav-tabs tab" id="myTab" role="tablist">
                             <li class="nav-item" role="presentation">
-                                <button class="nav-link  tablinks active" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true" onclick="oneway_round('Oneway');"><b>One way Trip</b></button>
+                                <button class="nav-link  tablinks active"data-bs-toggle="tab" data-bs-target="#home"
+                                    type="button" role="tab" aria-controls="home" aria-selected="true"
+                                    onclick="oneway_round('Oneway');"><b>One way Trip</b></button>
                             </li>
                             <li class="nav-item" role="presentation">
-                                <button class="nav-link tablinks " data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false" id="contact-tab" onclick="oneway_round('Round');"><b>Round Trip</b></button>
+                                <button class="nav-link tablinks " data-bs-toggle="tab" data-bs-target="#contact"
+                                    type="button" role="tab" aria-controls="contact" aria-selected="false"
+                                    id="contact-tab"onclick="oneway_round('Round');"><b>Round Trip</b></button>
                             </li>
                         </ul>
 
@@ -27,45 +31,61 @@
 
                         <div class="tab-content tab_section" id="myTabContent">
                             <!----- Start first outer tab ----->
-                            <div class="tab-pane tabcontent show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                            <div class="tab-pane tabcontent show active" id="home" role="tabpanel"
+                                aria-labelledby="home-tab">
 
                                 <!---- Start Inner Tabs ----->
 
                                 <div class="tab-content pt-4" id="pills-tabContent">
                                     <!---- Start First Inner Tab ----->
-                                    <div class="tab-pane   inner_tabs show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-                                        <form class="row g-3 top_form" action="{{route('book-now')}}" method="get" autocomplete="off">
+                                    <div class="tab-pane   inner_tabs show active" id="pills-home" role="tabpanel"
+                                        aria-labelledby="pills-home-tab">
+                                        <form class="row g-3 top_form" action="{{ route('book-now') }}" method="get"
+                                            autocomplete="off">
                                             <div class="col-12">
                                                 <div class='input-group pickLoc'>
                                                     <div class="input-group mb-3 form_clock">
-                                                        <span class="input-group-text"><i class="fa fa-circle-o" aria-hidden="true"></i></span>
+                                                        <span class="input-group-text"><i class="fa fa-circle-o"
+                                                                aria-hidden="true"></i></span>
                                                         <!--<input type="text" name="source" required="" value="" class="form-control oneway" id="onewaysource" placeholder= "Pick-Up Location">   -->
-                                                        <input type="text" name="source" required="" value="" class="form-control" id="fromLocation1" placeholder="Pick-Up Location" required>
+                                                        <input type="text" name="source" required=""
+                                                            value="" class="form-control" id="fromLocation1"
+                                                            placeholder="Pick-Up Location" required>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="col-12">
                                                 <div class='input-group Desti'>
                                                     <div class="input-group mb-3 form_clock">
-                                                        <span class="input-group-text"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
-                                                        <input type="text" name="destination" required="" value="" class="form-control" id="toLocation1" placeholder="Your Destination" required>
+                                                        <span class="input-group-text"><i class="fa fa-map-marker"
+                                                                aria-hidden="true"></i></span>
+                                                        <input type="text" name="destination" required=""
+                                                            value="" class="form-control" id="toLocation1"
+                                                            placeholder="Your Destination" required>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="col-md-6 col-6">
                                                 <div class='input-group date'>
                                                     <div class="input-group mb-3 form_clock form_dnt">
-                                                        <span class="input-group-text"><i class="fa fa-calendar" aria-hidden="true"></i></span>
-                                                        <input type="text" name="pickupdate" id="datepicker3" class="form-control datetimepickerON" placeholder="Depart Date" required onchange="calc_amount();">
+                                                        <span class="input-group-text"><i class="fa fa-calendar"
+                                                                aria-hidden="true"></i></span>
+                                                        <input type="text" name="pickupdate" id="datepicker3"
+                                                            class="form-control datetimepickerON"
+                                                            placeholder="Depart Date" required
+                                                            onchange="calc_amount();">
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="col-md-6 col-6">
                                                 <div class="input-group mb-3 form_clock form_dnt">
-                                                    <input type="time" name="pickuptime" required="" class="form-control timepicker" id="" placeholder="Select Time">
+                                                    <input type="time" name="pickuptime" required=""
+                                                        class="form-control timepicker" id=""
+                                                        placeholder="Select Time">
                                                 </div>
                                             </div>
-                                            <input type="hidden" name="trip" id="tripo" class="tripo" value="Oneway">
+                                            <input type="hidden" name="trip" id="tripo" class="tripo"
+                                                value="Oneway">
                                             <div id="onewayh">
                                                 <input type="hidden" name="latOrg1" id="latOrg1o" value="">
                                                 <input type="hidden" name="lagOrg1" id="lagOrg1o" value="">
@@ -73,15 +93,18 @@
                                                 <input type="hidden" name="desA" id="desAo" value="">
                                                 <input type="hidden" name="desBlat" id="desBlato" value="">
                                                 <input type="hidden" name="desBlag" id="desBlago" value="">
-                                                <input type="hidden" name="distance" id="distance1o" value="">
-                                                <input type="hidden" name="duration" id="duration1o" value="">
+                                                <input type="hidden" name="distance" id="distance1o"
+                                                    value="">
+                                                <input type="hidden" name="duration" id="duration1o"
+                                                    value="">
                                             </div>
                                             <div class="col-md-4 form_button pt-4 ">
                                                 <!-- <button class="btn" id="form_btn"> -->
                                                 <button type="submit" id="form_btn">Search Cabs</button>
                                             </div>
 
-                                            <input type="hidden" name="oneway_round" id="oneway_round" value="Oneway">
+                                            <input type="hidden" name="oneway_round" id="oneway_round"
+                                                value="Oneway">
 
                                         </form>
                                     </div>
@@ -92,17 +115,23 @@
 
                             <!----- Start Third outer tab ----->
 
-                            <div class="tab-pane tabcontent " id="contact" role="tabpanel" aria-labelledby="contact-tab">
+                            <div class="tab-pane tabcontent " id="contact" role="tabpanel"
+                                aria-labelledby="contact-tab">
 
-                                <div class="tab-pane  show inner_tabs active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                                <div class="tab-pane  show inner_tabs active" id="pills-home" role="tabpanel"
+                                    aria-labelledby="pills-home-tab">
 
 
-                                    <form class="row g-3 top_form" action="{{route('book-now')}}" method="get" autocomplete="off">
+                                    <form class="row g-3 top_form" action="{{ route('book-now') }}" method="get"
+                                        autocomplete="off">
                                         <div class="col-12">
                                             <div class='input-group pickLoc'>
                                                 <div class="input-group mb-3 form_clock">
-                                                    <span class="input-group-text"><i class="fa fa-circle-o" aria-hidden="true"></i></span>
-                                                    <input type="text" name="source" required="" value="" class="form-control" id="fromLocation2" placeholder="Pick-Up Location">
+                                                    <span class="input-group-text"><i class="fa fa-circle-o"
+                                                            aria-hidden="true"></i></span>
+                                                    <input type="text" name="source" required=""
+                                                        value="" class="form-control" id="fromLocation2"
+                                                        placeholder="Pick-Up Location">
                                                 </div>
                                             </div>
                                         </div>
@@ -110,8 +139,11 @@
                                         <div class="col-12 round_dest">
                                             <div class='input-group Desti'>
                                                 <div class="input-group mb-3 form_clock">
-                                                    <span class="input-group-text"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
-                                                    <input type="text" name="destination" required="" value="" class="form-control" id="toLocation2" placeholder="Your Destination">
+                                                    <span class="input-group-text"><i class="fa fa-map-marker"
+                                                            aria-hidden="true"></i></span>
+                                                    <input type="text" name="destination" required=""
+                                                        value="" class="form-control" id="toLocation2"
+                                                        placeholder="Your Destination">
                                                 </div>
                                             </div>
                                         </div>
@@ -119,26 +151,35 @@
                                         <div class="col-md-4 col-6 mt0">
                                             <div class='input-group date'>
                                                 <div class="input-group mb-3 form_clock form_dnt">
-                                                    <span class="input-group-text"><i class="fa fa-calendar" aria-hidden="true"></i></span>
-                                                    <input type="text" name="pickupdate" required="" value="" class="form-control dateOU" id="datepicker4" placeholder="Depart Date">
+                                                    <span class="input-group-text"><i class="fa fa-calendar"
+                                                            aria-hidden="true"></i></span>
+                                                    <input type="text" name="pickupdate" required=""
+                                                        value="" class="form-control dateOU" id="datepicker4"
+                                                        placeholder="Depart Date">
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-4 col-6 mt0">
                                             <div class="input-group mb-3 form_clock form_dnt">
                                                 <!-- <span class="input-group-text"><i class="fa fa-clock-" aria-hidden="true"></i></span> -->
-                                                <input type="time" name="pickuptime" required="" class="form-control timeOU" id="datetimepickernew1" placeholder="pickuptime">
+                                                <input type="time" name="pickuptime" required=""
+                                                    class="form-control timeOU" id="datetimepickernew1"
+                                                    placeholder="pickuptime">
                                             </div>
                                         </div>
                                         <div class="col-md-4 col-6 mt0">
                                             <div class='input-group date'>
                                                 <div class="input-group mb-3 form_clock form_dnt">
-                                                    <span class="input-group-text"><i class="fa fa-calendar" aria-hidden="true"></i></span>
-                                                    <input type="text" name="returndate" value="" class="form-control" id="datepicker1" placeholder="Return Date" onchange="calc_amount();">
+                                                    <span class="input-group-text"><i class="fa fa-calendar"
+                                                            aria-hidden="true"></i></span>
+                                                    <input type="text" name="returndate" value=""
+                                                        class="form-control" id="datepicker1"
+                                                        placeholder="Return Date" onchange="calc_amount();">
                                                 </div>
                                             </div>
                                         </div>
-                                        <input type="hidden" name="trip" id="tripo" class="tripo" value="Round">
+                                        <input type="hidden" name="trip" id="tripo" class="tripo"
+                                            value="Round">
                                         <div id="roundh">
                                             <input type="hidden" name="latOrg1" id="latOrg1r" value="">
                                             <input type="hidden" name="lagOrg1" id="lagOrg1r" value="">
@@ -516,7 +557,7 @@
         <ul class="p-0 m-0 d-flex">
             <li style="list-style:none;">
                 <a target="blank" href="https://api.whatsapp.com/send?phone=9361289014&text=Hii" title="Sent Whatsapp Message">
-                    <img class=" side-images" src="./assets/frontuser/images/w1.png" alt="whatsapp" height="50" width="50" title=""> 
+                    <img class=" side-images" src="./assets/frontuser/images/w1.png" alt="whatsapp" height="50" width="50" title="">
                 </a>
             </li>
             <!-- <li style="list-style:none;"><a href="tel: +91-8637646693 " title="Get A Call"><img class=" side-images" src="./assets/frontuser/images/call.png" alt="whatsapp" height="
@@ -591,6 +632,7 @@
         function fillInAddress() {
             // Get the place details from the autocomplete object.
             var oneway_round = document.getElementById('oneway_round').value;
+            console.log(oneway_round, '====================');
             var trip = $('#tripo').val(oneway_round);
             var fromLocation1 = document.getElementById('fromLocation1').value;
             var toLocation1 = document.getElementById('toLocation1').value;
@@ -599,12 +641,14 @@
             if (oneway_round == 'Oneway' && fromLocation1 != '' && toLocation1 != '') {
                 var place = autocomplete.getPlace();
                 var place2 = autocomplete2.getPlace();
+                console.log(place, '------------------------');
                 document.getElementById('latOrg1o').value = place.geometry.location.lat();
                 document.getElementById('lagOrg1o').value = place.geometry.location.lng();
                 document.getElementById('desBlato').value = place2.geometry.location.lat();
                 document.getElementById('desBlago').value = place2.geometry.location.lng();
                 document.getElementById('Org2o').value = place.formatted_address;
                 document.getElementById('desAo').value = place2.formatted_address;
+                console.log("hari harn");
                 initMap();
 
             }
@@ -771,7 +815,7 @@
             $('.forms').addClass('ss-fast');
         }, 1000);
         document.getElementById('oneway_round').value = "Oneway";
-        document.getElementById('oneway_round').value = "Round";
+        // document.getElementById('oneway_round').value = "Round";
         /*document.getElementById('distance1o').value = 0;
         document.getElementById('duration1o').value = 0;
         document.getElementById('fromLocation1').value = "";

@@ -32,4 +32,28 @@ Route::post('contact', [ContactController::class, 'storeContactForm'])->name('co
 //For Booking Page
 Route::get('book-now', [BookingController::class, 'bookNowStep2'])->name('book-now');
 Route::post('store', [BookingController::class, 'store'])->name('booking.store');
-Route::get('booking-result/{id}',[BookingController::class, 'bookingResult'])->name('booking-result');
+Route::get('booking-result/{id}', [BookingController::class, 'bookingResult'])->name('booking-result');
+
+// Adim Panel
+Auth::routes();
+
+Route::get('admin/home', [App\Http\Controllers\AdminHomeController::class, 'index'])->name('home');
+
+/*Dashboard*/
+Route::get('dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
+
+/*Cars*/
+Route::get('cars/search', [CarsController::class, 'search'])->name('cars.search');
+Route::get('cars/delete-restore/{id}', [CarsController::class, 'deleteRestoreCar'])->name('cars.delete-restore');
+Route::resource('cars', CarsController::class);
+
+/*Booked-Trips*/
+Route::get('booked-trips/search', [TripsController::class, 'search'])->name('booked-trips.search');
+Route::resource('booked-trips', TripsController::class);
+
+
+
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

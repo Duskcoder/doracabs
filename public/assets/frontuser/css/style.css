@@ -29,9 +29,9 @@ h6 {
   background-color: #000!important;
 }
 
-img {
+/* img {
   max-width: 100%;
-}
+} */
 
 #blue_btn:hover {
   background-color: #fff;
@@ -2743,3 +2743,5 @@ a.addmore {
     font-size: 14px !important;
   }
 }
+
+
