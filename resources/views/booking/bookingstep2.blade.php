@@ -1,8 +1,8 @@
 @include('common.header')
 <script src="https://momentjs.com/downloads/moment.min.js"></script>
 <section>
-  <div class="form my-5">
-    <div class="container">
+  <div class = "form my-5">
+    <div class = "container">
       <div class="row ">
         <!-- <div class="col-sm-6 col-md-6 mt-lg-3">-->
         <div class="col-md-6">
@@ -121,6 +121,7 @@
                 </div>
               </div>
               <br />
+
               <div class="card mb-3 calculation">
                 <div class="row">
                   <div class="col-md-6 col-6">
@@ -293,6 +294,7 @@
   // parameter when you first load the API. For example:
   // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
   var placeSearch, autocomplete, autocomplete2;
+
   var componentForm = {
     street_number: 'short_name',
     route: 'long_name',
@@ -501,6 +503,7 @@
 </script>
 
 <script>
+
   function oneway_round(type) {
     document.getElementById('oneway_round').value = type;
     calc_amount();
@@ -523,24 +526,30 @@
   }
 
   function calc_amount() {
-    console.log("calc_amount ");
+    console.log("calc_amount");
     console.log(" ----------------------------- ");
     var driverBata = 400;
     var amount = 0;
+    
     var oneway_round = document.getElementById('oneway_round').value;
     var distance = document.getElementById('distance').value;
     var duration = document.getElementById('duration').value;
+
+    
     if (oneway_round == 'Oneway') {
-      console.log("Oneway ");
+      console.log("Oneway");
       var charge_per_km = document.getElementById('charge_per_km1').value;
       var max_km_per_day = document.getElementById('max_km_per_day_oneway').value;
       var date = document.getElementById('depart_date2').value;
       var time = document.getElementById('depart_time').value;
-      var newDistance = distance;
+      
+      
+var newDistance = distance;
       max_km_per_day = (max_km_per_day == "") ? 0 : parseInt(max_km_per_day);
       charge_per_km = (charge_per_km == "") ? 0 : parseInt(charge_per_km);
       var datetime = document.getElementById('return_date2').value = date.time;
       var datetime = document.getElementById('depart_date2').value = date.time;
+      
       // alert('return_date2');
       document.getElementById('days1').value = 1;
       if (distance < max_km_per_day) {
@@ -549,13 +558,19 @@
         newDistance = max_km_per_day;
         console.log("newDistance " + newDistance);
       }
+      
+
       document.getElementById('distance1').value = newDistance;
       // alert(newDistance);
       document.getElementById('distanceText1').innerHTML = newDistance + " km";
       document.getElementById('durationText1').innerHTML = duration;
+
+
       if (charge_per_km > 0) {
         var amount = (charge_per_km * newDistance) + driverBata;
       }
+
+      
       document.getElementById('actualAmount1').value = charge_per_km * newDistance;
       document.getElementById('driverBata1').value = driverBata;
       document.getElementById('amount1').value = amount;
@@ -567,6 +582,9 @@
       console.log("actualAmount " + (charge_per_km * newDistance));
       console.log("driverBata " + driverBata);
     }
+
+
+
     if (oneway_round == 'Round') {
       console.log("Round ");
       var firstDate = document.getElementById('depart_date2').value;
@@ -610,6 +628,7 @@
         extraDays = millisBetween / (1000 * 3600 * 24);
         // alert(extraDays);
       }
+
       console.log("distance " + distance);
       if (distance > (max_km_per_day * extraDays)) {
         console.log("#Distance limit crossed ");
@@ -625,9 +644,13 @@
       }
       newDistance = (newDistance == 0) ? distance : newDistance;
       driverBata = driverBata * extraDays;
+      
       if (charge_per_km > 0) {
         var amount = (charge_per_km * newDistance) + driverBata;
       }
+
+      
+
       document.getElementById('distance2').value = newDistance;
       document.getElementById('distanceText2').innerHTML = newDistance + " km";
       document.getElementById('durationText2').innerHTML = duration;

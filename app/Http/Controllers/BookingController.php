@@ -20,6 +20,7 @@ class BookingController extends Controller
 {
     //
     public function bookNowStep2()
+    
     {
         $cars=Car::orderBy('created_at', 'asc')->get();
         return view('booking.bookingstep2')->with(compact('cars'));
@@ -33,10 +34,11 @@ class BookingController extends Controller
     public function store(Request $request)
     {
         if($request['oneway_round']){
-        $data = array(
+            $data = array(
             'from_place' => $request['from_place1'],
             'to_place' => $request['to_place1'],
             'car_id' => $request['car_id'],
+            'status' => $request['status'],
             'oneway_round' => 'One way',
             'charge_per_km' => $request['charge_per_km'],
             'distance' => $request['distance'],
@@ -75,6 +77,8 @@ class BookingController extends Controller
         );
         // print_r($data); die;
     }
+
+
         $bookings = new Booking($data);
         $bookings->save();
 
@@ -96,6 +100,7 @@ class BookingController extends Controller
 
         // Notifying Users
 
+        
        if(!empty($request['cust_email'])){
         // print_r($request['cust_email']); die;
            Mail::to($request['cust_email'])->send(new BookingNotificationMail($data));

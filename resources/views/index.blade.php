@@ -48,7 +48,7 @@
                                                         <div class='input-group Desti'>
                                                             <div class="input-group mb-3 form_clock">
                                                                 <span class="input-group-text"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
-                                                                <input type="text" name="destination"required=""  value=""  class="form-control" id="toLocation1" placeholder="Your Destination" required>
+                                                                <input type="text" name="destination" required=""  value=""  class="form-control" id="toLocation1" placeholder="Your Destination" required>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -172,6 +172,7 @@
             </section>
             <!---- Section About ----->
             <section>
+                
                 <div class="container  about_section">
                     <div class="row about_sec_text">
                         <h2>About Dora Cabs</h2>
