@@ -1,5 +1,6 @@
 @include('common.header')
 <script src="https://momentjs.com/downloads/moment.min.js"></script>
+<link rel="stylesheet" href="{{ asset('frontuser/success.css')}}">
 <section>
 
 <div class="container">
