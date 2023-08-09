@@ -1702,11 +1702,12 @@ a.addmore {
 }
 
 .form_dnt span.input-group-text {
-  padding-right: 0;
+  /* padding-right: 0; */
   font-size: 18px !important;
 }
 
 .form_dnt span.input-group-text .fa {
+  padding: 4px;
   font-size: 18px !important;
 }
 
@@ -2211,6 +2212,9 @@ a.addmore {
   }
   .container p {
     font-size: 14px;
+  }
+  .container  {
+    margin-top:90px;
   }
   .nav_logo {
     /*width: 110px;*/
@@ -2748,9 +2752,80 @@ a.addmore {
   }
 }
 .proceed-btn {
-  margin-left: 240px;
-  /* justify-content: center!important */
+  /* margin-left: 240px; */
+  display: flex;
+  justify-content: center!important
+}
+.proceed-btn > button{
+  background-color:#fbb53c;
+  font-weight: 600;
+}
+.proceed-btn > button:hover{
+  background-color: #000;
+  color: #fbb53c;
+  border-color: #000;
 }
 .form-group b{
   font-size: 13px;
+}.form-group input{
+  margin-top: 7px;
 }
+
+/* input[type=radio]+ label::before {
+  
+  border: 0px;
+
+  height: 8em;
+  right:220px;
+border-radius: 2px;
+vertical-align: middle;
+content: "";
+display: inline-block;
+width: 160px;
+height: 68px; 
+border: 1px solid #ccc;
+border-radius: 3px; 
+margin-right: 5px;
+position: absolute;
+top: 50%;
+
+} */
+/* input[type="radio"] + label {
+  border-color: #ccc;
+} */
+
+/* Style for the checked state */
+/* input[type="radio"]:checked + label {
+  border-color: #e6af18!important; /* Change this to the desired active border color */
+
+  .car-radio-label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.radio-image-container {
+    width: 150px; /* Adjust the dimensions as needed */
+    height: 95px; /* Adjust the dimensions as needed */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow: hidden;
+    padding: 10px;
+    margin-right: 10px; /* Adjust spacing between image and content */
+}
+
+.car-logo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.car-details {
+    flex: 1; /* Allow the details section to expand */
+    text-align: right;
+}
+
+input[type="radio"]:checked + .car-radio-label .radio-image-container {
+    border-color: #ffb758; /* Change this to the desired active border color */
+}
+

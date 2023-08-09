@@ -115,7 +115,7 @@ class BookingController extends Controller
     {
         //  $bookedData = Booking::with('driver')->with('vehicle')->find($id);
         $bookedData = Booking::find($id);
-        dd($bookedData);
+        // dd($bookedData);
         return view('booking.success', compact('bookedData'));
     }
 }
