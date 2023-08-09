@@ -88,7 +88,7 @@
                     @if (Request::get('trip') == 'Oneway')
                         <form class="mt-4" id="onewaytrip" action="{{ route('booking.store') }}" method="POST">
                             @csrf
-                            <input type="hidden" name="oneway_round" id="oneway_round" value="Oneway">
+                            <input type="text" name="oneway_round" id="oneway_round" value="Oneway">
                             <input type="hidden" name="from_place1" id="from_place1"
                                 value="{{ Request::get('source') }}">
                             <input type="hidden" name="to_place1" id="to_place1"
@@ -147,7 +147,7 @@
                                                     aria-hidden="true"></i></span>
                                             <input type="text" name="pickupdate" id="datepicker3"
                                                 class="form-control datetimepickerON" placeholder="Depart Date"
-                                                required onchange="calc_amount();">
+                                                required onchange="calc_amount(Oneway);">
                                         </div>
                                     </div>
                                 </div>
@@ -207,7 +207,7 @@
                         <form class="mt-4" id="roundtrip" action="{{ route('booking.store') }}"
                             method="POST">
                             @csrf
-                            <input type="hidden" name="oneway_round1" id="oneway_round" value="Round">
+                            <input type="text" name="oneway_round" id="oneway_round" value="Round">
                             <input type="hidden" name="from_place2" id="from_place2"
                                 value="{{ Request::get('source') }}">
                             <input type="hidden" name="to_place2" id="to_place2"
@@ -267,7 +267,7 @@
                                                     aria-hidden="true"></i></span>
                                             <input type="text" name="pickupdate" id="datepicker3"
                                                 class="form-control datetimepickerON" placeholder="Depart Date"
-                                                required onchange="calc_amount();">
+                                                required onchange="calc_amount(Round);">
                                         </div>
                                     </div>
                                 </div>
@@ -285,7 +285,7 @@
                                                     aria-hidden="true"></i></span>
                                             <input type="text" name="returndate" value=""
                                                 class="form-control" id="datepicker1" placeholder="Return Date"
-                                                onchange="calc_amount();">
+                                                onchange="calc_amount(Round);">
                                         </div>
                                     </div>
                                 </div>
@@ -590,7 +590,7 @@
 
             document.getElementById('distance').value = Math.round(distanceInKm);
             document.getElementById('duration').value = durationText;
-            calc_amount();
+            calc_amount(id);
 
             // show on map
             const originList = response.originAddresses;
@@ -611,7 +611,7 @@
     function oneway_round(type) {
         document.getElementById('oneway_round').value = type;
         console.log("ikfgbadjfdn");
-        calc_amount();
+        calc_amount(id);
     }
 
     function km_cost(car_id, oneway_cost, round_cost) {
@@ -623,27 +623,33 @@
             var newODistance = document.getElementById('distance1').value;
             document.getElementById('car_id1').value = car_id;
             document.getElementById('charge_per_km1').value = oneway_cost;
-            calc_amount();
+            calc_amount(id);
         }
         if (oneway_round == 'Round') {
             console.log("this is round");
             document.getElementById('car_id2').value = car_id;
             document.getElementById('charge_per_km2').value = round_cost;
-            calc_amount();
+            calc_amount(id);
         }
     }
 
-    function calc_amount() {
+    function calc_amount(id) {
+        alert(id);
         // console.log("calc_amount ");
         // console.log(" ----------------------------- ");
-
         var driverBata = 400;
         var amount = 0;
-        var oneway_round = document.getElementById('oneway_round').value;
+
+        // var oneway_round = document.getElementById('oneway_round').value;
+        var oneway_round = <?php echo Request::get('trip'); ?>;
+
+        //   var oneway_round2 = document.getElementById('oneway_round').value;
         // console.log(oneway_round);
         var duration = document.getElementById('durationone').value;
         // console.log(duration);
-        if (oneway_round == 'Oneway') {
+        alert(oneway_round);
+        if (id == "Oneway") {
+            alert("this is oneway")
             var distance = document.getElementById('distance1').value;
             document.getElementById('distanceText1').innerHTML = distance + "km";
             document.getElementById('durationText1').innerHTML = duration;
@@ -686,13 +692,16 @@
             // //   console.log("actualAmount " + (charge_per_km * newDistance));
             // //   console.log("driverBata " + driverBata);
         }
-        if (oneway_round == 'Round') {
+        if (id == "Round") {
+
             //   console.log("hariharan");
+            alert("hi ths is round")
             var distance = document.getElementById('distance2').value;
             var firstDate = document.getElementById('depart_date2').value;
             var secondDate = document.getElementById('return_date2').value;
             var max_km_per_day = document.getElementById('max_km_per_day_round').value;
             var charge_per_km = document.getElementById('charge_per_km2').value;
+            console.log(distance, firstDate, secondDate, max_km_per_day, charge_per_km);
             var startDay = "";
             var endDay = "";
             var millisBetween = 0;
@@ -702,33 +711,25 @@
             max_km_per_day = (max_km_per_day == "") ? 0 : parseInt(max_km_per_day);
             charge_per_km = (charge_per_km == "") ? 0 : parseInt(charge_per_km);
             if (firstDate != "" && secondDate != "") {
-                // alert(firstDate);
-                // alert(secondDate);
-                const myArray = firstDate.split("-");
-                let d = myArray[0];
-                let m = myArray[1];
-                let y = myArray[2];
-                var startDay = y + "/" + m + "/" + d;
-                // alert(startDay);
-                const myArray1 = secondDate.split("-");
-                let d1 = myArray1[0];
-                let m1 = myArray1[1];
-                let y1 = myArray1[2];
-                var endDay = y1 + "/" + m1 + "/" + d1;
-                // alert(endDay);
-                var startDay1 = new Date(startDay);
-                // alert(startDay1);
-                // Do your operations
-                var endDay1 = new Date(endDay);
-                // alert(endDay1);
-                //
-                //   alert(startDay);
-                //
-                // alert(endDay);
-                millisBetween = endDay1.getTime() - startDay1.getTime();
-                // alert(millisBetween);
+                // const myArray = firstDate.split("-");
+                // let d = myArray[0];
+                // let m = myArray[1];
+                // let y = myArray[2];
+                // var startDay = y + "/" + m + "/" + d;
+                // const myArray1 = secondDate.split("-");
+                // let d1 = myArray1[0];
+                // let m1 = myArray1[1];
+                // let y1 = myArray1[2];
+                // var endDay = y1 + "/" + m1 + "/" + d1;
+                // var startDay1 = new Date(startDay);
+                // var endDay1 = new Date(endDay);
+                // millisBetween = endDay1.getTime() - startDay1.getTime();
+                // extraDays = millisBetween / (1000 * 3600 * 24);
+                startDay = new Date(firstDate);
+                endDay = new Date(secondDate);
+                millisBetween = startDay.getTime() - endDay.getTime();
                 extraDays = millisBetween / (1000 * 3600 * 24);
-                // alert(extraDays);
+
             }
             //   console.log("distance " + distance);
             if (distance > (max_km_per_day * extraDays)) {
@@ -1013,7 +1014,10 @@
         $("#onewayTripBtn").removeClass("active");
         $("#roundTripBtn").addClass("active");
         $("#onewaytrip").remove();
-        calc_amount();
+
+
+
+        calc_amount("Round");
     };
 </script>
 @endif
@@ -1024,7 +1028,7 @@
         $("#roundTripBtn").removeClass("active");
         $("#onewayTripBtn").addClass("active");
         $("#roundtrip").remove();
-        calc_amount();
+        calc_amount("oneway");
     };
 </script>
 @endif

@@ -51,6 +51,7 @@
                                                         <input type="text" name="source" required=""
                                                             value="" class="form-control" id="fromLocation1"
                                                             placeholder="Pick-Up Location" required>
+                                                            <input type="text" id="a" value="oneway" >
                                                     </div>
                                                 </div>
                                             </div>
@@ -150,6 +151,7 @@
                                                     <input type="text" name="destination" required=""
                                                         value="" class="form-control" id="toLocation2"
                                                         placeholder="Your Destination">
+                                                        <input type="text" id="ab" value="Round" >
                                                 </div>
                                             </div>
                                         </div>
@@ -188,7 +190,7 @@
                                         </div> --}}
 
                                            {{-- depart date and time hide END--}}
-                                           
+
                                         <input type="hidden" name="trip" id="tripo" class="tripo"
                                             value="Round">
                                         <div id="roundh">
