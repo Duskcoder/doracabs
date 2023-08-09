@@ -63,18 +63,18 @@
 @foreach ($cars as $car)
 <div class="card mb-3 border-0 mt-5 donate-now">
 <div class="row no-gutters">
-  <div class="col-3 col-md-3 carbodr{{ $car->id }} carhide">
-  <input type="radio" id="car1{{ $car->id }}"  name="car1" onclick="km_cost({{ $car->id }},{{ $car->oneway_km_cost }},{{ $car->round_km_cost }})">
-    <label>
-  <img src="{{ URL::asset($car->file_path . '/' . $car->file_name) }}" alt="car image" class="w-100 p-lg-3 car-logo p-1" style="width:25% !important">
+<div class="col-3 col-md-3 carbodr{{ $car->id }} carhide">
+<input type="radio" id="car1{{ $car->id }}"  name="car1" onclick="km_cost({{ $car->id }},{{ $car->oneway_km_cost }},{{ $car->round_km_cost }})">
+<label>
+<img src="{{ URL::asset($car->file_path . '/' . $car->file_name) }}" alt="car image" class="w-100 p-lg-3 car-logo p-1" style="width:25% !important">
 </label>
 </div>
-  <div class="col-5 col-md-5">
-    <div class="card-body">
-      <h5 class="card-title mb-0">{{ $car->model_name }}</h5>
-      <p class="card-text"><small class="text-muted">({{ $car->round_km_cost }}/km)</small></p>
-    </div>
-  </div>
+<div class="col-5 col-md-5">
+<div class="card-body">
+<h5 class="card-title mb-0">{{ $car->model_name }}</h5>
+<p class="card-text"><small class="text-muted">({{ $car->round_km_cost }}/km)</small></p>
+</div>
+</div>
 </div>
 </div>
 @endforeach -->
@@ -88,7 +88,7 @@
                     @if (Request::get('trip') == 'Oneway')
                         <form class="mt-4" id="onewaytrip" action="{{ route('booking.store') }}" method="POST">
                             @csrf
-                            <input type="text" name="oneway_round" id="oneway_round" value="Oneway">
+                            <input type="hidden" name="oneway_round" id="oneway_round" value="Oneway">
                             <input type="hidden" name="from_place1" id="from_place1"
                                 value="{{ Request::get('source') }}">
                             <input type="hidden" name="to_place1" id="to_place1"
@@ -138,6 +138,24 @@
                                         <input type="text" class="form-control" name="dropAddress"
                                             id="dropAddress" placeholder="" required
                                             value="{{ Request::get('destination') }}">
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-6 pt-3">
+                                    <div class='input-group date'>
+                                        <div class="input-group mb-3 form_clock form_dnt">
+                                            <span class="input-group-text"><i class="fa fa-calendar"
+                                                    aria-hidden="true"></i></span>
+                                            <input type="text" name="pickupdate" id="datepicker3"
+                                                class="form-control datetimepickerON" placeholder="Depart Date"
+                                                required onchange="calc_amount();">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-6 pt-3">
+                                    <div class="input-group mb-3 form_clock form_dnt">
+                                        <input type="time" name="pickuptime" required=""
+                                            class="form-control timepicker" id=""
+                                            placeholder="Select Time">
                                     </div>
                                 </div>
                             </div>
@@ -242,95 +260,127 @@
                                             value="{{ Request::get('destination') }}">
                                     </div>
                                 </div>
-                            </div>
+                                <div class="col-md-6 col-6 pt-3">
+                                    <div class='input-group date'>
+                                        <div class="input-group mb-3 form_clock form_dnt">
+                                            <span class="input-group-text"><i class="fa fa-calendar"
+                                                    aria-hidden="true"></i></span>
+                                            <input type="text" name="pickupdate" id="datepicker3"
+                                                class="form-control datetimepickerON" placeholder="Depart Date"
+                                                required onchange="calc_amount();">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-6 pt-3">
+                                    <div class="input-group mb-3 form_clock form_dnt">
+                                        <input type="time" name="pickuptime" required=""
+                                            class="form-control timepicker" id=""
+                                            placeholder="Select Time">
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-6 mt0">
+                                    <div class='input-group date'>
+                                        <div class="input-group mb-3 form_clock form_dnt">
+                                            <span class="input-group-text"><i class="fa fa-calendar"
+                                                    aria-hidden="true"></i></span>
+                                            <input type="text" name="returndate" value=""
+                                                class="form-control" id="datepicker1" placeholder="Return Date"
+                                                onchange="calc_amount();">
+                                        </div>
+                                    </div>
+                                </div>
 
-                            <div class="card mb-3 calculation">
-                                <div class="row">
-                                    <div class="col-md-6 col-6">
-                                        <div class="card-body">
-                                            <p class="card-title">Total Estimate Amount</p>
-                                            <h6 class="text-center" id="amountText2">0</h6>
+                                <div class="card mb-3 calculation">
+                                    <div class="row">
+                                        <div class="col-md-6 col-6">
+                                            <div class="card-body">
+                                                <p class="card-title">Total Estimate Amount</p>
+                                                <h6 class="text-center" id="amountText2">0</h6>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="col-md-6 col-6">
-                                        <div class="card-body">
-                                            <p class="card-title">This Trip Covers</p>
-                                            <h6 class="text-center" id="distanceText2">0 KM</h6>
+                                        <div class="col-md-6 col-6">
+                                            <div class="card-body">
+                                                <p class="card-title">This Trip Covers</p>
+                                                <h6 class="text-center" id="distanceText2">
+                                                    {{ Request::get('distance') }} KM</h6>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="col-md-6 col-6">
-                                        <div class="card-body">
-                                            <p class="card-title">Journey Duration</p>
-                                            <h6 class="text-center" id="durationText2">0 hours 0 mins</h6>
+                                        <div class="col-md-6 col-6">
+                                            <div class="card-body">
+                                                <p class="card-title">Journey Duration</p>
+                                                <h6 class="text-center" id="durationText2">
+                                                    {{ Request::get('duration') }}</h6>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="col-md-6 col-6">
-                                        <div class="card-body">
-                                            <p class="card-title">No of Days</p>
-                                            <h6 class="text-center" name="daysText2" id="daysText2">0</h6>
+                                        <div class="col-md-6 col-6">
+                                            <div class="card-body">
+                                                <p class="card-title">No of Days</p>
+                                                <h6 class="text-center" name="daysText2" id="daysText2">0</h6>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                            <!-- <button type="submit" class="booked w-100 border-0 p-2 mt-4">PLACE A BOOKING</button> -->
+                            <div class="col-12 row mt-4">
+                                <div class="col-lg-8 col-12">
+                                    <div class="form-group mt-3">
+                                        <label for="pickup-location"><b>Enter Your Phone Number</b></label>
+                                        <input type="text" class="form-control" name="cust_mbl1"
+                                            id="pickup-location" aria-describedby="emailHelp"
+                                            placeholder="Phone Number" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-12 my-lg-5 mb-4 proceed-btn">
+                                <button type="submit" class="btn btn-warning" style="border-radius:50px;">PLACE
+                                    A
+                                    BOOKING</button>
+                                <!-- <button type="submit" class="booked w-100 border-0 p-2 mt-4"></button>-->
+                            </div>
                 </div>
-                <!-- <button type="submit" class="booked w-100 border-0 p-2 mt-4">PLACE A BOOKING</button> -->
-                <div class="col-12 row mt-4">
-                    <div class="col-lg-8 col-12">
-                        <div class="form-group mt-3">
-                            <label for="pickup-location"><b>Enter Your Phone Number</b></label>
-                            <input type="text" class="form-control" name="cust_mbl1" id="pickup-location"
-                                aria-describedby="emailHelp" placeholder="Phone Number" required>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-12 my-lg-5 mb-4 proceed-btn">
-                    <button type="submit" class="btn btn-warning" style="border-radius:50px;">PLACE A
-                        BOOKING</button>
-                    <!-- <button type="submit" class="booked w-100 border-0 p-2 mt-4"></button>-->
-                </div>
+
+                </form>
+                @endif
             </div>
+            <input type="hidden" name="from_place" id="from_place" value="{{ Request::get('from') }}"
+                placeholder="from_place">
+            <input type="hidden" name="to_place" id="to_place" value="{{ Request::get('to') }}"
+                placeholder="to_place">
+            <input type="hidden" name="oneway_round" id="oneway_round" value="{{ Request::get('trip') }}"
+                placeholder="charge_per_km">
+            <input type="hidden" name="charge_per_km" id="charge_per_km" value="charge_per_km">
+            <input type="hidden" name="distance" id="distance" value="{{ Request::get('distance') }}"
+                placeholder="distance">
+            <input type="hidden" name="duration" id="duration" value="{{ Request::get('duration') }}"
+                placeholder="duration">
+            <input type="hidden" name="latOrg1" id="latOrg1" value="{{ Request::get('latOrg1') }}"
+                placeholder="latOrg1">
+            <input type="hidden" name="lagOrg1" id="lagOrg1" value="{{ Request::get('lagOrg1') }}"
+                placeholder="lagOrg1">
+            <input type="hidden" name="Org2" id="Org2" value="{{ Request::get('Org2') }}"
+                placeholder="Org2">
+            <input type="hidden" name="desA" id="desA" value="{{ Request::get('desA') }}"
+                placeholder="desA">
+            <input type="hidden" name="desBlat" id="desBlat" value="{{ Request::get('desBlat') }}"
+                placeholder="desBlat">
+            <input type="hidden" name="desBlag" id="desBlag" value="{{ Request::get('desBlag') }}"
+                placeholder="desBlag">
+            <input type="hidden" name="car_id" id="car_id" value="" placeholder="car_id">
+            <input type="hidden" name="days2" id="days2" value="">
+            <input type="hidden" name="amount" id="amount" value="" placeholder="amount">
+            <input type="hidden" name="depart_date_time" id="depart_date_time" value=""
+                placeholder="depart_date_time">
+            <input type="hidden" name="cust_name" id="cust_name" value="" placeholder="cust_name">
+            <input type="hidden" name="cust_email" id="cust_email" value="" placeholder="cust_email">
+            <input type="hidden" name="cust_mbl" id="cust_mbl" value="" placeholder="cust_mbl">
+            <input type="hidden" name="max_km_per_day_oneway" id="max_km_per_day_oneway" value="130"
+                placeholder="max_km_per_day_oneway">
+            <input type="hidden" name="max_km_per_day_round" id="max_km_per_day_round"
+                value="{{ Request::get('distance') }}" placeholder="max_km_per_day_round">
 
-            </form>
-            @endif
         </div>
-        <input type="hidden" name="from_place" id="from_place" value="{{ Request::get('from') }}"
-            placeholder="from_place">
-        <input type="hidden" name="to_place" id="to_place" value="{{ Request::get('to') }}"
-            placeholder="to_place">
-        <input type="hidden" name="oneway_round" id="oneway_round" value="{{ Request::get('trip') }}"
-            placeholder="charge_per_km">
-        <input type="hidden" name="charge_per_km" id="charge_per_km" value="charge_per_km">
-        <input type="hidden" name="distance" id="distance" value="{{ Request::get('distance') }}"
-            placeholder="distance">
-        <input type="hidden" name="duration" id="duration" value="{{ Request::get('duration') }}"
-            placeholder="duration">
-        <input type="hidden" name="latOrg1" id="latOrg1" value="{{ Request::get('latOrg1') }}"
-            placeholder="latOrg1">
-        <input type="hidden" name="lagOrg1" id="lagOrg1" value="{{ Request::get('lagOrg1') }}"
-            placeholder="lagOrg1">
-        <input type="hidden" name="Org2" id="Org2" value="{{ Request::get('Org2') }}"
-            placeholder="Org2">
-        <input type="hidden" name="desA" id="desA" value="{{ Request::get('desA') }}"
-            placeholder="desA">
-        <input type="hidden" name="desBlat" id="desBlat" value="{{ Request::get('desBlat') }}"
-            placeholder="desBlat">
-        <input type="hidden" name="desBlag" id="desBlag" value="{{ Request::get('desBlag') }}"
-            placeholder="desBlag">
-        <input type="hidden" name="car_id" id="car_id" value="" placeholder="car_id">
-        <input type="hidden" name="days2" id="days2" value="">
-        <input type="hidden" name="amount" id="amount" value="" placeholder="amount">
-        <input type="hidden" name="depart_date_time" id="depart_date_time" value=""
-            placeholder="depart_date_time">
-        <input type="hidden" name="cust_name" id="cust_name" value="" placeholder="cust_name">
-        <input type="hidden" name="cust_email" id="cust_email" value="" placeholder="cust_email">
-        <input type="hidden" name="cust_mbl" id="cust_mbl" value="" placeholder="cust_mbl">
-        <input type="hidden" name="max_km_per_day_oneway" id="max_km_per_day_oneway"
-            value="{{ Request::get('distance') }}" placeholder="max_km_per_day_oneway">
-        <input type="hidden" name="max_km_per_day_round" id="max_km_per_day_round"
-            value="{{ Request::get('distance') }}" placeholder="max_km_per_day_round">
-
     </div>
-</div>
 </div>
 </section>
 @include('common.footer')
@@ -356,9 +406,12 @@
         postal_code: 'short_name'
     };
 
+
+    var newRDistance = document.getElementById('distance2').value;
     var cityBounds = new google.maps.LatLngBounds(
         new google.maps.LatLng(12.97232, 77.59480),
         new google.maps.LatLng(12.89201, 77.58905));
+
 
     function initAutocomplete() {
         // Create the autocomplete object, restricting the search to geographical
@@ -557,6 +610,7 @@
 <script>
     function oneway_round(type) {
         document.getElementById('oneway_round').value = type;
+        console.log("ikfgbadjfdn");
         calc_amount();
     }
 
@@ -565,11 +619,14 @@
         $('.carbodr' + car_id).css('border', '2px solid #FFBF00');
         var oneway_round = document.getElementById('oneway_round').value;
         if (oneway_round == 'Oneway') {
+            console.log("thi is one way trip");
+            var newODistance = document.getElementById('distance1').value;
             document.getElementById('car_id1').value = car_id;
             document.getElementById('charge_per_km1').value = oneway_cost;
             calc_amount();
         }
         if (oneway_round == 'Round') {
+            console.log("this is round");
             document.getElementById('car_id2').value = car_id;
             document.getElementById('charge_per_km2').value = round_cost;
             calc_amount();
@@ -579,45 +636,49 @@
     function calc_amount() {
         // console.log("calc_amount ");
         // console.log(" ----------------------------- ");
+
         var driverBata = 400;
         var amount = 0;
         var oneway_round = document.getElementById('oneway_round').value;
-        console.log(oneway_round);
+        // console.log(oneway_round);
         var duration = document.getElementById('durationone').value;
-console.log(duration);
+        // console.log(duration);
         if (oneway_round == 'Oneway') {
             var distance = document.getElementById('distance1').value;
-            console.log(distance + "sdafljaslkjdf");
-            document.getElementById('distanceText1').innerHTML=distance +"km";
-            document.getElementById('durationText1').innerHTML=duration;
+            document.getElementById('distanceText1').innerHTML = distance + "km";
+            document.getElementById('durationText1').innerHTML = duration;
+            var charge_per_km = document.getElementById('charge_per_km1').value;
+            var max_km_per_day = document.getElementById('max_km_per_day_oneway').value;
+            max_km_per_day = (max_km_per_day == "") ? 0 : parseInt(max_km_per_day);
+            charge_per_km = (charge_per_km == "") ? 0 : parseInt(charge_per_km);
 
-            // var charge_per_km = document.getElementById('charge_per_km1').value;
-            // var max_km_per_day = document.getElementById('max_km_per_day_oneway').value;
-            // var date = document.getElementById('depart_date2').value;
-            // var time = document.getElementById('depart_time').value;
-            // var newDistance = distance;
-            // max_km_per_day = (max_km_per_day == "") ? 0 : parseInt(max_km_per_day);
-            // charge_per_km = (charge_per_km == "") ? 0 : parseInt(charge_per_km);
-            // var datetime = document.getElementById('return_date2').value = date.time;
-            // var datetime = document.getElementById('depart_date2').value = date.time;
-            // // alert('return_date2');
-            // document.getElementById('days1').value = 1;
-            // if (distance < max_km_per_day) {
-            //     // console.log("#Distance limit crossed #oneway");
-            //     // console.log("distance " + distance);
-            //     newDistance = max_km_per_day;
-            //     // console.log("newDistance " + newDistance);
-            // }
-            // document.getElementById('distance1').value = newDistance;
+            var newDistance = distance;
+            document.getElementById('days1').value = 1;
+            // console.log(charge_per_km + "sadlfkjb");
+            if (distance < max_km_per_day) {
+                // console.log("#Distance limit crossed #oneway");
+                // console.log("distance " + distance);
+                newDistance = max_km_per_day;
+                // console.log("newDistance " + newDistance);
+            }
             // console.log(newDistance);
-            // document.getElementById('distanceText1').innerHTML = newDistance + " km";
-            // document.getElementById('amountText1').innerHTML = amount + " Rs";
-            // if (charge_per_km > 0) {
-            //     var amount = (charge_per_km * newDistance) + driverBata;
-            // }
+            document.getElementById('distance1').value = newDistance;
+            document.getElementById('amountText1').innerHTML = amount + " Rs";
+            if (charge_per_km > 0) {
+                var amount = (charge_per_km * newDistance) + driverBata;
+                console.log(amount);
+            }
             // document.getElementById('actualAmount1').value = charge_per_km * newDistance;
             // document.getElementById('driverBata1').value = driverBata;
-            // // document.getElementById('amount1').value = amount;
+            var totalAmount = document.getElementById('amountText1');
+            totalAmount.innerHTML = amount;
+            var date = document.getElementById('depart_date2').value;
+            var time = document.getElementById('depart_time').value;
+            var datetime = document.getElementById('return_date2').value = date.time;
+            var datetime = document.getElementById('depart_date2').value = date.time;
+            // alert('return_date2');
+            // console.log(newDistance);
+            document.getElementById('distanceText1').innerHTML = newDistance + " km";
             // //   console.log("max_km_per_day " + max_km_per_day);
             // //   console.log("charge_per_km " + charge_per_km);
             // //   console.log("newDistance " + newDistance);
@@ -625,9 +686,9 @@ console.log(duration);
             // //   console.log("actualAmount " + (charge_per_km * newDistance));
             // //   console.log("driverBata " + driverBata);
         }
-         if (oneway_round == 'Round') {
-              console.log("hariharan");
-            var distance=document.getElementById('distance2').value;
+        if (oneway_round == 'Round') {
+            //   console.log("hariharan");
+            var distance = document.getElementById('distance2').value;
             var firstDate = document.getElementById('depart_date2').value;
             var secondDate = document.getElementById('return_date2').value;
             var max_km_per_day = document.getElementById('max_km_per_day_round').value;
