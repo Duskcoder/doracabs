@@ -2747,3 +2747,10 @@ a.addmore {
     font-size: 14px !important;
   }
 }
+.proceed-btn {
+  margin-left: 240px;
+  /* justify-content: center!important */
+}
+.form-group b{
+  font-size: 13px;
+}
