@@ -1,7 +1,7 @@
 @include('common.header')
 {{-- <script src="https://momentjs.com/downloads/moment.min.js"></script> --}}
 <section>
-    <div class="form my-3">
+    <div class="form my-1">
         <div class="container">
             <div class="row ">
                 <!-- <div class="col-sm-6 col-md-6 mt-lg-3">-->
@@ -142,7 +142,7 @@
 
                             <div class="row">
                                 <div class="col-lg-6 col-12">
-                                    <div class="form-group mt-3">
+                                    <div class="form-group mt-1">
                                         <label for="pickup"><b>Pick Up Address</b></label>
                                         <input type="text" class="form-control" name="pickUpAddress"
                                             id="pickUpAddress" placeholder=""
@@ -150,7 +150,7 @@
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-12">
-                                    <div class="form-group mt-3">
+                                    <div class="form-group mt-1">
                                         <label for="drop"><b>Drop Address</b></label>
                                         <input type="text" class="form-control" name="dropAddress"
                                             id="dropAddress" placeholder="" required
@@ -158,7 +158,7 @@
                                     </div>
                                 </div>
 
-                                <div class="col-12 mt-2">
+                                <div class="col-12 mt-1">
                                     <div class="row">
                                         <div class="col-lg-4 col-12">
                                             <div class="form-group mt-3">
@@ -169,7 +169,7 @@
                                             </div>
                                         </div>
                                         <div class="col-lg-4 col-12">
-                                            <div class="form-group mt-3">
+                                            <div class="form-group mt-1">
                                                 <label for="pickup-location"><b>Depart Date</b></label>
                                                 <input type="text" name="pickupdate" id="datepicker1"
                                                     class="form-control" placeholder="dd-mm-yyy" required
@@ -178,7 +178,7 @@
                                             </div>
                                         </div>
                                         <div class="col-lg-4 col-12">
-                                            <div class="form-group mt-3">
+                                            <div class="form-group mt-1">
                                                 <label for="pickup-location"><b> Depart time</b></label>
                                                 <input type="time" name="pickuptime" required=""
                                                     class="form-control timepicker" id=""
@@ -313,7 +313,7 @@
 
                             <div class="row">
                                 <div class="col-lg-6 col-12">
-                                    <div class="form-group mt-3">
+                                    <div class="form-group mt-1">
                                         <label for="pickup"><b>Pick Up Address</b></label>
                                         <input type="text" class="form-control" name="pickUpAddress"
                                             id="pickUpAddress" placeholder=""
@@ -321,7 +321,7 @@
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-12">
-                                    <div class="form-group mt-3">
+                                    <div class="form-group mt-1">
                                         <label for="drop"><b>Drop Address</b></label>
                                         <input type="text" class="form-control" name="dropAddress"
                                             id="dropAddress" placeholder="" required
@@ -329,10 +329,10 @@
                                     </div>
                                 </div>
 
-                                <div class="col-12 mt-2">
+                                <div class="col-12 mt-1">
                                     <div class="row">
                                         <div class="col-lg-6 col-12">
-                                            <div class="form-group mt-3">
+                                            <div class="form-group mt-1">
                                                 <label for="pickup-location"><b>Depart Date</b></label>
                                                 <input type="date" name="pickupdate" id="fromdate"
                                                     class="form-control" placeholder="dd-mm-yyy" required
@@ -341,7 +341,7 @@
                                             </div>
                                         </div>
                                         <div class="col-lg-6 col-12">
-                                            <div class="form-group mt-3">
+                                            <div class="form-group mt-1">
                                                 <label for="pickup-location"><b>Return Date</b></label>
                                                 <input type="date" name="pickupdate" id="todate"
                                                     class="form-control" placeholder="dd-mm-yyy" required
@@ -354,7 +354,7 @@
 
                                     </div>
                                 </div>
-                                <div class="col-12 mt-2">
+                                <div class="col-12 mt-1">
                                     <div class="row">
                                         <div class="col-lg-6 col-12">
                                             <div class="form-group mt-3">
@@ -365,7 +365,7 @@
                                             </div>
                                         </div>
                                         <div class="col-lg-6 col-12">
-                                            <div class="form-group mt-3">
+                                            <div class="form-group mt-1">
                                                 <label for="pickup-location"><b> Depart time</b></label>
                                                 <input type="time" name="pickuptime" required=""
                                                     class="form-control timepicker" id=""
@@ -379,8 +379,8 @@
                                 </div>
                             </div>
 
-                            <br />
-                            <div class="card  my-4 calculation">
+
+                            <div class="card  my-3 calculation">
                                 <div class="row">
                                     <div class="col-md-3 col-6">
                                         <div class="card-body">
@@ -412,12 +412,11 @@
 
 
                             </div>
-                            <div class="col-12 proceed-btn">
-                                <button type="submit" class="btn btn-warning text-center"
-                                    style="border-radius:5px;">PLACE A BOOKING</button>
+                            <div class="col-12 proceed-btn my-1">
+                                <button type="submit" class="btn btn-warning text-center" style="border-radius:5px;">PLACE A BOOKING</button>
                             </div>
 
-                            <div class="p-3">
+                            <div class="p-3 ">
                                 <h6>Tariff Information</h6>
                                 <ul>
                                     <li>One way minimum of 130 kms per calendar day</li>
