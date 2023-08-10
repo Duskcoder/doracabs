@@ -51,7 +51,7 @@
                                                         <input type="text" name="source" required=""
                                                             value="" class="form-control" id="fromLocation1"
                                                             placeholder="Pick-Up Location" required>
-                                                            <input type="text" id="a" value="oneway" >
+                                                            <input type="hidden" id="a" value="oneway" >
                                                     </div>
                                                 </div>
                                             </div>
@@ -151,7 +151,7 @@
                                                     <input type="text" name="destination" required=""
                                                         value="" class="form-control" id="toLocation2"
                                                         placeholder="Your Destination">
-                                                        <input type="text" id="ab" value="Round" >
+                                                        <input type="hidden" id="ab" value="Round" >
                                                 </div>
                                             </div>
                                         </div>

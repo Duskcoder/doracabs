@@ -147,7 +147,7 @@
                                                     aria-hidden="true"></i></span>
                                             <input type="text" name="pickupdate" id="datepicker3"
                                                 class="form-control datetimepickerON" placeholder="Depart Date"
-                                                required onchange="calc_amount(Oneway);">
+                                                required onchange="calc_amount('Oneway');">
                                         </div>
                                     </div>
                                 </div>
@@ -171,13 +171,15 @@
                                     <div class="col-md-6 col-6">
                                         <div class="card-body">
                                             <p class="card-title">This Trip Covers</p>
-                                            <h6 class="text-center" id="distanceText1"></h6>
+                                            <h6 class="text-center" id="distanceText1">
+                                                {{ Request::get('distance') }} KM</h6>
                                         </div>
                                     </div>
                                     <div class="col-md-12 col-12">
                                         <div class="card-body">
                                             <p class="card-title">Journey Duration</p>
-                                            <h6 class="text-center" id="durationText1"></h6>
+                                            <h6 class="text-center" id="durationText1">
+                                                {{ Request::get('duration') }} KM</h6>
                                         </div>
                                     </div>
                                 </div>
@@ -267,7 +269,7 @@
                                                     aria-hidden="true"></i></span>
                                             <input type="text" name="pickupdate" id="datepicker3"
                                                 class="form-control datetimepickerON" placeholder="Depart Date"
-                                                required onchange="calc_amount(Round);">
+                                                required onchange="calc_amount('Round');">
                                         </div>
                                     </div>
                                 </div>
@@ -285,7 +287,7 @@
                                                     aria-hidden="true"></i></span>
                                             <input type="text" name="returndate" value=""
                                                 class="form-control" id="datepicker1" placeholder="Return Date"
-                                                onchange="calc_amount(Round);">
+                                                onchange="calc_amount('Round');">
                                         </div>
                                     </div>
                                 </div>
@@ -302,7 +304,8 @@
                                             <div class="card-body">
                                                 <p class="card-title">This Trip Covers</p>
                                                 <h6 class="text-center" id="distanceText2">
-                                                    {{ Request::get('distance') }} KM</h6>
+                                                    {{ Request::get('distance') }} KM
+                                                </h6>
                                             </div>
                                         </div>
                                         <div class="col-md-6 col-6">
@@ -641,25 +644,29 @@
         var amount = 0;
 
         // var oneway_round = document.getElementById('oneway_round').value;
-        var oneway_round = <?php echo Request::get('trip'); ?>;
+        // var oneway_round = <?php echo Request::get('trip'); ?>;
 
         //   var oneway_round2 = document.getElementById('oneway_round').value;
         // console.log(oneway_round);
-        var duration = document.getElementById('durationone').value;
+        // var duration = document.getElementById('durationone').value;
         // console.log(duration);
-        alert(oneway_round);
-        if (id == "Oneway") {
-            alert("this is oneway")
-            var distance = document.getElementById('distance1').value;
-            document.getElementById('distanceText1').innerHTML = distance + "km";
-            document.getElementById('durationText1').innerHTML = duration;
-            var charge_per_km = document.getElementById('charge_per_km1').value;
-            var max_km_per_day = document.getElementById('max_km_per_day_oneway').value;
-            max_km_per_day = (max_km_per_day == "") ? 0 : parseInt(max_km_per_day);
-            charge_per_km = (charge_per_km == "") ? 0 : parseInt(charge_per_km);
+        // alert(oneway_round);
+        if (id == "oneway") {
+            alert("this is oneway dfhk");
+            console.log(document.getElementById('amountText1'))
+            document.getElementById('amountText1').innerHTML = ;
+            // var totalAmount = document.getElementById('amountText1');
+            // totalAmount.innerHTML = "sadkfjbasdklfj";
+            // var distance = document.getElementById('distance1').value;
+            // document.getElementById('distanceText1').innerHTML = distance + "km";
+            // document.getElementById('durationText1').innerHTML = duration;
+            // var charge_per_km = document.getElementById('charge_per_km1').value;
+            // var max_km_per_day = document.getElementById('max_km_per_day_oneway').value;
+            // max_km_per_day = (max_km_per_day == "") ? 0 : parseInt(max_km_per_day);
+            // charge_per_km = (charge_per_km == "") ? 0 : parseInt(charge_per_km);
 
-            var newDistance = distance;
-            document.getElementById('days1').value = 1;
+            // var newDistance = distance;
+            // document.getElementById('days1').value = 1;
             // console.log(charge_per_km + "sadlfkjb");
             if (distance < max_km_per_day) {
                 // console.log("#Distance limit crossed #oneway");
@@ -668,30 +675,27 @@
                 // console.log("newDistance " + newDistance);
             }
             // console.log(newDistance);
+            // document.getElementById('amountText1').innerHTML = amount + " Rs";
             document.getElementById('distance1').value = newDistance;
-            document.getElementById('amountText1').innerHTML = amount + " Rs";
             if (charge_per_km > 0) {
-                var amount = (charge_per_km * newDistance) + driverBata;
+                amount = (charge_per_km * newDistance) + driverBata;
                 console.log(amount);
             }
             // document.getElementById('actualAmount1').value = charge_per_km * newDistance;
             // document.getElementById('driverBata1').value = driverBata;
             var totalAmount = document.getElementById('amountText1');
             totalAmount.innerHTML = amount;
-            var date = document.getElementById('depart_date2').value;
-            var time = document.getElementById('depart_time').value;
-            var datetime = document.getElementById('return_date2').value = date.time;
-            var datetime = document.getElementById('depart_date2').value = date.time;
+            // var date = document.getElementById('depart_date2').value;
+            // var time = document.getElementById('depart_time').value;
+            // var datetime = document.getElementById('return_date2').value = date.time;
+            // var datetime = document.getElementById('depart_date2').value = date.time;
             // alert('return_date2');
             // console.log(newDistance);
-            document.getElementById('distanceText1').innerHTML = newDistance + " km";
-            // //   console.log("max_km_per_day " + max_km_per_day);
-            // //   console.log("charge_per_km " + charge_per_km);
-            // //   console.log("newDistance " + newDistance);
-            // //   console.log("amount " + amount);
-            // //   console.log("actualAmount " + (charge_per_km * newDistance));
-            // //   console.log("driverBata " + driverBata);
+            // document.getElementById('distanceText1').innerHTML = newDistance + " km";
+
         }
+
+
         if (id == "Round") {
 
             //   console.log("hariharan");
