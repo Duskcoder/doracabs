@@ -32,8 +32,8 @@
 
 
 <body>
-    <div class="container">
-        <div class="row hdrrow ">
+    <div class="container-fluid">
+        <div class="row hdrrow text-center ">
             <div class="col-md-3 col-3 nav_logo">
                 <a class="navbar-brand" href="/">
                     <img src="{{ asset('/assets/frontuser/images/dora_cabs1-removebg-preview.png')}}" alt="Dora cabs">

@@ -2232,13 +2232,15 @@ a.addmore {
     position: relative;
   }
   .row.hdrrow {
-    position: fixed;
+    position: sticky;
     width: 100%;
     top: 0;
     background: #fff;
     z-index: 9999999;
     height: 55px;
-    border-bottom: 1px solid #eee;
+    border-bottom: 5px solid #131212!important;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
   }
 
   .footer_list1 ul li a {
@@ -2826,6 +2828,151 @@ top: 50%;
 }
 
 input[type="radio"]:checked + .car-radio-label .radio-image-container {
-    border-color: #ffb758; /* Change this to the desired active border color */
+    border:3px solid #ffb758; /* Change this to the desired active border color */
+}
+
+
+
+/* john williams */
+
+.modalbox.success,
+.modalbox.error {
+
+  
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  background: #ffffffd1;
+  padding: 25px 25px 15px;
+  text-align: center;
+  
+}
+
+.ss-location-cnt {
+  background-color: #fff;
+  text-align: left;
+  padding: 15px;
+  margin: 20px;
+  border-radius: 8px;
+  box-shadow: 2px 2px 4px 1px #aea9a9;
+}
+
+.ss-trip-cnt {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 15px;
+  line-height: 42px;
+  text-align: center;
+  position: relative;
+}
+
+.ss-trip-cnt {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 15px;
+  line-height: 42px;
+  text-align: center;
+  position: relative;
+}
+
+.ss-price-msg p {
+  margin-bottom: 0;
+  color: #03902e;
+}
+
+.ss-note {
+  text-align: center;
+  font-style: italic;
+  font-size: 12px;
+}
+
+.title {
+  background: white;
+  color: #333333;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  position: relative;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: 'Open Sans', sans-serif;
+}
+a.btn {
+  background-color: #4caf50;
+  font-size: 16px;
+  line-height: 1.42857143;
+  color: #ffffff;
+  text-transform: uppercase;
+  font-weight: 600;
+  padding: 10px 20px;
+  letter-spacing: 0.5px;
+}
+
+
+.modalbox.success.animate .icon, .modalbox.error.animate .icon {
+  -webkit-animation: fall-in 0.75s;
+  -moz-animation: fall-in 0.75s;
+  -o-animation: fall-in 0.75s;
+  animation: fall-in 0.75s;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+
+.modalbox.success .icon, .modalbox.error .icon {
+  position: relative;
+  margin: 0 auto;
+  margin-top: -50px;
+  background: #4caf50;
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
+}
+
+.modalbox.success .icon i, .modalbox.error .icon span {
+  position: absolute;
+  font-size: 2em;
+  color: #fff;
+  top: 18px;
+  left: 21px;
+  /* text-align: center;
+  padding-top: 20px;
+  padding-right: 5PX; */
+}
+
+.ss-tab-container span {
+  position: absolute;
+  right: 15px;
+  font-size: 0.8em;
+}
+
+.ss-tab-container {
+  padding: 0 20px;
+}
+
+label {
+  display: block;
+}
+
+.ss-tab-container input {
+  display: none;
+}
+
+.contentbox {
+  margin: 0 auto;
+  margin-bottom: 10px;
+  background: #ddd;
+  padding-left: 10px;
+  border-radius: 10px;
+  height: 0;
+  overflow: hidden;
+  display: flex;
+  transition: all 0.25s;
+}
+
+.ss-note {
+  text-align: center;
+  font-style: italic;
+  font-size: 12px;
 }
 

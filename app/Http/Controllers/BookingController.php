@@ -9,7 +9,7 @@ use App\Models\Driver;
 use App\Models\Payment;
 use App\Models\Vehicle;
 use Illuminate\Http\Request;
-use App\Mail\ContactMailTo;
+use App\Mail\ContactusMailTo;
 use App\Mail\BookingNotificationMail;
 use App\Mail\BookingNotificationToAdminMail;
 use Mail;
@@ -62,7 +62,7 @@ class BookingController extends Controller
                 'drop_add' => $request['to_place1'],
                 'days' => $request['days2'],
                 'actual_amount' => $request['actualAmount'],
-                'driver_bata' => $request['driverBata']
+                'driver_bata' => $request['driverBata1']
             );
         }
 
