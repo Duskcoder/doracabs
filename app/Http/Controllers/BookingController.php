@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Booking;
-use App\Models\Car;
+use App\Models\Cars;
 use App\Models\Contact;
 use App\Models\Driver;
 use App\Models\Payment;
@@ -17,13 +17,23 @@ use DB;
 use Session;
 
 
+
 class BookingController extends Controller
 {
+
+
+    public function index(Request $request)
+    {
+        $cars=Cars::orderBy('created_at', 'asc')->get();
+        return view('booking.create')->with(compact('cars'));
+       
+    }
+
     //
     public function bookNowStep2()
 
     {
-        $cars = Car::orderBy('created_at', 'asc')->get();
+        $cars = Cars::orderBy('created_at', 'asc')->get();
         // dd($cars);
         return view('booking.bookingstep2')->with(compact('cars'));
     }
