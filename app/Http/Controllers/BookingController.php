@@ -52,7 +52,7 @@ class BookingController extends Controller
                 'drop_add' => $request['to_place1'],
                 'days' => $request['days2'],
                 'actual_amount' => $request['actualAmount'],
-                'driver_bata' => $request['driverBata']
+                'driver_bata' => $request['driverBata1']
             );
         }
 

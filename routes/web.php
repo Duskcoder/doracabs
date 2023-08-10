@@ -50,18 +50,3 @@ Route::resource('cars', CarsController::class);
 /*Booked-Trips*/
 Route::get('booked-trips/search', [TripsController::class, 'search'])->name('booked-trips.search');
 Route::resource('booked-trips', TripsController::class);
-
-
-
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
