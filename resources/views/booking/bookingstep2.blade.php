@@ -119,23 +119,23 @@
                                 value="{{ Request::get('distance') }}">
                             <input type="hidden" name="amount" id="amount1" value="">
                             <input type="hidden" name="days" id="days1" value="1">
-                            <input type="hidden" name="actualAmount" id="actualAmount1" value="">
-                            <input type="hidden" name="driverBata" id="durationone"
-                                value="{{ Request::get('duration') }}">
+                            <input type="hidden" name="actualAmount1" id="actualAmount1">
+                            <input type="hidden" name="driverBata" id="driverBataOneWay">
 
                             <div class="row">
                                 <div class="col-lg-6 col-12">
                                     <div class="form-group ">
                                         <label for="name"><b>Full Name</b></label>
                                         <input type="text" class="form-control" name="cust_name"
-                                            id="cust_name" placeholder="Full Name" required>
+                                            autocomplete="off" id="cust_name" placeholder="Full Name" required>
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-12">
                                     <div class="form-group ">
                                         <label for="email"><b>Email (optional)</b></label>
-                                        <input type="email" name="cust_email" id="cust_email"
-                                            class="form-control" placeholder="Enter Email">
+                                        <input type="email" name="cust_email"
+                                            id="cust_email"autocomplete="off" class="form-control"
+                                            placeholder="Enter Email">
                                     </div>
                                 </div>
                             </div>
@@ -144,36 +144,37 @@
                                 <div class="col-lg-6 col-12">
                                     <div class="form-group mt-1">
                                         <label for="pickup"><b>Pick Up Address</b></label>
-                                        <input type="text" class="form-control" name="pickUpAddress"
-                                            id="pickUpAddress" placeholder=""
-                                            value="{{ Request::get('source') }}">
+                                        <input type="text" class="form-control"
+                                            name="pickUpAddress"autocomplete="off" id="pickUpAddress"
+                                            placeholder="" value="{{ Request::get('source') }}">
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-12">
                                     <div class="form-group mt-1">
                                         <label for="drop"><b>Drop Address</b></label>
-                                        <input type="text" class="form-control" name="dropAddress"
-                                            id="dropAddress" placeholder="" required
-                                            value="{{ Request::get('destination') }}">
+                                        <input type="text" class="form-control"
+                                            name="dropAddress"autocomplete="off" id="dropAddress" placeholder=""
+                                            required value="{{ Request::get('destination') }}">
                                     </div>
                                 </div>
 
-                                <div class="col-12 mt-1">
+                                <div class="col-12">
                                     <div class="row">
                                         <div class="col-lg-4 col-12">
-                                            <div class="form-group mt-3">
+                                            <div class="form-group">
                                                 <label for="pickup-location"><b> Phone Number</b></label>
-                                                <input type="text" class="form-control" name="cust_mbl1"
-                                                    id="pickup-location" aria-describedby="emailHelp"
-                                                    placeholder="Phone Number" required>
+                                                <input type="text" class="form-control"
+                                                    name="cust_mbl1"autocomplete="off" id="pickup-location"
+                                                    aria-describedby="emailHelp" placeholder="Phone Number"
+                                                    required>
                                             </div>
                                         </div>
                                         <div class="col-lg-4 col-12">
                                             <div class="form-group mt-1">
                                                 <label for="pickup-location"><b>Depart Date</b></label>
-                                                <input type="text" name="pickupdate" id="datepicker1"
-                                                    class="form-control" placeholder="dd-mm-yyy" required
-                                                    onchange="calc_amount();">
+                                                <input type="text" name="pickupdate"
+                                                    id="datepicker1"autocomplete="off" class="form-control"
+                                                    placeholder="dd-mm-yyy" required onchange="calc_amount();">
                                                 <!-- <input type="text" class="form-control" name="cust_mbl1" id="pickup-location" aria-describedby="emailHelp" placeholder="Phone Number" required> -->
                                             </div>
                                         </div>
@@ -195,7 +196,7 @@
                                 <div class="row">
                                     <div class="col-md-4 col-6">
                                         <div class="card-body">
-                                            <p class="card-title">Total  Amount</p>
+                                            <p class="card-title">Total Amount</p>
                                             <h6 class="text-center" id="amountText1"></h6>
                                         </div>
                                     </div>
@@ -290,7 +291,7 @@
                                 value="{{ Request::get('distance') }}">
                             <input type="hidden" name="amount2" id="amount2" value="">
                             <input type="hidden" name="days2" id="days2" value="1">
-                            <input type="hidden" name="actualAmount2" id="actualAmount2" value="">
+                            <input type="hidden" name="actualAmount" id="actualAmount2" value="">
                             <input type="hidden" name="driverBata2" id="driverBata2"
                                 value="{{ Request::get('duration') }}">
 
@@ -354,10 +355,10 @@
 
                                     </div>
                                 </div>
-                                <div class="col-12 mt-1">
+                                <div class="col-12">
                                     <div class="row">
                                         <div class="col-lg-6 col-12">
-                                            <div class="form-group mt-3">
+                                            <div class="form-group ">
                                                 <label for="pickup-location"><b> Phone Number</b></label>
                                                 <input type="text" class="form-control" name="cust_mbl1"
                                                     id="pickup-location" aria-describedby="emailHelp"
@@ -384,8 +385,8 @@
                                 <div class="row">
                                     <div class="col-md-3 col-6">
                                         <div class="card-body">
-                                            <p class="card-title">Total  Amount</p>
-                                            <h6 class="text-center" name="pickupdate" id="amountText2">0</h6>
+                                            <p class="card-title">Total Amount</p>
+                                            <h6 class="text-center" name="actualAmount" id="amountText2">0</h6>
                                         </div>
                                     </div>
                                     <div class="col-md-3 col-6">
@@ -413,7 +414,8 @@
 
                             </div>
                             <div class="col-12 proceed-btn my-1">
-                                <button type="submit" class="btn btn-warning text-center" style="border-radius:5px;">PLACE A BOOKING</button>
+                                <button type="submit" class="btn btn-warning text-center"
+                                    style="border-radius:5px;">PLACE A BOOKING</button>
                             </div>
 
                             <div class="p-3 ">
@@ -893,7 +895,9 @@ BOOKING</button>
             }
             // console.log(newDistance);
             document.getElementById('distance1').value = newDistance;
+            var backTotal = document.getElementById('actualAmount1').value = amount + " Rs";
             document.getElementById('amountText1').innerHTML = amount + " Rs";
+            document.getElementById('driverBataOneWay').value = driverBata;
             if (charge_per_km > 0) {
                 var amount = (charge_per_km * newDistance) + driverBata;
                 console.log(amount);
@@ -902,6 +906,9 @@ BOOKING</button>
             // document.getElementById('driverBata1').value = driverBata;
             var totalAmount = document.getElementById('amountText1');
             totalAmount.innerHTML = amount + " ₹";
+            var TotalAmountBack = document.getElementById('amountText1').innerHTML;
+            console.log(TotalAmountBack);
+            document.getElementById("actualAmount1").value = TotalAmountBack;
             var date = document.getElementById('depart_date2').value;
             var time = document.getElementById('depart_time').value;
             var datetime = document.getElementById('return_date2').value = date.time;
@@ -915,6 +922,7 @@ BOOKING</button>
             // //   console.log("amount " + amount);
             // //   console.log("actualAmount " + (charge_per_km * newDistance));
             // //   console.log("driverBata " + driverBata);
+
         }
         if (oneway_round == 'Round') {
             var distance = parseInt(document.getElementById('distance2').value);

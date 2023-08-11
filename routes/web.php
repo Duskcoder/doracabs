@@ -40,7 +40,7 @@ Route::get('booking-result/{id}', [BookingController::class, 'bookingResult'])->
 
 // Adim Panel
 Auth::routes();
-
+Route::get('/home', [App\Http\Controllers\AdminHomeController::class, 'index'])->name('home');
 Route::get('admin/home', [App\Http\Controllers\AdminHomeController::class, 'index'])->name('home');
 
 /*Dashboard*/
