@@ -1,5 +1,10 @@
+
+
+
 @include('common.header')
+
 <div class="container mt-4">
+
 
     <section>
         <div class="row">
@@ -226,7 +231,7 @@
     <section data-aos="fade-up" data-aos-duration="1900">
         <div class="container  about_section">
             <div class="row about_sec_text">
-                <h2>About Dora Cabs</h2>
+                <h2 data-aos="fade-up">About Dora Cabs</h2>
                 <p>Dora Cabs &nbsp;provides safe and reliable taxi services from chennai for both local and outstation taxi service. We provide all types of car rental requirements as per the customer choice at the single platform. We are dedicated
                     to delivering comfortable, ereliable and hassle free taxi service rides for you and always endeavor to maintain your convenience at the top most priority.&nbsp; At Dora Cabs, we ensure you the utmost punctuality in our cab
                     services. The whole team of Dora Cabs </p>
@@ -571,7 +576,7 @@
     @include('common.footer')
     <!-- Google API -->
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css">
-
+    
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDzLgce3y8jzRe5GdXksOdAqn30aFx-qv8&libraries=places,geometry&callback=initAutocomplete&v=weekly&channel=2" async></script>
     <script type="text/javascript">
         var placeSearch, autocomplete, autocomplete2;

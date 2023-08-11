@@ -4,7 +4,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\ContactController;
-use App\Http\Controllers\CarController;
+use App\Http\Controllers\CarsController;
+use App\Http\Controllers\TripsController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +21,8 @@ use App\Http\Controllers\CarController;
 /*Route::get('/', function () {
     Mail::to('dhivyashree.duskcoder@gmail.com')->send(new ContactMail());
 });*/
+
+
 //For Home Page
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('about', [HomeController::class, 'about'])->name('about');
@@ -36,11 +40,10 @@ Route::get('booking-result/{id}', [BookingController::class, 'bookingResult'])->
 
 // Adim Panel
 Auth::routes();
-
+Route::get('/home', [App\Http\Controllers\AdminHomeController::class, 'index'])->name('home');
 Route::get('admin/home', [App\Http\Controllers\AdminHomeController::class, 'index'])->name('home');
 
 /*Dashboard*/
-Route::get('dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
 
 /*Cars*/
 Route::get('cars/search', [CarsController::class, 'search'])->name('cars.search');
@@ -50,3 +53,11 @@ Route::resource('cars', CarsController::class);
 /*Booked-Trips*/
 Route::get('booked-trips/search', [TripsController::class, 'search'])->name('booked-trips.search');
 Route::resource('booked-trips', TripsController::class);
+
+
+
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\AdminHomeController::class, 'index'])->name('home');
+Route::get('dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
