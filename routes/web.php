@@ -25,6 +25,7 @@ use App\Http\Controllers\TripsController;
 
 //For Home Page
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('about', [HomeController::class, 'about'])->name('about');
 Route::get('contact', [HomeController::class, 'contact'])->name('contact');
 Route::get('tariff', [HomeController::class, 'tariff'])->name('tariff');
@@ -41,9 +42,9 @@ Route::get('booking-result/{id}', [BookingController::class, 'bookingResult'])->
 // Adim Panel
 Auth::routes();
 Route::get('/login', [App\Http\Controllers\AdminHomeController::class, 'index'])->name('login');
-// Route::get('/home', [App\Http\Controllers\AdminHomeController::class, 'index'])->name('home');
+
 Route::get('dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
-// Route::get('/admin', [App\Http\Controllers\AdminHomeController::class, 'index'])->name('login');
+
 
 /*Dashboard*/
 

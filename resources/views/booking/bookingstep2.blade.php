@@ -120,7 +120,7 @@
                             <input type="hidden" name="amount" id="amount1" value="">
                             <input type="hidden" name="days" id="days1" value="1">
                             <input type="hidden" name="actualAmount1" id="actualAmount1">
-                            <input type="hidden" name="driverBata" id="driverBataOneWay">
+                            <input type="hidden" name="driverBata1" id="driverBataOneWay">
 
                             <div class="row">
                                 <div class="col-lg-6 col-12">
@@ -272,7 +272,7 @@
                         <form class="" id="roundtrip" action="{{ route('booking.store') }}"
                             method="POST">
                             @csrf
-                            <input type="hidden" name="oneway_round" id="oneway_round" value="Oneway">
+                            <input type="hidden" name="oneway_round1" id="oneway_round" value="Round">
                             <input type="hidden" name="from_place2" id="from_place2"
                                 value="{{ Request::get('source') }}">
                             <input type="hidden" name="to_place2" id="to_place2"
@@ -291,7 +291,7 @@
                                 value="{{ Request::get('distance') }}">
                             <input type="hidden" name="amount2" id="amount2" value="">
                             <input type="hidden" name="days2" id="days2" value="1">
-                            <input type="hidden" name="actualAmount" id="actualAmount2" value="">
+                            <input type="hidden" name="actualAmount2" id="actualAmount2" value="">
                             <input type="hidden" name="driverBata2" id="driverBata2"
                                 value="{{ Request::get('duration') }}">
 

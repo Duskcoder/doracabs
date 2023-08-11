@@ -13,75 +13,31 @@
 
                 </div>
                 <!-- /.icon -->
-                <!-- <p>From: {{ $bookedData->from_place }}</p>
-   <p>To: {{ $bookedData->to_place }}</p> -->
+
                 <h1>Success!</h1>
                 <p>We've sent a confirmation to your e-mail
                     <br>for verification.
                 </p>
 
-<<<<<<< HEAD
-					<div class="ss-tab-container">
-						<label for="title-1" class="title">See fare details <span><i class="fa fa-angle-down" aria-hidden="true"></i></span></label>
-						<input type="checkbox" id="title-1" class="title">
-						<div class="contentbox">
-							<div class="ss-tb-cnt">
-								<div class="ss-base-fare">
-									<p>Base Fare</p>
-									<p>₹ {{$bookedData->actual_amount}}</p>
-								</div>
-								<div class="ss-driver-allowance">
-									<p>Driver Allowance</p>
-									<p>₹ {{$bookedData->driver_bata}}</p>
-								</div>
-							</div>
-						</div>     
-					</div>
-					<div class="ss-note">* Excludes tolls and parking. Hillstation charges applicable for Ooty, Kodaikanal and Yercaud</div>
-				</div>
-			</div>
-			<a href="{{route('home')}}" class="btn">Ok</a>
-		</div>
-		<!--/.success-->
-	</div>
-	<!--/.row-->
-	<div class="row">
-		<div class="modalbox error col-sm-8 col-md-6 col-lg-5 center animate" style="display: none;">
-			<div class="icon">
-				<span class="glyphicon glyphicon-thumbs-down"></span>
-			</div>
-			<!--/.icon-->
-			<h1>Oh no!</h1>
-			<p>Oops! Something went wrong,
-				<br> you should try again.</p>
-			<button type="button" class="btn">Try again</button>
-			<span class="change"></span>
-		</div>
-	</div>
-</div>
-
-	</section>
-	<br/><br/>
-=======
                 <div class="ss-success-dtl">
                     <div class="ss-location-cnt">
                         <div class="ss-location">
                             <i class="fa fa-map-marker" aria-hidden="true"></i>
-                            <strong>{{ $bookedData->from_place }}</strong> to
-                            <strong>{{ $bookedData->to_place }}</strong>
+                            <strong>{{$bookedData->from_place}}</strong> to
+                            <strong>{{$bookedData->to_place}}</strong>
                         </div>
                         <div class="ss-time-date">
-                            <p>on <strong>{{ $bookedData->depart_date_time }}</strong></p>
+                            <p>on <strong>{{$bookedData->depart_date_time}}</strong></p>
                         </div>
                     </div>
 
                     <div class="ss-location-cnt">
                         <div class="ss-trip-cnt">
-                            {{ $bookedData->oneway_round }} trip of about {{ $bookedData->distance }} KM
+                            {{$bookedData->oneway_round}} trip of about {{$bookedData->distance}} KM
                         </div>
                         <div class="ss-trip-dtl">
-                            <div class="ss-price-list">
-                                <p>₹<strong>{{ $bookedData->actual_amount }}</strong><span>Total Fare</span></p>
+                            <div class="ss-price-list text-center">
+                                <p>₹<strong>{{$bookedData->actual_amount}}</strong><br/><span>Total Fare</span></p>
                                 <div class="ss-price-msg">
                                     <p>Lowest fare in the market</p>
                                 </div>
@@ -96,11 +52,11 @@
                                 <div class="ss-tb-cnt">
                                     <div class="ss-base-fare">
                                         <p>Base Fare</p>
-                                        <p>₹ {{ $bookedData->actual_amount }}</p>
+                                        <p>₹ {{$bookedData->actual_amount}}</p>
                                     </div>
                                     <div class="ss-driver-allowance">
                                         <p>Driver Allowance</p>
-                                        <p>₹ {{ $bookedData->driver_bata }}</p>
+                                        <p>₹ {{$bookedData->driver_bata}}</p>
                                     </div>
                                 </div>
                             </div>
@@ -130,7 +86,12 @@
         </div>
     </div>
 </section>
+
+
+
+
+
 <br /><br />
->>>>>>> f7b7856fd10a89307dae5a2e66eaa58412f99e18
 @include('common.footer')
 <script src="{{ asset('user-theme/assets/js/jquery-3.3.1.min.js') }}"></script>
+
