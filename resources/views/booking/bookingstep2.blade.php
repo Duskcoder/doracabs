@@ -202,13 +202,13 @@
                                     </div>
                                     <div class="col-md-4 col-6">
                                         <div class="card-body">
-                                            <p class="card-title">This Trip Covers</p>
+                                            <p class="card-title"> Trip Covers</p>
                                             <h6 class="text-center" id="distanceText1"></h6>
                                         </div>
                                     </div>
                                     <div class="col-md-4 col-12">
                                         <div class="card-body">
-                                            <p class="card-title">Journey Duration</p>
+                                            <p class="card-title"> Duration</p>
                                             <h6 class="text-center" id="durationText1">
                                                 {{ Request::get('duration') }}
                                             </h6>
@@ -391,14 +391,14 @@
                                     </div>
                                     <div class="col-md-3 col-6">
                                         <div class="card-body">
-                                            <p class="card-title">This Trip Covers</p>
+                                            <p class="card-title"> Trip Covers</p>
                                             <h6 class="text-center" name="pickuptime" id="distanceText2">
                                                 {{ Request::get('distance') }} KM</h6>
                                         </div>
                                     </div>
                                     <div class="col-md-3 col-12">
                                         <div class="card-body">
-                                            <p class="card-title">Journey Duration</p>
+                                            <p class="card-title">Duration</p>
                                             <h6 class="text-center" name="returndate" id="durationText2">
                                                 {{ Request::get('duration') }}</h6>
                                         </div>
