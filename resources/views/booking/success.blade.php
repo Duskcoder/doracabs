@@ -1,6 +1,8 @@
 @include('common.header')
 <script src="https://momentjs.com/downloads/moment.min.js"></script>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 
 <link rel="stylesheet" href="{{ asset('frontuser/success.css') }}">
 <section>
@@ -37,7 +39,7 @@
                             {{ $bookedData->oneway_round }} trip of about {{ $bookedData->distance }} KM
                         </div>
                         <div class="ss-trip-dtl">
-                            <div class="ss-price-list">
+                            <div class="ss-price-list text-center">
                                 <p>₹<strong>{{ $bookedData->actual_amount }}</strong><span>Total Fare</span></p>
                                 <div class="ss-price-msg">
                                     <p>Lowest fare in the market</p>
@@ -90,3 +92,21 @@
 <br /><br />
 @include('common.footer')
 <script src="{{ asset('user-theme/assets/js/jquery-3.3.1.min.js') }}"></script>
+<!-- Include jQuery library -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+        $(document).ready(function() {
+            $('.title').on('click', function() {
+                $('.contentbox').toggle(); // or use .slideToggle() for a smoother animation
+            });
+        });
+    </script>
+        <script>
+        const checkbox = document.getElementById('title-1');
+        const contentbox = document.querySelector('.contentbox');
+
+        checkbox.addEventListener('click', function() {
+            contentbox.style.display = checkbox.checked ? 'block' : 'none';
+        });
+    </script>
+
