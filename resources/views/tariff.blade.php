@@ -8,7 +8,7 @@
     </div>
   </div>
 
-  <section  id="tariff" class="py-5">
+  <section  id="tariff" class="py-1">
     <div  class="container">
 
       <div  class="row pt-3">
