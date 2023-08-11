@@ -15,8 +15,7 @@
 
                 </div>
                 <!-- /.icon -->
-                <!-- <p>From: {{ $bookedData->from_place }}</p>
-   <p>To: {{ $bookedData->to_place }}</p> -->
+
                 <h1>Success!</h1>
                 <p>We've sent a confirmation to your e-mail
                     <br>for verification.
@@ -26,21 +25,21 @@
                     <div class="ss-location-cnt">
                         <div class="ss-location">
                             <i class="fa fa-map-marker" aria-hidden="true"></i>
-                            <strong>{{ $bookedData->from_place }}</strong> to
-                            <strong>{{ $bookedData->to_place }}</strong>
+                            <strong>{{$bookedData->from_place}}</strong> to
+                            <strong>{{$bookedData->to_place}}</strong>
                         </div>
                         <div class="ss-time-date">
-                            <p>on <strong>{{ $bookedData->depart_date_time }}</strong></p>
+                            <p>on <strong>{{$bookedData->depart_date_time}}</strong></p>
                         </div>
                     </div>
 
                     <div class="ss-location-cnt">
                         <div class="ss-trip-cnt">
-                            {{ $bookedData->oneway_round }} trip of about {{ $bookedData->distance }} KM
+                            {{$bookedData->oneway_round}} trip of about {{$bookedData->distance}} KM
                         </div>
                         <div class="ss-trip-dtl">
                             <div class="ss-price-list text-center">
-                                <p>₹<strong>{{ $bookedData->actual_amount }}</strong><span>Total Fare</span></p>
+                                <p>₹<strong>{{$bookedData->actual_amount}}</strong><br/><span>Total Fare</span></p>
                                 <div class="ss-price-msg">
                                     <p>Lowest fare in the market</p>
                                 </div>
@@ -55,11 +54,11 @@
                                 <div class="ss-tb-cnt">
                                     <div class="ss-base-fare">
                                         <p>Base Fare</p>
-                                        <p>₹ {{ $bookedData->actual_amount }}</p>
+                                        <p>₹ {{$bookedData->actual_amount}}</p>
                                     </div>
                                     <div class="ss-driver-allowance">
                                         <p>Driver Allowance</p>
-                                        <p>₹ {{ $bookedData->driver_bata }}</p>
+                                        <p>₹ {{$bookedData->driver_bata}}</p>
                                     </div>
                                 </div>
                             </div>
@@ -89,6 +88,11 @@
         </div>
     </div>
 </section>
+
+
+
+
+
 <br /><br />
 @include('common.footer')
 <script src="{{ asset('user-theme/assets/js/jquery-3.3.1.min.js') }}"></script>
