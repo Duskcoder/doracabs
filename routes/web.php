@@ -40,10 +40,14 @@ Route::get('booking-result/{id}', [BookingController::class, 'bookingResult'])->
 
 // Adim Panel
 Auth::routes();
-Route::get('/home', [App\Http\Controllers\AdminHomeController::class, 'index'])->name('home');
-Route::get('admin/home', [App\Http\Controllers\AdminHomeController::class, 'index'])->name('home');
+Route::get('/login', [App\Http\Controllers\AdminHomeController::class, 'index'])->name('login');
+// Route::get('/home', [App\Http\Controllers\AdminHomeController::class, 'index'])->name('home');
+Route::get('dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
+// Route::get('/admin', [App\Http\Controllers\AdminHomeController::class, 'index'])->name('login');
 
 /*Dashboard*/
+
+
 
 /*Cars*/
 Route::get('cars/search', [CarsController::class, 'search'])->name('cars.search');
@@ -57,7 +61,6 @@ Route::resource('booked-trips', TripsController::class);
 
 
 
-Auth::routes();
+// Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\AdminHomeController::class, 'index'])->name('home');
-Route::get('dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
+

@@ -15,4 +15,5 @@ class Cars extends Model
 	protected $dates = ['deleted_at'];
 	protected $fillable = ['model_name','oneway_km_cost','round_km_cost','actual_file_name','file_name','file_path'];
 }
+
     
