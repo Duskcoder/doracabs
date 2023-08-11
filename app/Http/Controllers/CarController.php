@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Car;
+use App\Models\Cars;
 use DB;
 
 use Illuminate\Http\Request;
