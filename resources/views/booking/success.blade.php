@@ -20,6 +20,49 @@
                     <br>for verification.
                 </p>
 
+<<<<<<< HEAD
+					<div class="ss-tab-container">
+						<label for="title-1" class="title">See fare details <span><i class="fa fa-angle-down" aria-hidden="true"></i></span></label>
+						<input type="checkbox" id="title-1" class="title">
+						<div class="contentbox">
+							<div class="ss-tb-cnt">
+								<div class="ss-base-fare">
+									<p>Base Fare</p>
+									<p>₹ {{$bookedData->actual_amount}}</p>
+								</div>
+								<div class="ss-driver-allowance">
+									<p>Driver Allowance</p>
+									<p>₹ {{$bookedData->driver_bata}}</p>
+								</div>
+							</div>
+						</div>     
+					</div>
+					<div class="ss-note">* Excludes tolls and parking. Hillstation charges applicable for Ooty, Kodaikanal and Yercaud</div>
+				</div>
+			</div>
+			<a href="{{route('home')}}" class="btn">Ok</a>
+		</div>
+		<!--/.success-->
+	</div>
+	<!--/.row-->
+	<div class="row">
+		<div class="modalbox error col-sm-8 col-md-6 col-lg-5 center animate" style="display: none;">
+			<div class="icon">
+				<span class="glyphicon glyphicon-thumbs-down"></span>
+			</div>
+			<!--/.icon-->
+			<h1>Oh no!</h1>
+			<p>Oops! Something went wrong,
+				<br> you should try again.</p>
+			<button type="button" class="btn">Try again</button>
+			<span class="change"></span>
+		</div>
+	</div>
+</div>
+
+	</section>
+	<br/><br/>
+=======
                 <div class="ss-success-dtl">
                     <div class="ss-location-cnt">
                         <div class="ss-location">
@@ -88,5 +131,6 @@
     </div>
 </section>
 <br /><br />
+>>>>>>> f7b7856fd10a89307dae5a2e66eaa58412f99e18
 @include('common.footer')
 <script src="{{ asset('user-theme/assets/js/jquery-3.3.1.min.js') }}"></script>
