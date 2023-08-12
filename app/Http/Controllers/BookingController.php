@@ -12,6 +12,8 @@ use Illuminate\Http\Request;
 use App\Mail\ContactusMailTo;
 use App\Mail\BookingNotificationMail;
 use App\Mail\BookingNotificationToAdminMail;
+use Illuminate\Support\Facades\Validator;
+
 use Mail;
 use DB;
 use Session;
@@ -45,6 +47,11 @@ class BookingController extends Controller
      */
     public function store(Request $request)
     {
+
+
+
+        // echo '<pre>';
+        // print_r($request);
         if ($request['oneway_round']) {
             $data = array(
                 'from_place' => $request['from_place1'],
@@ -120,6 +127,10 @@ class BookingController extends Controller
         // Mail::to('dhivyashree.duskcoder@gmail.com', 'Admin')->send(new BookingNotificationToAdminMail($data));
 
         return redirect()->route('booking-result', [$bookings->id]);
+
+
+        
+
     }
     public function bookingResult($id)
     {

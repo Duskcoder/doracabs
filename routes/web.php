@@ -6,7 +6,7 @@ use App\Http\Controllers\BookingController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CarsController;
 use App\Http\Controllers\TripsController;
-
+use App\Models\Booking;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,7 +25,7 @@ use App\Http\Controllers\TripsController;
 
 //For Home Page
 Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('/home', [HomeController::class, 'index'])->name('home');
+// Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('about', [HomeController::class, 'about'])->name('about');
 Route::get('contact', [HomeController::class, 'contact'])->name('contact');
 Route::get('tariff', [HomeController::class, 'tariff'])->name('tariff');
@@ -45,8 +45,6 @@ Route::get('/login', [App\Http\Controllers\AdminHomeController::class, 'index'])
 
 Route::get('dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
 
-
-/*Dashboard*/
 
 
 

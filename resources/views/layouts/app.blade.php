@@ -37,7 +37,7 @@
         <div class="brand">
             <a href="#" class="logo">
                 <span>
-                    <img src="{{ asset('theme/assets/images/safar-logo-sm.png') }}" alt="logo-small" class="safar-logo-sm">
+                    <img src="{{ asset('theme/assets/images/dora_cabs1.png') }}" alt="logo-small" class="safar-logo-sm" height="35"  width="45">
                 </span>
                 <span>
                 <strong>DoraCabs</strong>

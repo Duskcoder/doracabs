@@ -3041,3 +3041,6 @@ label {
 .bookingForm{
    background-color: #f7f7f773;
 }
+.contentbox {
+  display: none;
+}

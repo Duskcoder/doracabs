@@ -96,7 +96,7 @@
 
         <div id="whatsappicon">
                 <a  target="blank" href="https://api.whatsapp.com/send?phone=8015521177&text=Hii" title="Sent Whatsapp Message" >
-                    <img class=" what side-images" src="./assets/frontuser/images/w1.png" alt="whatsapp" width="40"  title="" >
+                    <img class=" side-images" src="../assets/frontuser/images/w1.png" alt="whatsapp" height="50" width="50"  title="" >
                 </a>
 </div>
             <div id="callicon">
