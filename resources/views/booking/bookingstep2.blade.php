@@ -3,41 +3,20 @@
 <section>
     <div class="form bookingForm">
         <div class="container pt-4">
-            <!-- <div class="text-center py-3"> -->
-                <div >
-                <!-- <button class="nav-link  tablinks active"data-bs-toggle="tab" data-bs-target="#home"
-                                    type="button" role="tab" aria-controls="home" aria-selected="true"
-                                    onclick="oneway_round('Oneway');"><b>One way Trip</b></button>
-                   <button class="nav-link tablinks " data-bs-toggle="tab" data-bs-target="#contact"
-                                    type="button" role="tab" aria-controls="contact" aria-selected="false"
-                                    id="contact-tab"onclick="oneway_round('Round');"><b>Round Trip</b></button> -->
-<!-- </div> -->
 
-</div>
             <div class="row ">
                 <!-- <div class="col-sm-6 col-md-6 mt-lg-3">-->
-               
+
                 <div class="col-md-6">
-                    <h3 class="pb-lg-4">Select Your Vehicle</h3>
+                    <h3 class="py-3 text-center">Select Your Vehicle</h3>
                     @if (Request::get('trip') == 'Round')
-                    
-                        @foreach ($cars as $car)
-                            <div class="mb-3 d-flex align-items-center">
-                                <input type="radio" id="car1{{ $car->id }}" name="car1" style="display: none;">
-                                <label for="car1{{ $car->id }}" class="car-radio-label"
-                                    onclick="km_cost({{ $car->id }},{{ $car->oneway_km_cost }},{{ $car->round_km_cost }})">
-                                    <div class="radio-image-container">
-                                        <img src="{{ URL::asset($car->file_path . '/' . $car->file_name) }}"
-                                            alt="{{ $car->model_name }}" class="car-logo">
-                                    </div>
-                                    <div class="car-details">
-                                        <p>
-                                            <small>{{ $car->model_name }} - ({{ $car->round_km_cost }}/km)</small>
-                                            <i data-toggle="tooltip" title="{{ $car->model_name }}"
-                                                class="fa fa-snowflake-o"></i>
-                                        </p>
-                                    </div>
-                                </label>
+
+                    @foreach ($cars as $car)
+                    <div class="mb-3 d-flex align-items-center">
+                        <input type="radio" id="car1{{ $car->id }}" name="car1" style="display: none;">
+                        <label for="car1{{ $car->id }}" class="car-radio-label" onclick="km_cost({{ $car->id }},{{ $car->oneway_km_cost }},{{ $car->round_km_cost }})">
+                            <div class="radio-image-container">
+                                <img src="{{ URL::asset($car->file_path . '/' . $car->file_name) }}" alt="{{ $car->model_name }}" class="car-logo">
                             </div>
                             <div class="car-details">
                                 <p>
@@ -47,23 +26,8 @@
                             </div>
                         </label>
                     </div>
-                    <!--
-                    <div class="mb-3 d-flex" style="display:inline">
-                        <li>
-                            <input type="radio" id="car1{{ $car->id }}" name="car1" onclick="km_cost({{ $car->id }},{{ $car->oneway_km_cost }},{{ $car->round_km_cost }})">
-                            <label for="car1{{ $car->id }}">
 
-                                <img src="{{ URL::asset($car->file_path . '/' . $car->file_name) }}" alt="{{ $car->model_name }}" class="w-100 p-lg-3 car-logo p-1" style="width:25% !important">
 
-                                <div class="col-5 col-md-5">
-                                    <p style="float:right">
-                                        <small>{{ $car->model_name }}<br>({{ $car->round_km_cost }}/km)</small>
-                                        <i data-toggle="tooltip" title="{{ $car->model_name }}" class="fa fa-snowflake-o"></i>
-                                    </p>
-                                </div>
-                            </label>
-                        </li>
-                    </div> -->
                     @endforeach
                     @endif
                     @if (Request::get('trip') == 'Oneway')
@@ -114,12 +78,12 @@
                 </div>
                 <div class="col-md-6 ">
 
-                
-                <div class="tab-content tab_section" id="myTabContent">
-                    <!----- Start first outer tab ----->
-                    <!-- <div class="one_way_trip" id="home" role="tabpanel" aria-labelledby="home-tab"  id="oneway" >One-Way Trip -->
-                    @if (Request::get('trip') == 'Oneway')
-            <h2>PLAN YOUR TRIP - <span style="font-size:22px">One Way trip</span></h2>
+                    <h3 class="text-center py-3">Plan Your Trip</h3>
+                    <div class="tab-content tab_section" id="myTabContent">
+                        <!----- Start first outer tab ----->
+                        <!-- <div class="one_way_trip" id="home" role="tabpanel" aria-labelledby="home-tab"  id="oneway" >One-Way Trip -->
+                        @if (Request::get('trip') == 'Oneway')
+
 
                         <form class="" id="onewaytrip" action="{{ route('booking.store') }}" method="POST">
                             @csrf
@@ -140,16 +104,13 @@
                                 <div class="col-lg-6 col-12">
                                     <div class="form-group ">
                                         <label for="name">Full Name</label>
-                                        <input type="text" class="form-control" name="cust_name"
-                                            autocomplete="off" id="cust_name" placeholder="Full Name" required>
+                                        <input type="text" class="form-control" name="cust_name" autocomplete="off" id="cust_name" placeholder="Full Name" required>
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-12">
                                     <div class="form-group ">
                                         <label for="email">Email (optional)</label>
-                                        <input type="email" name="cust_email"
-                                            id="cust_email"autocomplete="off" class="form-control"
-                                            placeholder="Enter Email">
+                                        <input type="email" name="cust_email" id="cust_email" autocomplete="off" class="form-control" placeholder="Enter Email">
                                     </div>
                                 </div>
                             </div>
@@ -158,17 +119,13 @@
                                 <div class="col-lg-6 col-12">
                                     <div class="form-group mt-1">
                                         <label for="pickup">Pick Up Address</label>
-                                        <input type="text" class="form-control"
-                                            name="pickUpAddress"autocomplete="off" id="pickUpAddress"
-                                            placeholder="" value="{{ Request::get('source') }}">
+                                        <input type="text" class="form-control" name="pickUpAddress" autocomplete="off" id="pickUpAddress" placeholder="" value="{{ Request::get('source') }}">
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-12">
                                     <div class="form-group mt-1">
                                         <label for="drop">Drop Address</label>
-                                        <input type="text" class="form-control"
-                                            name="dropAddress"autocomplete="off" id="dropAddress" placeholder=""
-                                            required value="{{ Request::get('destination') }}">
+                                        <input type="text" class="form-control" name="dropAddress" autocomplete="off" id="dropAddress" placeholder="" required value="{{ Request::get('destination') }}">
                                     </div>
                                 </div>
 
@@ -184,18 +141,14 @@
                                         <div class="col-lg-4 col-12">
                                             <div class="form-group mt-1">
                                                 <label for="pickup-location">Depart Date</label>
-                                                <input type="text" name="pickupdate"
-                                                    id="datepicker1"autocomplete="off" class="form-control"
-                                                    placeholder="dd-mm-yyy" required onchange="calc_amount();">
+                                                <input type="text" name="pickupdate" id="datepicker1" autocomplete="off" class="form-control" placeholder="dd-mm-yyy" required onchange="calc_amount();">
                                                 <!-- <input type="text" class="form-control" name="cust_mbl1" id="pickup-location" aria-describedby="emailHelp" placeholder="Phone Number" required> -->
                                             </div>
                                         </div>
                                         <div class="col-lg-4 col-12">
                                             <div class="form-group mt-1">
                                                 <label for="pickup-location"> Depart time</label>
-                                                <input type="time" name="pickuptime" required=""
-                                                    class="form-control timepicker" id=""
-                                                    placeholder="00:00">
+                                                <input type="time" name="pickuptime" required="" class="form-control timepicker" id="" placeholder="00:00">
 
                                             </div>
                                         </div>
@@ -237,19 +190,7 @@
                                 <!-- <button type="submit" class="booked w-100 border-0 p-2 mt-4"></button>-->
                             </div>
 
-                            <div class="p-3">
-                                <h6>Tariff Information</h6>
-                                <ul>
-                                    <li>One way minimum of 130 kms per calendar day</li>
-                                    <li>400 rupees driver bata</li>
-                                    <li>Toll Permit, Inter State Permit, Parking charges should be pay by customer,
-                                    </li>
-                                    <li>Round trip minimum of 250 kms per calendar day</li>
-                                    <li>Hill station charges</li>
-                                    <li>Waiting Charges are Applicable</li>
 
-                                </ul>
-                            </div>
                         </form>
                         <div class="modal fade" id="bookingModal" tabindex="-1" role="dialog" aria-labelledby="bookingModalLabel" aria-hidden="true">
                             <div class="modal-dialog" role="document">
@@ -274,13 +215,13 @@
                         </div>
                         @endif
 
-                    <!-- </div> -->
-                    <!-- </div> -->
-                    @if (Request::get('trip') == 'Round')
-            <h2>PLAN YOUR TRIP - <span style="font-size:22px">Round Trip</span></h2>
+                        <!-- </div> -->
+                        <!-- </div> -->
 
-                        <form class="" id="roundtrip" action="{{ route('booking.store') }}"
-                            method="POST">
+                        @if (Request::get('trip') == 'Round')
+
+
+                        <form class="" id="roundtrip" action="{{ route('booking.store') }}" method="POST">
                             @csrf
                             <input type="hidden" name="oneway_round1" id="oneway_round" value="Round">
                             <input type="hidden" name="from_place2" id="from_place2" value="{{ Request::get('source') }}">
@@ -302,15 +243,13 @@
                                 <div class="col-lg-6 col-12">
                                     <div class="form-group ">
                                         <label for="name">Full Name</label>
-                                        <input type="text" class="form-control" name="cust_name"
-                                            id="cust_name" placeholder="Full Name" required>
+                                        <input type="text" class="form-control" name="cust_name" id="cust_name" placeholder="Full Name" required>
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-12">
                                     <div class="form-group ">
                                         <label for="email">Email (optional)</label>
-                                        <input type="email" name="cust_email" id="cust_email"
-                                            class="form-control" placeholder="Enter Email">
+                                        <input type="email" name="cust_email" id="cust_email" class="form-control" placeholder="Enter Email">
                                     </div>
                                 </div>
                             </div>
@@ -319,17 +258,13 @@
                                 <div class="col-lg-6 col-12">
                                     <div class="form-group mt-1">
                                         <label for="pickup">Pick Up Address</label>
-                                        <input type="text" class="form-control" name="pickUpAddress"
-                                            id="pickUpAddress" placeholder=""
-                                            value="{{ Request::get('source') }}">
+                                        <input type="text" class="form-control" name="pickUpAddress" id="pickUpAddress" placeholder="" value="{{ Request::get('source') }}">
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-12">
                                     <div class="form-group mt-1">
                                         <label for="drop">Drop Address</label>
-                                        <input type="text" class="form-control" name="dropAddress"
-                                            id="dropAddress" placeholder="" required
-                                            value="{{ Request::get('destination') }}">
+                                        <input type="text" class="form-control" name="dropAddress" id="dropAddress" placeholder="" required value="{{ Request::get('destination') }}">
                                     </div>
                                 </div>
 
@@ -338,18 +273,14 @@
                                         <div class="col-lg-6 col-12">
                                             <div class="form-group mt-1">
                                                 <label for="pickup-location">Depart Date</label>
-                                                <input type="date" name="pickupdate" id="fromdate"
-                                                    class="form-control" placeholder="dd-mm-yyy" required
-                                                    onchange="calc_amount();">
+                                                <input type="date" name="pickupdate" id="fromdate" class="form-control" placeholder="dd-mm-yyy" required onchange="calc_amount();">
                                                 <!-- <input type="text" class="form-control" name="cust_mbl1" id="pickup-location" aria-describedby="emailHelp" placeholder="Phone Number" required> -->
                                             </div>
                                         </div>
                                         <div class="col-lg-6 col-12">
                                             <div class="form-group mt-1">
                                                 <label for="pickup-location">Return Date</label>
-                                                <input type="date" name="pickupdate" id="todate"
-                                                    class="form-control" placeholder="dd-mm-yyy" required
-                                                    onchange="calc_amount();">
+                                                <input type="date" name="pickupdate" id="todate" class="form-control" placeholder="dd-mm-yyy" required onchange="calc_amount();">
                                                 <!-- <input type="text" class="form-control" name="cust_mbl1" id="pickup-location" aria-describedby="emailHelp" placeholder="Phone Number" required> -->
                                             </div>
                                         </div>
@@ -363,16 +294,14 @@
                                         <div class="col-lg-6 col-12">
                                             <div class="form-group ">
                                                 <label for="pickup-location"> Phone Number</label>
-                                                
-                                                    <input type="text" class="form-control" name="cust_mbl1" autocomplete="off" id="pickup-location" aria-describedby="emailHelp" placeholder="Phone Number" pattern="[0-9]{10}" title="Please enter a numeric value with a maximum of 10 digits." required>
+
+                                                <input type="text" class="form-control" name="cust_mbl1" autocomplete="off" id="pickup-location" aria-describedby="emailHelp" placeholder="Phone Number" pattern="[0-9]{10}" title="Please enter a numeric value with a maximum of 10 digits." required>
                                             </div>
                                         </div>
                                         <div class="col-lg-6 col-12">
                                             <div class="form-group mt-1">
                                                 <label for="pickup-location"> Depart time</label>
-                                                <input type="time" name="pickuptime" required=""
-                                                    class="form-control timepicker" id=""
-                                                    placeholder="00:00">
+                                                <input type="time" name="pickuptime" required="" class="form-control timepicker" id="" placeholder="00:00">
 
                                             </div>
                                         </div>
@@ -421,149 +350,9 @@
                                 <button type="submit" class="btn btn-warning text-center" style="border-radius:5px;">PLACE A BOOKING</button>
                             </div>
 
-                            <div class="p-3 ">
-                                <h6>Tariff Information</h6>
-                                <ul>
-                                    <li>One way minimum of 130 kms per calendar day</li>
-                                    <li>400 rupees driver bata</li>
-                                    <li>Toll Permit, Inter State Permit, Parking charges should be pay by customer,
-                                    </li>
-                                    <li>Round trip minimum of 250 kms per calendar day</li>
-                                    <li>Hill station charges</li>
-                                    <li>Waiting Charges are Applicable</li>
 
-                                </ul>
-                            </div>
                         </form>
-                        <!-- <form class="mt-4" id="roundtrip" action="{{ route('booking.store') }}" method="POST">
-@csrf
-<input type="hidden" name="oneway_round1" id="oneway_round" value="Round">
-<input type="hidden" name="from_place2" id="from_place2" value="{{ Request::get('source') }}">
-<input type="hidden" name="to_place2" id="to_place2" value="{{ Request::get('destination') }}">
-<input type="hidden" name="pickupdate" id="depart_date2" value="{{ Request::get('pickupdate') }}">
-<input type="hidden" name="pickuptime" id="" value="{{ Request::get('pickuptime') }}">
-<input type="hidden" name="return_date2" id="return_date2" value="{{ Request::get('returndate') }}">
-<input type="hidden" name="car_id2" id="car_id2" value="">
-<input type="hidden" name="charge_per_km2" id="charge_per_km2" value="">
-<input type="hidden" name="distance2" id="distance2" value="{{ Request::get('distance') }}">
-<input type="hidden" name="amount2" id="amount2" value="">
-<input type="hidden" name="days2" id="days2" value="1">
-<input type="hidden" name="actualAmount2" id="actualAmount2" value="">
-<input type="hidden" name="driverBata2" id="driverBata2" value="">
 
-<div class="row">
-<br>
-<div class="col-lg-6 col-12">
-<div class="form-group mt-4">
-<label for="name">Full Name</label>
-<input type="text" class="form-control" name="cust_name" id="cust_name" placeholder="Full Name" required>
-</div>
-</div>
-<div class="col-lg-6 col-12">
-<div class="form-group mt-4">
-<label for="email">Email (optional)</label>
-<input type="email" name="cust_email" id="cust_email" class="form-control" placeholder="Enter Email">
-</div>
-</div>
-</div>
-<div class="row">
-<div class="col-lg-6 col-12">
-<div class="form-group mt-4">
-<label for="pickup">Pick Up Address</label>
-<input type="text" class="form-control" name="pickUpAddress" id="pickUpAddress" placeholder="" required value="{{ Request::get('source') }}">
-</div>
-</div>
-<div class="col-lg-6 col-12">
-<div class="form-group mt-4">
-<label for="drop">Drop Address</label>
-<input type="text" class="form-control" name="dropAddress" id="dropAddress" placeholder="" required value="{{ Request::get('destination') }}">
-</div>
-</div>
-<div class="col-lg-6 col-12">
-<div class="form-group mt-3">
-<label for="pickup-location">Enter Your Phone Number</label>
-<input type="text" class="form-control" name="cust_mbl1" id="pickup-location" aria-describedby="emailHelp" placeholder="Phone Number" required>
-</div>
-</div>
-</div>
-
-<div class="card mb-3 calculation border border-danger">
-<div class="row">
-<div class="col-md-6 col-6">
-<div class="card-body">
-<p class="card-title">Total Estimate Amount</p>
-<h6 class="text-center" id="amountText2">0</h6>
-<div class="col-md-6 col-6 pt-3">
-<div class='input-group date'>
-<div class="input-group mb-3 form_clock form_dnt">
-<span class="input-group-text"><i class="fa fa-calendar" aria-hidden="true"></i></span>
-<input type="text" name="pickupdate" id="datepicker3" class="form-control datetimepickerON" placeholder="Depart Date" required onchange="calc_amount();">
-</div>
-</div>
-</div>
-<div class="col-md-6 col-6 pt-3">
-<div class="input-group mb-3 form_clock form_dnt">
-<input type="time" name="pickuptime" required="" class="form-control timepicker" id="" placeholder="Select Time">
-</div>
-</div>
-<div class="col-md-4 col-6 mt0">
-<div class='input-group date'>
-<div class="input-group mb-3 form_clock form_dnt">
-<span class="input-group-text"><i class="fa fa-calendar" aria-hidden="true"></i></span>
-<input type="text" name="returndate" value="" class="form-control" id="datepicker1" placeholder="Return Date" onchange="calc_amount();">
-</div>
-</div>
-</div>
-
-<div class="card mb-3 calculation">
-<div class="row">
-<div class="col-md-6 col-6">
-<div class="card-body">
-<p class="card-title">Total Estimate Amount</p>
-<h6 class="text-center" id="amountText2">0</h6>
-</div>
-</div>
-<div class="col-md-6 col-6">
-<div class="card-body">
-<p class="card-title">This Trip Covers</p>
-<h6 class="text-center" id="distanceText2">
-{{ Request::get('distance') }} KM
-</h6>
-</div>
-</div>
-<div class="col-md-6 col-6">
-<div class="card-body">
-<p class="card-title">Journey Duration</p>
-<h6 class="text-center" id="durationText2">
-{{ Request::get('duration') }}
-</h6>
-</div>
-</div>
-<div class="col-md-6 col-6">
-<div class="card-body">
-<p class="card-title">No of Days</p>
-<h6 class="text-center" name="daysText2" id="daysText2">0</h6>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="col-12 row mt-4">
-<div class="col-lg-8 col-12">
-<div class="form-group mt-3">
-<label for="pickup-location">Enter Your Phone Number</label>
-<input type="text" class="form-control" name="cust_mbl1" id="pickup-location" aria-describedby="emailHelp" placeholder="Phone Number" required>
-</div>
-</div>
-</div>
-<div class="col-lg-4 col-12 my-lg-5 mb-4 proceed-btn">
-<button type="submit" class="btn btn-warning" style="border-radius:50px;">PLACE
-A
-BOOKING</button>
-</div>
-</div>
-
-</form> -->
                         @endif
                     </div>
                     <input type="hidden" name="from_place" id="from_place" value="{{ Request::get('from') }}" placeholder="from_place">
@@ -589,6 +378,19 @@ BOOKING</button>
                     <input type="hidden" name="max_km_per_day_round" id="max_km_per_day_round" value="250" placeholder="max_km_per_day_round">
 
                 </div>
+            </div>
+            <div class="p-3">
+                <h6>Tariff Information</h6>
+                <ul>
+                    <li>One way minimum of 130 kms per calendar day</li>
+                    <li>400 rupees driver bata</li>
+                    <li>Toll Permit, Inter State Permit, Parking charges should be pay by customer,
+                    </li>
+                    <li>Round trip minimum of 250 kms per calendar day</li>
+                    <li>Hill station charges</li>
+                    <li>Waiting Charges are Applicable</li>
+
+                </ul>
             </div>
         </div>
 </section>
@@ -978,7 +780,7 @@ BOOKING</button>
             // document.getElementById('distanceText2').innerHTML = newDistance + " km";
             // document.getElementById('durationText2').innerHTML = duration;
             var driverbata2 = driverBata * extraDays;
-            
+
             document.getElementById('actualAmount2').value = charge_per_km * newDistance;
             document.getElementById('driverBata2').value = driverbata2;
             document.getElementById('amount2').value = amount;

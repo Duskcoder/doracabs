@@ -8,6 +8,7 @@ use App\Http\Controllers\CarsController;
 use App\Http\Controllers\TripsController;
 use App\Models\Booking;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,7 +26,9 @@ use App\Models\Booking;
 
 //For Home Page
 Route::get('/', [HomeController::class, 'index'])->name('home');
-// Route::get('/home', [HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('about', [HomeController::class, 'about'])->name('about');
 Route::get('contact', [HomeController::class, 'contact'])->name('contact');
 Route::get('tariff', [HomeController::class, 'tariff'])->name('tariff');
@@ -40,9 +43,8 @@ Route::post('store', [BookingController::class, 'store'])->name('booking.store')
 Route::get('booking-result/{id}', [BookingController::class, 'bookingResult'])->name('booking-result');
 
 // Adim Panel
-Auth::routes();
-Route::get('/login', [App\Http\Controllers\AdminHomeController::class, 'index'])->name('login');
 
+Route::get('/login', [App\Http\Controllers\AdminHomeController::class, 'index'])->name('login');
 Route::get('dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
 
 

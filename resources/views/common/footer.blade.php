@@ -102,7 +102,7 @@
             <div id="callicon">
 
             <a href="tel: +91-8015521177 " title="Get A Call" id=calllogo
-            ><img class=" side-images " src="./assets/frontuser/images/call.png" alt="call" width="30" title="">
+            ><img class=" side-images " src="../assets/frontuser/images/call.png" alt="call" width="30" title="">
                 </a> 
 </div>
         
