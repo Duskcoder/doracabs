@@ -1,12 +1,25 @@
 @include('common.header')
 {{-- <script src="https://momentjs.com/downloads/moment.min.js"></script> --}}
 <section>
-    <div class="form my-1">
-        <div class="container">
+    <div class="form bookingForm">
+        <div class="container pt-4">
+            <!-- <div class="text-center py-3"> -->
+                <div >
+                <!-- <button class="nav-link  tablinks active"data-bs-toggle="tab" data-bs-target="#home"
+                                    type="button" role="tab" aria-controls="home" aria-selected="true"
+                                    onclick="oneway_round('Oneway');"><b>One way Trip</b></button>
+                   <button class="nav-link tablinks " data-bs-toggle="tab" data-bs-target="#contact"
+                                    type="button" role="tab" aria-controls="contact" aria-selected="false"
+                                    id="contact-tab"onclick="oneway_round('Round');"><b>Round Trip</b></button> -->
+<!-- </div> -->
+
+</div>
             <div class="row ">
                 <!-- <div class="col-sm-6 col-md-6 mt-lg-3">-->
                 <div class="col-md-6">
+                    <h3 class="pb-lg-4">Select Your Vehicle</h3>
                     @if (Request::get('trip') == 'Round')
+                    
                         @foreach ($cars as $car)
                             <div class="mb-3 d-flex align-items-center">
                                 <input type="radio" id="car1{{ $car->id }}" name="car1" style="display: none;">
@@ -97,11 +110,13 @@
             </div>
             <div class="col-md-6 ">
 
-                <h2>PLAN YOUR TRIP</h2>
+                
                 <div class="tab-content tab_section" id="myTabContent">
                     <!----- Start first outer tab ----->
-                    <!-- <div class="one_way_trip" id="home" role="tabpanel" aria-labelledby="home-tab"  id="oneway" ><b>One-Way Trip</b> -->
+                    <!-- <div class="one_way_trip" id="home" role="tabpanel" aria-labelledby="home-tab"  id="oneway" >One-Way Trip -->
                     @if (Request::get('trip') == 'Oneway')
+            <h2>PLAN YOUR TRIP - <span style="font-size:22px">One Way trip</span></h2>
+
                         <form class="" id="onewaytrip" action="{{ route('booking.store') }}" method="POST">
                             @csrf
                             <input type="hidden" name="oneway_round" id="oneway_round" value="Oneway">
@@ -122,17 +137,17 @@
                             <input type="hidden" name="actualAmount1" id="actualAmount1">
                             <input type="hidden" name="driverBata1" id="driverBataOneWay">
 
-                            <div class="row">
+                            <div class="row pt-lg-3">
                                 <div class="col-lg-6 col-12">
                                     <div class="form-group ">
-                                        <label for="name"><b>Full Name</b></label>
+                                        <label for="name">Full Name</label>
                                         <input type="text" class="form-control" name="cust_name"
                                             autocomplete="off" id="cust_name" placeholder="Full Name" required>
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-12">
                                     <div class="form-group ">
-                                        <label for="email"><b>Email (optional)</b></label>
+                                        <label for="email">Email (optional)</label>
                                         <input type="email" name="cust_email"
                                             id="cust_email"autocomplete="off" class="form-control"
                                             placeholder="Enter Email">
@@ -140,10 +155,10 @@
                                 </div>
                             </div>
 
-                            <div class="row">
+                            <div class="row pt-lg-3">
                                 <div class="col-lg-6 col-12">
                                     <div class="form-group mt-1">
-                                        <label for="pickup"><b>Pick Up Address</b></label>
+                                        <label for="pickup">Pick Up Address</label>
                                         <input type="text" class="form-control"
                                             name="pickUpAddress"autocomplete="off" id="pickUpAddress"
                                             placeholder="" value="{{ Request::get('source') }}">
@@ -151,7 +166,7 @@
                                 </div>
                                 <div class="col-lg-6 col-12">
                                     <div class="form-group mt-1">
-                                        <label for="drop"><b>Drop Address</b></label>
+                                        <label for="drop">Drop Address</label>
                                         <input type="text" class="form-control"
                                             name="dropAddress"autocomplete="off" id="dropAddress" placeholder=""
                                             required value="{{ Request::get('destination') }}">
@@ -159,10 +174,10 @@
                                 </div>
 
                                 <div class="col-12">
-                                    <div class="row">
+                                    <div class="row pt-lg-3">
                                         <div class="col-lg-4 col-12">
                                             <div class="form-group">
-                                                <label for="pickup-location"><b> Phone Number</b></label>
+                                                <label for="pickup-location"> Phone Number</label>
                                                 <input type="text" class="form-control"
                                                     name="cust_mbl1"autocomplete="off" id="pickup-location"
                                                     aria-describedby="emailHelp" placeholder="Phone Number"
@@ -171,7 +186,7 @@
                                         </div>
                                         <div class="col-lg-4 col-12">
                                             <div class="form-group mt-1">
-                                                <label for="pickup-location"><b>Depart Date</b></label>
+                                                <label for="pickup-location">Depart Date</label>
                                                 <input type="text" name="pickupdate"
                                                     id="datepicker1"autocomplete="off" class="form-control"
                                                     placeholder="dd-mm-yyy" required onchange="calc_amount();">
@@ -180,7 +195,7 @@
                                         </div>
                                         <div class="col-lg-4 col-12">
                                             <div class="form-group mt-1">
-                                                <label for="pickup-location"><b> Depart time</b></label>
+                                                <label for="pickup-location"> Depart time</label>
                                                 <input type="time" name="pickuptime" required=""
                                                     class="form-control timepicker" id=""
                                                     placeholder="00:00">
@@ -192,7 +207,7 @@
                             </div>
 
                             <br />
-                            <div class="card  my-4 calculation">
+                            <div class="card  mb-4 calculation">
                                 <div class="row">
                                     <div class="col-md-4 col-6">
                                         <div class="card-body">
@@ -269,6 +284,8 @@
                     <!-- </div> -->
                     <!-- </div> -->
                     @if (Request::get('trip') == 'Round')
+            <h2>PLAN YOUR TRIP - <span style="font-size:22px">Round Trip</span></h2>
+
                         <form class="" id="roundtrip" action="{{ route('booking.store') }}"
                             method="POST">
                             @csrf
@@ -295,27 +312,27 @@
                             <input type="hidden" name="driverBata2" id="driverBata2"
                                 value="{{ Request::get('duration') }}">
 
-                            <div class="row">
+                            <div class="row py-lg-2">
                                 <div class="col-lg-6 col-12">
                                     <div class="form-group ">
-                                        <label for="name"><b>Full Name</b></label>
+                                        <label for="name">Full Name</label>
                                         <input type="text" class="form-control" name="cust_name"
                                             id="cust_name" placeholder="Full Name" required>
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-12">
                                     <div class="form-group ">
-                                        <label for="email"><b>Email (optional)</b></label>
+                                        <label for="email">Email (optional)</label>
                                         <input type="email" name="cust_email" id="cust_email"
                                             class="form-control" placeholder="Enter Email">
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="row">
+                            <div class="row ">
                                 <div class="col-lg-6 col-12">
                                     <div class="form-group mt-1">
-                                        <label for="pickup"><b>Pick Up Address</b></label>
+                                        <label for="pickup">Pick Up Address</label>
                                         <input type="text" class="form-control" name="pickUpAddress"
                                             id="pickUpAddress" placeholder=""
                                             value="{{ Request::get('source') }}">
@@ -323,7 +340,7 @@
                                 </div>
                                 <div class="col-lg-6 col-12">
                                     <div class="form-group mt-1">
-                                        <label for="drop"><b>Drop Address</b></label>
+                                        <label for="drop">Drop Address</label>
                                         <input type="text" class="form-control" name="dropAddress"
                                             id="dropAddress" placeholder="" required
                                             value="{{ Request::get('destination') }}">
@@ -331,10 +348,10 @@
                                 </div>
 
                                 <div class="col-12 mt-1">
-                                    <div class="row">
+                                    <div class="row py-lg-2">
                                         <div class="col-lg-6 col-12">
                                             <div class="form-group mt-1">
-                                                <label for="pickup-location"><b>Depart Date</b></label>
+                                                <label for="pickup-location">Depart Date</label>
                                                 <input type="date" name="pickupdate" id="fromdate"
                                                     class="form-control" placeholder="dd-mm-yyy" required
                                                     onchange="calc_amount();">
@@ -343,7 +360,7 @@
                                         </div>
                                         <div class="col-lg-6 col-12">
                                             <div class="form-group mt-1">
-                                                <label for="pickup-location"><b>Return Date</b></label>
+                                                <label for="pickup-location">Return Date</label>
                                                 <input type="date" name="pickupdate" id="todate"
                                                     class="form-control" placeholder="dd-mm-yyy" required
                                                     onchange="calc_amount();">
@@ -359,7 +376,7 @@
                                     <div class="row">
                                         <div class="col-lg-6 col-12">
                                             <div class="form-group ">
-                                                <label for="pickup-location"><b> Phone Number</b></label>
+                                                <label for="pickup-location"> Phone Number</label>
                                                 <input type="text" class="form-control" name="cust_mbl1"
                                                     id="pickup-location" aria-describedby="emailHelp"
                                                     placeholder="Phone Number" required>
@@ -367,7 +384,7 @@
                                         </div>
                                         <div class="col-lg-6 col-12">
                                             <div class="form-group mt-1">
-                                                <label for="pickup-location"><b> Depart time</b></label>
+                                                <label for="pickup-location"> Depart time</label>
                                                 <input type="time" name="pickuptime" required=""
                                                     class="form-control timepicker" id=""
                                                     placeholder="00:00">
@@ -452,13 +469,13 @@
 <br>
 <div class="col-lg-6 col-12">
 <div class="form-group mt-4">
-<label for="name"><b>Full Name</b></label>
+<label for="name">Full Name</label>
 <input type="text" class="form-control" name="cust_name" id="cust_name" placeholder="Full Name" required>
 </div>
 </div>
 <div class="col-lg-6 col-12">
 <div class="form-group mt-4">
-<label for="email"><b>Email (optional)</b></label>
+<label for="email">Email (optional)</label>
 <input type="email" name="cust_email" id="cust_email" class="form-control" placeholder="Enter Email">
 </div>
 </div>
@@ -466,19 +483,19 @@
 <div class="row">
 <div class="col-lg-6 col-12">
 <div class="form-group mt-4">
-<label for="pickup"><b>Pick Up Address</b></label>
+<label for="pickup">Pick Up Address</label>
 <input type="text" class="form-control" name="pickUpAddress" id="pickUpAddress" placeholder="" required value="{{ Request::get('source') }}">
 </div>
 </div>
 <div class="col-lg-6 col-12">
 <div class="form-group mt-4">
-<label for="drop"><b>Drop Address</b></label>
+<label for="drop">Drop Address</label>
 <input type="text" class="form-control" name="dropAddress" id="dropAddress" placeholder="" required value="{{ Request::get('destination') }}">
 </div>
 </div>
 <div class="col-lg-6 col-12">
 <div class="form-group mt-3">
-<label for="pickup-location"><b>Enter Your Phone Number</b></label>
+<label for="pickup-location">Enter Your Phone Number</label>
 <input type="text" class="form-control" name="cust_mbl1" id="pickup-location" aria-describedby="emailHelp" placeholder="Phone Number" required>
 </div>
 </div>
@@ -548,7 +565,7 @@
 <div class="col-12 row mt-4">
 <div class="col-lg-8 col-12">
 <div class="form-group mt-3">
-<label for="pickup-location"><b>Enter Your Phone Number</b></label>
+<label for="pickup-location">Enter Your Phone Number</label>
 <input type="text" class="form-control" name="cust_mbl1" id="pickup-location" aria-describedby="emailHelp" placeholder="Phone Number" required>
 </div>
 </div>

@@ -8,8 +8,8 @@
 
     <section>
         <div class="row">
-            <div class="col-sm-6 tabs_img">
-                <div class="ban_imag pt-5">
+            <div class="col-md-6 tabs_img">
+                <div class="ban_imag ">
                     <div class="img">
                         <!-- <img src="./assets/frontuser/images/bann_img1.png"> -->
                         <img src="./assets/frontuser/images/Toyota1.png">
@@ -28,7 +28,7 @@
                             <li class="nav-item" role="presentation">
                                 <button class="nav-link tablinks " data-bs-toggle="tab" data-bs-target="#contact"
                                     type="button" role="tab" aria-controls="contact" aria-selected="false"
-                                    id="contact-tab"onclick="oneway_round('Round');"><b>Round Trip</b></button>
+                                    id="contact-tab" onclick="oneway_round('Round');"><b>Round Trip</b></button>
                             </li>
                         </ul>
 

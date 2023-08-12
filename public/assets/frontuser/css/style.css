@@ -67,7 +67,7 @@ img {
 }
 #top_call {
   /* border: 1px solid #cdcdcd; */
-  border-radius: 25px;
+  border-radius: 5px;
   background: #fbb53c;
  color:#000;
   padding: 7px 22px;
@@ -83,6 +83,7 @@ img {
   font-size: 12px !important;
 }
 #top_call2 {
+  margin-top: -17px;
   /* border: 1px solid #cdcdcd; */
   border-radius: 25px;
   background: #fbb53c;
@@ -811,6 +812,10 @@ input#inputAddress2::placeholder {
   margin-bottom: 0.5rem;
   color: #333;
   font-weight: 400;
+}
+
+.form-control{
+  font-size: 13px!important;
 }
 
 /*======= Blog Page =====*/
@@ -2142,7 +2147,11 @@ a.addmore {
     display: none;
   }
 }
-
+/* @media (min-width: 300px) {
+  .tabs_menu_inner {
+    width: 100% !important;
+  }
+} */
 @media (max-width: 600px) {
   .contentbox {
       
@@ -2336,6 +2345,7 @@ a.addmore {
     padding-top: 0px !important;
   }
 
+
   #form_btn {
     text-decoration: none;
     background-color: #fbb53c;
@@ -2356,6 +2366,7 @@ a.addmore {
   .tabs_img p {
     display: none;
   }
+  
   .car_detail_section .car_sec_text h2,
   .about_section .about_sec_text h2 {
     font-size: 1.5rem;
@@ -2365,6 +2376,7 @@ a.addmore {
   }
   .tabs_menu_inner {
     width: 100% !important;
+    margin-top: 45px;
   }
   .seo_banner .ban_imag .img,
   .seo_banner .ban_imag .img img {
@@ -2376,7 +2388,7 @@ a.addmore {
   .ban_imag .img img {
     object-fit: contain;
     width: 100%;
-    height: 125px;
+    height: 190px;
   }
 
   .tabcontent .nav-pills .nav-item .nav-link {
@@ -2763,7 +2775,43 @@ a.addmore {
   .agrmtcheck p {
     font-size: 14px !important;
   }
+
+/* .fixed_contact {
+  display: flex!important;
+  justify-content: space-between!important;
+  position:fixed ;
+  bottom:152px;
+  right:17px;
+  
+} */
+
+@media only screen and (max-width: 600px) {
+ 
+  .fixed_contact > #callicon{
+    display: block!important;
+    bottom: 10px!important;
+  }
+  .fixed_contact > #whatsappicon {
+   bottom: 10px!important; 
+  }
+ 
 }
+
+}
+.fixed_contact > #callicon{
+  position: fixed;
+  bottom: 30px;
+  left: 20px;
+  display: none;
+}
+.fixed_contact > #whatsappicon  {
+  position:fixed ;
+  display: block;
+  bottom:30px;
+  right:20px;
+
+}
+
 .proceed-btn {
   /* margin-left: 240px; */
   display: flex;
@@ -2778,11 +2826,12 @@ a.addmore {
   color: #fbb53c;
   border-color: #000;
 }
-.form-group b{
+.form-group {
   font-size: 13px;
 }.form-group input{
   margin-top: 7px;
 }
+
 
 /* input[type=radio]+ label::before {
   
@@ -2988,3 +3037,7 @@ label {
   font-size: 12px;
 }
 
+
+.bookingForm{
+   background-color: #f7f7f773;
+}

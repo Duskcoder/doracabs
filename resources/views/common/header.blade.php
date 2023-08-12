@@ -58,8 +58,8 @@
             </div>
             <a href="tel:+91 8015521177" class="btn" id="top_call"><i class="fa fa-phone" aria-hidden="true"></i>
             +91 8015521177 </a>
-            <a href="tel:+91 8015521177" class="btn " id="top_call2"><i class="fa fa-phone" aria-hidden="true"></i>
-          </a>
+            <!-- <a href="tel:+91 8015521177" class="btn " id="top_call2"><i class="fa fa-phone" aria-hidden="true"></i>
+          </a> -->
         </div>
 
     </nav>

@@ -92,17 +92,20 @@
             href="http://duskcoder.com/">DuskCoder TechnoSoft Corp.</a></p>
     </p>
 </div>
-<div class="fixed_contact" style="position:fixed ;bottom:82px;right:17px;">
-        <ul class="p-0 m-0 d-flex">
-            <li style="list-style:none;">
+<div class="fixed_contact" >
+
+        <div id="whatsappicon">
                 <a  target="blank" href="https://api.whatsapp.com/send?phone=8015521177&text=Hii" title="Sent Whatsapp Message" >
-                    <img class=" side-images" src="./assets/frontuser/images/w1.png" alt="whatsapp" height="50" width="50"  title="" >
+                    <img class=" what side-images" src="./assets/frontuser/images/w1.png" alt="whatsapp" width="40"  title="" >
                 </a>
-            </li>
-            <!-- <li style="list-style:none;"><a href="tel: +91-8637646693 " title="Get A Call"><img class=" side-images" src="./assets/frontuser/images/call.png" alt="whatsapp" height="
-            40 " width="40" title="">
-                </a> </li> -->
-        </ul>
+</div>
+            <div id="callicon">
+
+            <a href="tel: +91-8015521177 " title="Get A Call" id=calllogo
+            ><img class=" side-images " src="./assets/frontuser/images/call.png" alt="call" width="30" title="">
+                </a> 
+</div>
+        
     </div>
 
 </footer>

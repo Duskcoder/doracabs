@@ -39,7 +39,7 @@
                         </div>
                         <div class="ss-trip-dtl">
                             <div class="ss-price-list text-center">
-                                <p>₹<strong>{{$bookedData->actual_amount}}</strong><br/><span>Total Fare</span></p>
+                                <p>₹<strong>{{$bookedData->actual_amount    }}</strong><br/><span>Total Fare</span></p>
                                 <div class="ss-price-msg">
                                     <p>Lowest fare in the market</p>
                                 </div>
