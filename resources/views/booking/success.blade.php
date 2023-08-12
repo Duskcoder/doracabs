@@ -4,7 +4,7 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 
-<link rel="stylesheet" href="{{ asset('frontuser/success.css') }}">
+<link rel="stylesheet" href="{{ asset('frontuser/css/style.css') }}">
 <section>
 
     <div class="container">
@@ -39,7 +39,7 @@
                         </div>
                         <div class="ss-trip-dtl">
                             <div class="ss-price-list text-center">
-                                <p>₹<strong>{{$bookedData->actual_amount}}</strong><br/><span>Total Fare</span></p>
+                                <p>₹<strong>{{$bookedData->amount}}</strong><br /><span>Total Fare</span></p>
                                 <div class="ss-price-msg">
                                     <p>Lowest fare in the market</p>
                                 </div>
@@ -47,10 +47,8 @@
                         </div>
 
                         <div class="ss-tab-container">
-                            <label for="title-1" class="title">See fare details <span><i class="fa fa-angle-down"
-                                        aria-hidden="true"></i></span></label>
-                            <input type="checkbox" id="title-1" class="title">
-                            <div class="contentbox">
+                            <label for="title-1" class="title">See fare details <span class="toggle-icon"><i class="fa fa-angle-down" aria-hidden="true"></i></span></label>
+                            <div class="contentbox" id="title-1">
                                 <div class="ss-tb-cnt">
                                     <div class="ss-base-fare">
                                         <p>Base Fare</p>
@@ -95,22 +93,14 @@
 
 <br /><br />
 @include('common.footer')
-<script src="{{ asset('user-theme/assets/js/jquery-3.3.1.min.js') }}"></script>
+
 <!-- Include jQuery library -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-        $(document).ready(function() {
-            $('.title').on('click', function() {
-                $('.contentbox').toggle(); // or use .slideToggle() for a smoother animation
-            });
-        });
-    </script>
-        <script>
-        const checkbox = document.getElementById('title-1');
-        const contentbox = document.querySelector('.contentbox');
-
-        checkbox.addEventListener('click', function() {
-            contentbox.style.display = checkbox.checked ? 'block' : 'none';
-        });
-    </script>
-
+    $(document).ready(function () {
+      $('.title').click(function () {
+        $(this).toggleClass('active');
+        $('#title-1').slideToggle();
+        $(this).find('.toggle-icon i').toggleClass('fa-angle-down fa-angle-up');
+      });
+    });
+  </script>

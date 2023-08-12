@@ -2988,3 +2988,6 @@ label {
   font-size: 12px;
 }
 
+.contentbox {
+  display: none;
+}

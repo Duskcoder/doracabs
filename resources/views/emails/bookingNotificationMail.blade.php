@@ -21,7 +21,7 @@
                 <p>Your Booking Point Information:</p>
             </div>
             <div class="text-center">
-                <img src="{{asset('/assets/frontuser/images/dora cabs1.png')}}" alt="LOG" class="imagessize">
+                <img src="{{asset('/assets/frontuser/images/dora_cabs1.png')}}" alt="LOG" class="imagessize">
             </div>    
 Pick-up Point: {{$data['from_place']}}.<br>
 Drop Point: {{$data['to_place']}}.<br>
@@ -31,18 +31,14 @@ Depart Date: {{$data['depart_date_time']}}.<br>
 Email: {{$data['cust_email']}}<br>
 @endif
 @if($data['cust_mbl'])
-Phone Number 1: {{$data['cust_mbl']}}<br>
+Phone Number: {{$data['cust_mbl']}}<br>
 @endif
 @if($data['car_id'] == 1)
 Type of Vehicle: Sedan<br>
 @elseif($data['car_id'] == 2)
 Type of Vehicle: MUV<br>
 @endif
-@if($data['car_id'] == 1)
-Type of Vehicle: Sedan<br>
-@elseif($data['car_id'] == 2)
-Type of Vehicle: MUV<br>
-@endif
+
 @if($data['pickup_add'])
 Pick Up Address: {{$data['pickup_add']}}<br>
 @endif

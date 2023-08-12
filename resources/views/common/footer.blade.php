@@ -96,7 +96,7 @@
         <ul class="p-0 m-0 d-flex">
             <li style="list-style:none;">
                 <a  target="blank" href="https://api.whatsapp.com/send?phone=8015521177&text=Hii" title="Sent Whatsapp Message" >
-                    <img class=" side-images" src="./assets/frontuser/images/w1.png" alt="whatsapp" height="50" width="50"  title="" >
+                    <img class=" side-images" src="../assets/frontuser/images/w1.png" alt="whatsapp" height="50" width="50"  title="" >
                 </a>
             </li>
             <!-- <li style="list-style:none;"><a href="tel: +91-8637646693 " title="Get A Call"><img class=" side-images" src="./assets/frontuser/images/call.png" alt="whatsapp" height="
