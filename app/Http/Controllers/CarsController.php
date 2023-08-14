@@ -32,7 +32,7 @@ class CarsController extends Controller
     // {
     //     return view('cars.create');
     // }
- 
+
     /**
      * Store a newly created resource in storage.
      *
@@ -81,7 +81,7 @@ class CarsController extends Controller
      */
     public function show(Request $request)
     {
-        
+
     }
 
     /**
@@ -91,7 +91,7 @@ class CarsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    
+
     {
         $data = Cars::find($id);
         return view('cars.edit',compact('data'));
