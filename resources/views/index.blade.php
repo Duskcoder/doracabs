@@ -577,6 +577,10 @@
     <!-- Google API -->
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css">
     
+   
+   <script>
+    
+   </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDzLgce3y8jzRe5GdXksOdAqn30aFx-qv8&libraries=places,geometry&callback=initAutocomplete&v=weekly&channel=2" async></script>
     <script type="text/javascript">
         var placeSearch, autocomplete, autocomplete2;

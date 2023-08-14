@@ -6,6 +6,8 @@ use App\Http\Controllers\BookingController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CarsController;
 use App\Http\Controllers\TripsController;
+use App\Http\Controllers\AdminHomeController;
+use App\Http\Controllers\DashboardController;
 
 
 /*
@@ -40,10 +42,11 @@ Route::get('booking-result/{id}', [BookingController::class, 'bookingResult'])->
 
 // Adim Panel
 Auth::routes();
-Route::get('/login', [App\Http\Controllers\AdminHomeController::class, 'index'])->name('login');
-// Route::get('/home', [App\Http\Controllers\AdminHomeController::class, 'index'])->name('home');
-Route::get('dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
-// Route::get('/admin', [App\Http\Controllers\AdminHomeController::class, 'index'])->name('login');
+
+Route::get('login', [AdminHomeController::class, 'index'])->name('login');
+
+Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
 
 /*Dashboard*/
 
