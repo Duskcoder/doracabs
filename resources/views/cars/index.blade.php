@@ -83,14 +83,24 @@
         <script src="{{ asset('theme/assets/pages/jquery.datatable.init.js') }}"></script>
         @endpush
         @section('js-content')
+
+        
+
+
+
+
+
         <script type="text/javascript">
         $(function() {
             var table = $('#dataTableId').DataTable({
                 processing: true,
                 serverSide: true,
-                pageLength: 5,
+                // pageLength: 5,
                 lengthChange: false,
                 responsive: true,
+                pageLength: 10, 
+                order:[0,'desc'],
+                language: {search: "Filter records:"},
                 ajax: {
                     url: "{{ route('cars.search') }}",
                     data: function(d) {
@@ -98,6 +108,7 @@
                             d.search = $('input[type="search"]').val()
                     }
                 },
+
                 columns: [{
                         data: 'model_name',
                         name: 'model_name',

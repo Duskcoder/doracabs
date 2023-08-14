@@ -67,7 +67,7 @@ img {
 }
 #top_call {
   /* border: 1px solid #cdcdcd; */
-  border-radius: 25px;
+  border-radius: 5px;
   background: #fbb53c;
  color:#000;
   padding: 7px 22px;
@@ -83,6 +83,7 @@ img {
   font-size: 12px !important;
 }
 #top_call2 {
+  margin-top: -17px;
   /* border: 1px solid #cdcdcd; */
   border-radius: 25px;
   background: #fbb53c;
@@ -811,6 +812,10 @@ input#inputAddress2::placeholder {
   margin-bottom: 0.5rem;
   color: #333;
   font-weight: 400;
+}
+
+.form-control{
+  font-size: 13px!important;
 }
 
 /*======= Blog Page =====*/
@@ -2142,8 +2147,18 @@ a.addmore {
     display: none;
   }
 }
-
+/* @media (min-width: 300px) {
+  .tabs_menu_inner {
+    width: 100% !important;
+  }
+} */
 @media (max-width: 600px) {
+  .contentbox {
+      
+    padding-left: 50px;
+    text-align: center!important;
+   
+  }
   .row.pt-5.pb-5.blog_content {
     padding: 10px 0 !important;
   }
@@ -2330,6 +2345,7 @@ a.addmore {
     padding-top: 0px !important;
   }
 
+
   #form_btn {
     text-decoration: none;
     background-color: #fbb53c;
@@ -2350,6 +2366,7 @@ a.addmore {
   .tabs_img p {
     display: none;
   }
+  
   .car_detail_section .car_sec_text h2,
   .about_section .about_sec_text h2 {
     font-size: 1.5rem;
@@ -2359,6 +2376,7 @@ a.addmore {
   }
   .tabs_menu_inner {
     width: 100% !important;
+    margin-top: 45px;
   }
   .seo_banner .ban_imag .img,
   .seo_banner .ban_imag .img img {
@@ -2370,7 +2388,7 @@ a.addmore {
   .ban_imag .img img {
     object-fit: contain;
     width: 100%;
-    height: 125px;
+    height: 190px;
   }
 
   .tabcontent .nav-pills .nav-item .nav-link {
@@ -2757,7 +2775,43 @@ a.addmore {
   .agrmtcheck p {
     font-size: 14px !important;
   }
+
+/* .fixed_contact {
+  display: flex!important;
+  justify-content: space-between!important;
+  position:fixed ;
+  bottom:152px;
+  right:17px;
+  
+} */
+
+@media only screen and (max-width: 600px) {
+ 
+  .fixed_contact > #callicon{
+    display: block!important;
+    bottom: 10px!important;
+  }
+  .fixed_contact > #whatsappicon {
+   bottom: 10px!important; 
+  }
+ 
 }
+
+}
+.fixed_contact > #callicon{
+  position: fixed;
+  bottom: 30px;
+  left: 20px;
+  display: none;
+}
+.fixed_contact > #whatsappicon  {
+  position:fixed ;
+  display: block;
+  bottom:30px;
+  right:20px;
+
+}
+
 .proceed-btn {
   /* margin-left: 240px; */
   display: flex;
@@ -2772,11 +2826,12 @@ a.addmore {
   color: #fbb53c;
   border-color: #000;
 }
-.form-group b{
+.form-group {
   font-size: 13px;
 }.form-group input{
   margin-top: 7px;
 }
+
 
 /* input[type=radio]+ label::before {
   
@@ -2844,7 +2899,7 @@ input[type="radio"]:checked + .car-radio-label .radio-image-container {
 .modalbox.error {
 
   
-  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  box-shadow: 2px 2px 4px 1px #aea9a9;
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
@@ -2966,10 +3021,11 @@ label {
 .contentbox {
   margin: 0 auto;
   margin-bottom: 10px;
-  background: #ddd;
-  padding-left: 10px;
+  background: #ffffff;
+  /* padding-left: 100px; */
+  text-align: center;
   border-radius: 10px;
-  height: 0;
+  height: 100%;
   overflow: hidden;
   display: flex;
   transition: all 0.25s;
@@ -2981,36 +3037,16 @@ label {
   font-size: 12px;
 }
 
-------------------------*/
-#totop{
-    font-weight: 900;
-    background-color: #fbb53c!important;
-    display: none;
-    position: fixed;
-    right: 34px;
-    bottom: 50px;
-    z-index: 999;
-    height: 0;
-    width: 0;
-    font-size: 0;
-    text-align: center;
-    padding-top: 3px;
-    line-height: 34px;
-    border-radius: 3px;
-    transition: .3s ease-in-out;
+
+.bookingForm{
+   background-color: #f7f7f773;
 }
-#totop.top-visible {
-    height: 40px;
-    width: 40px;
-    font-size: 22px;
-    display: inline;
+.contentbox {
+  display: none;
 }
-@keyframes jump {
-  0% { bottom: 20px; } 50% { bottom: 40px; } 100% { bottom: 20px; }
-}
-#totop.top-visible  {
-  animation: jump 4s infinite;
-}
-.top{
-  background-color:#fbb53c ;
+
+
+.ss-location-cnt{
+  font-size: 14px;
+  text-align: center;
 }

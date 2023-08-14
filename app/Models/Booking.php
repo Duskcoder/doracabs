@@ -20,6 +20,7 @@ class Booking extends Model
         'distance',
         'amount',
         'depart_date_time',
+        'return_date_time',
         'cust_name',
         'cust_email',
         'cust_mbl',

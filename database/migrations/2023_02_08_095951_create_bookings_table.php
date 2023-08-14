@@ -24,6 +24,7 @@ return new class extends Migration
             $table->double('distance', 8, 2)->nullable();
             $table->double('amount', 8, 2)->nullable();
             $table->dateTime('depart_date_time')->nullable();
+            $table->dateTime('return_date_time')->nullable();
             $table->string('cust_name')->nullable();
             $table->string('cust_email')->nullable();
             $table->string('cust_mbl')->nullable();

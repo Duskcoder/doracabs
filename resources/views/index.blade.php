@@ -8,8 +8,8 @@
 
     <section>
         <div class="row">
-            <div class="col-sm-6 tabs_img">
-                <div class="ban_imag pt-5">
+            <div class="col-md-6 tabs_img">
+                <div class="ban_imag ">
                     <div class="img">
                         <!-- <img src="./assets/frontuser/images/bann_img1.png"> -->
                         <img src="./assets/frontuser/images/Toyota1.png">
@@ -28,7 +28,7 @@
                             <li class="nav-item" role="presentation">
                                 <button class="nav-link tablinks " data-bs-toggle="tab" data-bs-target="#contact"
                                     type="button" role="tab" aria-controls="contact" aria-selected="false"
-                                    id="contact-tab"onclick="oneway_round('Round');"><b>Round Trip</b></button>
+                                    id="contact-tab" onclick="oneway_round('Round');"><b>Round Trip</b></button>
                             </li>
                         </ul>
 
@@ -368,7 +368,7 @@
                     <div class="owl-item cloned" style="width: 821px; margin-right: 15px;">
                         <div class="card_people">
                             <div class="card">
-                                I have hired a round trip car rental service from Delhi to Pune. It was a very memorable experience with your friendly drivers. There are no additional charges, the pricing policy is too transparent and your punctuality was so good.
+                                I have hired a round trip car rental service from Delhi to Pune. It was a very memorable experience with your friendly drivers. There are no additional charges the pricing policy is too transparent
                                 <!--					  <div class="youtube-container">
                                                   <div class="youtube-player" data-id=""></div>
                           </div>-->
@@ -382,7 +382,7 @@
                     <div class="owl-item cloned" style="width: 821px; margin-right: 15px;">
                         <div class="card_people">
                             <div class="card">
-                                The service is great the driver is really humble and helpful. Last year before the pandemic, I had 3-4 visits to Outstation. Choosing a cab from airport in a big task, specially in Pune and Mumbai. Somehow I found Pravasi Cab and booked a taxi servic
+                                The service is great the driver is really humble and helpful. Last year before the pandemic, I had 3-4 visits to Outstation. Choosing a cab from airport in a big task, specially in Pune and Mumbai.
                                 <!--					  <div class="youtube-container">
                                                   <div class="youtube-player" data-id=""></div>
                           </div>-->
@@ -396,7 +396,7 @@
                     <div class="owl-item" style="width: 821px; margin-right: 15px;">
                         <div class="card_people">
                             <div class="card">
-                                The best taxi service for Airport pick and drop in Chandigarh. I have booked a taxi service from Chandigarh to Delhi with effortless booking experience. Your drivers are too friendly, that I’ll love the most and had enjoyed my journey as well.
+                                The best taxi service for Airport pick and drop in Chandigarh. I have booked a taxi service from Chandigarh to Delhi with effortless booking experience. Your drivers are too friendly. 
                                 <!--					  <div class="youtube-container">
                                                   <div class="youtube-player" data-id=""></div>
                           </div>-->
@@ -410,7 +410,7 @@
                     <div class="owl-item active center" style="width: 821px; margin-right: 15px;">
                         <div class="card_people">
                             <div class="card">
-                                Our flight was delayed by two hours, so we arrived at airport at 2am. I emailed the support address, and received a prompt reply saying the agent would update my driver. The driver was awaiting at the arrivals hall for me, then we finally got their.
+                                Our flight was delayed by two hours, so we arrived at airport at 2am. I emailed the support address, and received a prompt reply saying the agent would update my driver. 
                                 <!--					  <div class="youtube-container">
                                                   <div class="youtube-player" data-id=""></div>
                           </div>-->
@@ -438,7 +438,7 @@
                     <div class="owl-item" style="width: 821px; margin-right: 15px;">
                         <div class="card_people">
                             <div class="card">
-                                I have hired a round trip car rental service from Delhi to Pune. It was a very memorable experience with your friendly drivers. There are no additional charges, the pricing policy is too transparent and your punctuality was so good.
+                                I have hired a round trip car rental service from Delhi to Pune. It was a very memorable experience with your friendly drivers. There are no additional charges the pricing policy is too transparent 
                                 <!--					  <div class="youtube-container">
                                                   <div class="youtube-player" data-id=""></div>
                           </div>-->
@@ -452,7 +452,7 @@
                     <div class="owl-item" style="width: 821px; margin-right: 15px;">
                         <div class="card_people">
                             <div class="card">
-                                The service is great the driver is really humble and helpful. Last year before the pandemic, I had 3-4 visits to Outstation. Choosing a cab from airport in a big task, specially in Pune and Mumbai. Somehow I found Pravasi Cab and booked a taxi servic
+                                The service is great the driver is really humble and helpful. Last year before the pandemic, I had 3-4 visits to Outstation. Choosing a cab from airport in a big task, specially in Pune and Mumbai. 
                                 <!--					  <div class="youtube-container">
                                                   <div class="youtube-player" data-id=""></div>
                           </div>-->
@@ -466,7 +466,7 @@
                     <div class="owl-item cloned" style="width: 821px; margin-right: 15px;">
                         <div class="card_people">
                             <div class="card">
-                                The best taxi service for Airport pick and drop in Chandigarh. I have booked a taxi service from Chandigarh to Delhi with effortless booking experience. Your drivers are too friendly, that I’ll love the most and had enjoyed my journey as well.
+                                The best taxi service for Airport pick and drop in Chandigarh. I have booked a taxi service from Chandigarh to Delhi with effortless booking experience. Your drivers are too friendly.
                                 <!--					  <div class="youtube-container">
                                                   <div class="youtube-player" data-id=""></div>
                           </div>-->
@@ -480,7 +480,7 @@
                     <div class="owl-item cloned" style="width: 821px; margin-right: 15px;">
                         <div class="card_people">
                             <div class="card">
-                                Our flight was delayed by two hours, so we arrived at airport at 2am. I emailed the support address, and received a prompt reply saying the agent would update my driver. The driver was awaiting at the arrivals hall for me, then we finally got their.
+                                Our flight was delayed by two hours, so we arrived at airport at 2am. I emailed the support address, and received a prompt reply saying the agent would update my driver. 
                                 <!--					  <div class="youtube-container">
                                                   <div class="youtube-player" data-id=""></div>
                           </div>-->
@@ -507,8 +507,8 @@
                     </div>
                 </div>
             </div>
-            <div class="owl-nav disabled"><button type="button" role="presentation" class="owl-prev"><span aria-label="Previous">‹</span></button><button type="button" role="presentation" class="owl-next"><span aria-label="Next">›</span></button></div>
-            <div class="owl-dots">
+            <!-- <div class="owl-nav disabled"><button type="button" role="presentation" class="owl-prev"><span aria-label="Previous">‹</span></button><button type="button" role="presentation" class="owl-next"><span aria-label="Next">›</span></button></div> -->
+            <!-- <div class="owl-dots">
                 <button role="button" class="owl-dot">
                     <span></span>
                 </button>
@@ -519,8 +519,8 @@
                     <span></span>
                 </button>
                 <button role="button" class="owl-dot"><span></span></button><button role="button" class="owl-dot"><span></span></button>
-            </div>
-        </div>
+            </div> -->
+        <!-- </div> -->
         <button type="submit" class="btn people_btn mt-5"> View All</button>
     </div>
 </section>
