@@ -41,17 +41,17 @@
                     <tr >
                       <td >Hatchback (Indica)</td>
                       <td >Rs. 13/km</td>
-                      <td >Rs. 10/km</td>
-                    </tr>
-                    <tr >
-                      <td >Sedan (Indigo / Etios / Dzire)</td>
-                      <td >Rs. 13/km</td>
                       <td >Rs. 12/km</td>
                     </tr>
                     <tr >
+                      <td >Sedan (Indigo / Etios / Dzire)</td>
+                      <td >Rs. 14/km</td>
+                      <td >Rs. 13/km</td>
+                    </tr>
+                    <tr >
                       <td >MUV (Innova / Xylo / Enjoy)</td>
-                      <td >Rs. 18/km</td>
-                      <td >Rs. 15/km</td>
+                      <td >Rs. 19/km</td>
+                      <td >Rs. 17/km</td>
                     </tr>
                     <tr >
                       <td >Tempo Traveller</td>
