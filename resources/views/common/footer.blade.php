@@ -92,21 +92,51 @@
             href="http://duskcoder.com/">DuskCoder TechnoSoft Corp.</a></p>
     </p>
 </div>
-<div class="fixed_contact" style="position:fixed ;bottom:82px;right:17px;">
-        <ul class="p-0 m-0 d-flex">
-            <li style="list-style:none;">
-                <a  target="blank" href="https://api.whatsapp.com/send?phone=8015521177&text=Hii" title="Sent Whatsapp Message" >
-                    <img class=" side-images" src="./assets/frontuser/images/w1.png" alt="whatsapp" height="50" width="50"  title="" >
-                </a>
-            </li>
-            <!-- <li style="list-style:none;"><a href="tel: +91-8637646693 " title="Get A Call"><img class=" side-images" src="./assets/frontuser/images/call.png" alt="whatsapp" height="
-            40 " width="40" title="">
-                </a> </li> -->
-        </ul>
+<div class="fixed_contact">
+
+    <div id="whatsappicon">
+        <a target="blank" href="https://api.whatsapp.com/send?phone=8015521177&text=Hii" title="Sent Whatsapp Message">
+            <img class=" side-images float-start" src="../assets/frontuser/images/w1.png" alt="whatsapp" height="50"
+                width="50" title="">
+        </a>
+    </div>
+    <div id="callicon">
+
+        <a href="tel: +91-8015521177 " title="Get A Call" id=calllogo><img class=" side-images "
+                src="../assets/frontuser/images/call.png" alt="call" width="30" title="">
+        </a>
     </div>
 
+</div>
+<div class="totop" class="float-end">
+    <a id="totop" href="#top">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
 </footer>
+<script>
+    // ===== Scroll to Top ====
 
+    
+    jQuery(document).ready(function($) {
+        jQuery('#totop').hide();
+
+        if (jQuery(this).scrollTop() < 500) { // If page is scrolled more than 50px
+            jQuery('#totop').fadeIn(200); // Fade in the arrow
+            jQuery('#totop').addClass('top-visible');
+        } else {
+            jQuery('#totop').fadeOut(200); // Else fade out the arrow
+            jQuery('#totop').removeClass('top-visible');
+        }
+    });
+
+    jQuery('#totop').on("click", function() { // When arrow is clicked
+        jQuery('body,html').animate({
+            scrollTop: 0 // Scroll to top of body
+        }, 500);
+        return false;
+    });
+</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" referrerpolicy="no-referrer"></script>
 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>

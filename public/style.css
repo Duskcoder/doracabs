@@ -2,14 +2,14 @@
     font-weight: 600;
     color: black;
     font-size: 15px;
-    margin-left: 20px;    
+    margin-left: 20px;
 }
 .booking-form .button button,.form .button button{
     cursor: pointer;
 }
 .company-number{
    background-color: #FFBF00;
-   border-radius: 40px;    
+   border-radius: 40px;
 }
 .company-number a{
     color: black;
@@ -141,7 +141,7 @@ div.card.card.mb-3.calculation{margin-top:1rem;}
 }
 
 #services .thead{
-    background-color: #FFBF00; 
+    background-color: #FFBF00;
 }
 
 #contact_us .send{
@@ -157,14 +157,14 @@ div.card.card.mb-3.calculation{margin-top:1rem;}
         font-size: 18px;
         text-align: center;
         margin-top: 20px;
-    }   
+    }
     #main .section-3 .info-text{
         font-size: 12px;
         text-align: center;
     }
     #main .section-3 .sub-heading{
         font-size: 12px;
-    } 
+    }
     #main #slides .right-content{
         text-align: center;
         margin-left: 20px;
@@ -196,7 +196,7 @@ div.card.card.mb-3.calculation{margin-top:1rem;}
     #main #app h2{
         font-size: 20px;
         text-align: center;
-    }  
+    }
     #main #app .info-text{
         font-size: 14px;
         text-align: center;
@@ -211,12 +211,23 @@ div.card.card.mb-3.calculation{margin-top:1rem;}
     }
     .form .col-3{
         margin-top: 20px;
-    }    
+    }
     .form .calculation .card-title{
     font-size: 10px;
     text-align: center;
     }
-   
-    
-}
+    #roundtrip {
+        /* margin-left: 20px; */
+        margin: 20px !important;
+    }
+    #onewaytrip {
+        /* margin-left: 20px; */
+        margin: 20px !important;
+    }
 
+}
+.form-control:disabled, .form-control[readonly] {
+    background-color: #fffbdd;
+    opacity: 1;
+    color:rgb(132 127 127);
+}
