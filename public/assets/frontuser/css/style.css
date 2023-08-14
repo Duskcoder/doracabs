@@ -685,10 +685,10 @@ input#inputAddress2::placeholder {
   text-align: center;
 }
 /*.service_card{
-	align-items:center; 
-	width: 100%; 
-	margin: auto; 
-	
+	align-items:center;
+	width: 100%;
+	margin: auto;
+
 }*/
 
 /*======== Popular routes ====*/
@@ -1549,7 +1549,7 @@ a.link_inner {
   .success_cont h2 {
     font-size: 28px;
   }
-  
+
   .mob_hide {
     display: none;
   }
@@ -2154,10 +2154,10 @@ a.addmore {
 } */
 @media (max-width: 600px) {
   .contentbox {
-      
+
     padding-left: 50px;
     text-align: center!important;
-   
+
   }
   .row.pt-5.pb-5.blog_content {
     padding: 10px 0 !important;
@@ -2176,7 +2176,7 @@ a.addmore {
   }
   .inrabt_img img {
     width: 100%!important;
-  
+
   }
   .data_from .col-md-6 {
     margin-bottom: 15px;
@@ -2268,9 +2268,9 @@ a.addmore {
   .tabs_menu {
     margin-top: 15px !important;
   }
-  
+
   /*#top_call_icon img{
-			width: 25px !important;	
+			width: 25px !important;
 		}*/
   #top_call_icon {
     display: flex !important;
@@ -2280,7 +2280,7 @@ a.addmore {
     left: -20px;
     margin-top: 4px;
   }
-  
+
 
   #top_call_icon span a {
     margin-right: 10px;
@@ -2314,7 +2314,7 @@ a.addmore {
   #top_call {
     display: none;
   }
-  
+
 
   .tabs_menu {
     order: 1;
@@ -2366,7 +2366,7 @@ a.addmore {
   .tabs_img p {
     display: none;
   }
-  
+
   .car_detail_section .car_sec_text h2,
   .about_section .about_sec_text h2 {
     font-size: 1.5rem;
@@ -2782,19 +2782,19 @@ a.addmore {
   position:fixed ;
   bottom:152px;
   right:17px;
-  
+
 } */
 
 @media only screen and (max-width: 600px) {
- 
+
   .fixed_contact > #callicon{
     display: block!important;
     bottom: 15px!important;
   }
   .fixed_contact > #whatsappicon {
-   bottom: 10px!important; 
+   bottom: 10px!important;
   }
- 
+
 }
 
 }
@@ -2838,7 +2838,7 @@ a.addmore {
 
 
 /* input[type=radio]+ label::before {
-  
+
   border: 0px;
 
   height: 8em;
@@ -2848,9 +2848,9 @@ vertical-align: middle;
 content: "";
 display: inline-block;
 width: 160px;
-height: 68px; 
+height: 68px;
 border: 1px solid #ccc;
-border-radius: 3px; 
+border-radius: 3px;
 margin-right: 5px;
 position: absolute;
 top: 50%;
@@ -2902,7 +2902,7 @@ input[type="radio"]:checked + .car-radio-label .radio-image-container {
 .modalbox.success,
 .modalbox.error {
 
-  
+
   box-shadow: 2px 2px 4px 1px #aea9a9;
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   -webkit-border-radius: 2px;
@@ -2911,7 +2911,7 @@ input[type="radio"]:checked + .car-radio-label .radio-image-container {
   background: #ffffffd1;
   padding: 25px 25px 15px;
   text-align: center;
-  
+
 }
 
 .ss-location-cnt {

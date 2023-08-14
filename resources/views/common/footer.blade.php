@@ -90,26 +90,27 @@
             href="http://duskcoder.com/">DuskCoder TechnoSoft Corp.</a></p>
     </p>
 </div>
-<div class="fixed_contact" >
+<div class="fixed_contact">
 
-        <div id="whatsappicon">
-                <a  target="blank" href="https://api.whatsapp.com/send?phone=8015521177&text=Hii" title="Sent Whatsapp Message" >
-                    <img class=" side-images" src="../assets/frontuser/images/w1.png" alt="whatsapp" height="50" width="50"  title="" >
-                </a>
-</div>
-            <div id="callicon">
+    <div id="whatsappicon">
+        <a target="blank" href="https://api.whatsapp.com/send?phone=8015521177&text=Hii" title="Sent Whatsapp Message">
+            <img class=" side-images float-start" src="../assets/frontuser/images/w1.png" alt="whatsapp" height="50"
+                width="50" title="">
+        </a>
+    </div>
+    <div id="callicon">
 
-            <a href="tel: +91-8015521177 " title="Get A Call" id=calllogo
-            ><img class=" side-images " src="../assets/frontuser/images/call.png" alt="call" width="30" title="">
-                </a> 
-</div>
-        
+        <a href="tel: +91-8015521177 " title="Get A Call" id=calllogo><img class=" side-images "
+                src="../assets/frontuser/images/call.png" alt="call" width="30" title="">
+        </a>
     </div>
 
 
 
    
 </footer>
+<script>
+    // ===== Scroll to Top ====
 
    
         <button class="top-visible"  onclick="topFunction()" id="myBtn" title="Go to top"><i class="fa fa-angle-up"></i></button>

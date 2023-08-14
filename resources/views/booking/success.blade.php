@@ -23,13 +23,13 @@
 
                 <div class="ss-success-dtl">
                     <div class="ss-location-cnt">
-                        <div class="ss-location">
+                        <div class="ss-location" style="text-align: center">
                             <i class="fa fa-map-marker" aria-hidden="true"></i>
                             <strong>{{$bookedData->from_place}}</strong> to
                             <strong>{{$bookedData->to_place}}</strong>
                         </div>
-                        <div class="ss-time-date">
-                            <p>on <strong>{{$bookedData->depart_date_time}}</strong></p>
+                        <div class="ss-time-date" >
+                            <p style="text-align:center">on <strong>{{$bookedData->depart_date_time}}</strong></p>
                         </div>
                     </div>
 
@@ -38,10 +38,10 @@
                             {{$bookedData->oneway_round}} trip of about {{$bookedData->distance}} KM
                         </div>
                         <div class="ss-trip-dtl">
-                            <div class="ss-price-list text-center">
-                                <p>₹<strong>{{$bookedData->amount}}</strong><br /><span>Total Fare</span></p>
+                            <div class="ss-price-list">
+                                <p style="text-align: center">₹<strong>{{$bookedData->amount}}</strong><br /><span>Total Fare </span></p>
                                 <div class="ss-price-msg">
-                                    <p>Lowest fare in the market</p>
+                                    <p style="text-align: center">Lowest fare in the market</p>
                                 </div>
                             </div>
                         </div>

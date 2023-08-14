@@ -103,14 +103,14 @@
                             <div class="row pt-lg-3">
                                 <div class="col-lg-6 col-12">
                                     <div class="form-group ">
-                                        <label for="name">Full Name</label>
-                                        <input type="text" class="form-control" name="cust_name" autocomplete="off" id="cust_name" placeholder="Full Name" required>
+                                        <label for="pickup">Pick Up Address</label>
+                                        <input type="text" class="form-control" name="pickUpAddress" autocomplete="off" id="pickUpAddress" placeholder="" value="{{ Request::get('source') }}" readonly>
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-12">
-                                    <div class="form-group ">
-                                        <label for="email">Email (optional)</label>
-                                        <input type="email" name="cust_email" id="cust_email" autocomplete="off" class="form-control" placeholder="Enter Email">
+                                    <div class="form-group">
+                                        <label for="drop">Drop Address</label>
+                                        <input type="text" class="form-control" name="dropAddress" autocomplete="off" id="dropAddress" placeholder="" required value="{{ Request::get('destination') }}" readonly>
                                     </div>
                                 </div>
                             </div>
@@ -118,16 +118,17 @@
                             <div class="row pt-lg-3">
                                 <div class="col-lg-6 col-12">
                                     <div class="form-group mt-1">
-                                        <label for="pickup">Pick Up Address</label>
-                                        <input type="text" class="form-control" name="pickUpAddress" autocomplete="off" id="pickUpAddress" placeholder="" value="{{ Request::get('source') }}">
+                                        <label for="name">Full Name</label>
+                                        <input type="text" class="form-control" name="cust_name" autocomplete="off" id="cust_name" placeholder="Full Name" required>
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-12">
                                     <div class="form-group mt-1">
-                                        <label for="drop">Drop Address</label>
-                                        <input type="text" class="form-control" name="dropAddress" autocomplete="off" id="dropAddress" placeholder="" required value="{{ Request::get('destination') }}">
+                                        <label for="email">Email (optional)</label>
+                                        <input type="email" name="cust_email" id="cust_email" autocomplete="off" class="form-control" placeholder="Enter Email">
                                     </div>
                                 </div>
+
 
                                 <div class="col-12">
                                     <div class="row pt-lg-3">
@@ -241,30 +242,31 @@
 
                             <div class="row py-lg-2">
                                 <div class="col-lg-6 col-12">
+                                    <div class="form-group">
+                                        <label for="pickup">Pick Up Address</label>
+                                        <input type="text" class="form-control" name="pickUpAddress" id="pickUpAddress" placeholder="" value="{{ Request::get('source') }}" readonly>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-12">
                                     <div class="form-group ">
+                                        <label for="drop">Drop Address</label>
+                                        <input type="text" class="form-control" name="dropAddress" id="dropAddress" placeholder="" required value="{{ Request::get('destination') }}" readonly>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="row ">
+                                <div class="col-lg-6 col-12">
+                                    <div class="form-group  mt-1">
                                         <label for="name">Full Name</label>
                                         <input type="text" class="form-control" name="cust_name" id="cust_name" placeholder="Full Name" required>
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-12">
-                                    <div class="form-group ">
+                                    <div class="form-group mt-1">
                                         <label for="email">Email (optional)</label>
                                         <input type="email" name="cust_email" id="cust_email" class="form-control" placeholder="Enter Email">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row ">
-                                <div class="col-lg-6 col-12">
-                                    <div class="form-group mt-1">
-                                        <label for="pickup">Pick Up Address</label>
-                                        <input type="text" class="form-control" name="pickUpAddress" id="pickUpAddress" placeholder="" value="{{ Request::get('source') }}">
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-12">
-                                    <div class="form-group mt-1">
-                                        <label for="drop">Drop Address</label>
-                                        <input type="text" class="form-control" name="dropAddress" id="dropAddress" placeholder="" required value="{{ Request::get('destination') }}">
                                     </div>
                                 </div>
 
@@ -314,13 +316,13 @@
 
                             <div class="card  my-3 calculation">
                                 <div class="row">
-                                    <div class="col-md-3 col-6">
+                                    <div class="col-md-3 col-6 col-sm-2 ">
                                         <div class="card-body">
                                             <p class="card-title">Total Amount</p>
                                             <h6 class="text-center" name="actualAmount" id="amountText2">0</h6>
                                         </div>
                                     </div>
-                                    <div class="col-md-3 col-6">
+                                    <div class="col-md-3 col-6 col-sm-2">
                                         <div class="card-body">
                                             <p class="card-title"> Trip Covers</p>
                                             <h6 class="text-center" name="pickuptime" id="distanceText2">
@@ -328,7 +330,7 @@
                                             </h6>
                                         </div>
                                     </div>
-                                    <div class="col-md-3 col-12">
+                                    <div class="col-md-3 col-6 col-sm-2">
                                         <div class="card-body">
                                             <p class="card-title">Duration</p>
                                             <h6 class="text-center" name="returndate" id="durationText2">
@@ -336,7 +338,7 @@
                                             </h6>
                                         </div>
                                     </div>
-                                    <div class="col-md-3 col-6">
+                                    <div class="col-md-3 col-6 col-sm-2">
                                         <div class="card-body">
                                             <p class="card-title">No of Days</p>
                                             <h6 class="text-center" name="daysText2" id="daysText2">0</h6>

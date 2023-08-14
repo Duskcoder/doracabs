@@ -6,7 +6,8 @@ use App\Http\Controllers\BookingController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CarsController;
 use App\Http\Controllers\TripsController;
-use App\Models\Booking;
+use App\Http\Controllers\superadmincontroller;
+use Illuminate\Support\Facades\Auth;
 
 
 /*
@@ -23,12 +24,33 @@ use App\Models\Booking;
     Mail::to('dhivyashree.duskcoder@gmail.com')->send(new ContactMail());
 });*/
 
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\AdminHomeController::class, 'index'])->name('home');
+Route::get('dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
+
+
+/*Dashboard*/
+
+
+/*Cars*/
+Route::get('cars/search', [CarsController::class, 'search'])->name('cars.search');
+Route::get('cars/delete-restore/{id}', [CarsController::class, 'deleteRestoreCar'])->name('cars.delete-restore');
+Route::resource('cars', CarsController::class);
+
+/*Booked-Trips*/
+Route::get('booked-trips/search', [TripsController::class, 'search'])->name('booked-trips.search');
+Route::resource('booked-trips', TripsController::class);
+
+
+// this is super admin
+// Route::get('superadmin', [superadmincontroller::class,'index']);
+
+
+
 
 //For Home Page
-Route::get('/', [HomeController::class, 'index'])->name('home');
-
-Auth::routes();
-Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('home2');
 Route::get('about', [HomeController::class, 'about'])->name('about');
 Route::get('contact', [HomeController::class, 'contact'])->name('contact');
 Route::get('tariff', [HomeController::class, 'tariff'])->name('tariff');
@@ -44,24 +66,8 @@ Route::get('booking-result/{id}', [BookingController::class, 'bookingResult'])->
 
 // Adim Panel
 
-Route::get('/login', [App\Http\Controllers\AdminHomeController::class, 'index'])->name('login');
-Route::get('dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
-
-
-
-
-/*Cars*/
-Route::get('cars/search', [CarsController::class, 'search'])->name('cars.search');
-Route::get('cars/delete-restore/{id}', [CarsController::class, 'deleteRestoreCar'])->name('cars.delete-restore');
-Route::resource('cars', CarsController::class);
-
-/*Booked-Trips*/
-Route::get('booked-trips/search', [TripsController::class, 'search'])->name('booked-trips.search');
-Route::resource('booked-trips', TripsController::class);
 
 
 
 
 // Auth::routes();
-
-
