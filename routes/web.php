@@ -37,7 +37,7 @@ Route::get('dashboard', [App\Http\Controllers\DashboardController::class, 'index
 Route::get('cars/search', [CarsController::class, 'search'])->name('cars.search');
 Route::get('cars/delete-restore/{id}', [CarsController::class, 'deleteRestoreCar'])->name('cars.delete-restore');
 Route::resource('cars', CarsController::class);
-
+Route::post('cars/create', [App\Http\Controllers\CarsController::class, 'create'])->name('carcreate');
 /*Booked-Trips*/
 Route::get('booked-trips/search', [TripsController::class, 'search'])->name('booked-trips.search');
 Route::resource('booked-trips', TripsController::class);

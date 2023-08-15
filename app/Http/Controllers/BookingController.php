@@ -28,7 +28,7 @@ class BookingController extends Controller
     {
         $cars=Cars::orderBy('created_at', 'asc')->get();
         return view('booking.create')->with(compact('cars'));
-       
+
     }
 
     //
@@ -129,7 +129,7 @@ class BookingController extends Controller
         return redirect()->route('booking-result', [$bookings->id]);
 
 
-        
+
 
     }
     public function bookingResult($id)
