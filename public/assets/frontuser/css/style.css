@@ -2789,7 +2789,7 @@ a.addmore {
 
   .fixed_contact > #callicon{
     display: block!important;
-    bottom: 10px!important;
+    bottom: 15px!important;
   }
   .fixed_contact > #whatsappicon {
    bottom: 10px!important;
@@ -2801,8 +2801,12 @@ a.addmore {
 .fixed_contact > #callicon{
   position: fixed;
   bottom: 30px;
-  left: 20px;
+  left: 150px;
   display: none;
+  background-color: rgb(236, 155, 48);
+  padding:6px;
+    border-radius: 25px;
+    z-index: 1000;
 }
 .fixed_contact > #whatsappicon  {
   position:fixed ;
@@ -3050,36 +3054,54 @@ label {
   font-size: 14px;
   text-align: center;
 }
------------------------*/
-/* #totop{
-    font-weight: 900;
-    color: #0b0b0b ;
-    display: none;
-    position: fixed;
-    right: 34px;
-    bottom: 50px;
-    z-index: 999;
-    font-size: 0;
-    text-align: center;
-    padding-top: 3px;
-    line-height: 34px;
-    border-radius: 3px;
-    transition: .3s ease-in-out;
-}
-#totop.top-visible {
-    height: 40px;
-    width: 40px;
-    font-size: 22px;
-    display: inline;
-} */
 
-.totop {
-    position: fixed;
-    right:0px !important;
+#myBtn {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 99;
+  font-size: 22px;
+  border: none;
+  outline: none;
+  background-color: black;
+  color: #ffb758;
+  cursor: pointer;
+  font-weight: bold!important;
+  padding: 4px 15px;
+  border-radius: 4px;
 }
+
+/* #totop{
+  font-weight: 900;
+  color: #fff ;
+  display: none;
+  position: fixed;
+  right: 34px;
+  bottom: 50px;
+  z-index: 999;
+  height: 0;
+  width: 5px;
+  font-size: 0;
+  text-align: center;
+  padding-top: 3px;
+  line-height: 34px;
+  border-radius: 3px;
+  transition: .3s ease-in-out;
+} */
+/* #totop.top-visible {
+  height: 40px;
+  width: 40px;
+  font-size: 22px;
+  display: inline;
+  background-color: black;
+  color:#ffb758;
+} */
 @keyframes jump {
-  0% { bottom: 20px; } 50% { bottom: 40px; } 100% { bottom: 20px; }
-}
-#totop.top-visible  {
-  animation: jump 4s infinite;
-}
+0% { bottom: 20px; } 50% { bottom: 40px; } 100% { bottom: 20px; }
+} */
+.top-visible  {
+animation: jump 4s infinite;
+} 
+
+
