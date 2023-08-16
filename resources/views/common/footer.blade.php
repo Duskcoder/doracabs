@@ -93,7 +93,7 @@
 <div class="fixed_contact">
 
     <div id="whatsappicon">
-        <a target="blank" href="https://api.whatsapp.com/send?phone=8015521177&text=Hii" title="Sent Whatsapp Message">
+        <a target="blank" href="https://api.whatsapp.com/send?phone=+91 8015521177&text=Hii" title="Sent Whatsapp Message">
             <img class=" side-images float-start" src="../assets/frontuser/images/w1.png" alt="whatsapp" height="50"
                 width="50" title="">
         </a>
@@ -107,14 +107,12 @@
 
 
 
+    <button class="top-visible"  onclick="topFunction()" id="myBtn" title="Go to top"><i class="fa fa-angle-up"></i></button>
 
 </footer>
 <script>
     // ===== Scroll to Top ====
 
-
-        <button class="top-visible"  onclick="topFunction()" id="myBtn" title="Go to top"><i class="fa fa-angle-up"></i></button>
-        <script>
             let mybutton = document.getElementById("myBtn");
 
 // When the user scrolls down 20px from the top of the document, show the button
