@@ -108,13 +108,12 @@
 
 
    
+    <button class="top-visible"  onclick="topFunction()" id="myBtn" title="Go to top"><i class="fa fa-angle-up"></i></button>
 </footer>
 <script>
     // ===== Scroll to Top ====
 
    
-        <button class="top-visible"  onclick="topFunction()" id="myBtn" title="Go to top"><i class="fa fa-angle-up"></i></button>
-        <script>
             let mybutton = document.getElementById("myBtn");
 
 // When the user scrolls down 20px from the top of the document, show the button
