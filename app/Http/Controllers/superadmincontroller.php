@@ -17,7 +17,7 @@ class superadmincontroller extends Controller
      */
     public function index()
     {
-        dd('adfadf');
+        // dd('adfadf');
         return view('superadmin.home');
     }
 }

@@ -72,6 +72,6 @@ If you have any questions, please call <a href="tel:8220174555">8220174555</a>, 
 
 
 Thanks,<br>
-<a href="{{ route('home') }}">www.doracabstaxi.com</a>
+<a href="{{ route('home2') }}">www.doracabs.com</a>
 </div>
 @endcomponent

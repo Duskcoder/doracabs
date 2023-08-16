@@ -65,7 +65,7 @@
                             Kodaikanal and Yercaud</div>
                     </div>
                 </div>
-                <a href="{{ route('home') }}" class="btn">Ok</a>
+                <a href="{{ route('home2') }}" class="btn">Ok</a>
             </div>
             <!--/.success-->
         </div>

@@ -107,8 +107,8 @@
 
 
 
-    <button class="top-visible"  onclick="topFunction()" id="myBtn" title="Go to top"><i class="fa fa-angle-up"></i></button>
 
+    <button class="top-visible"  onclick="topFunction()" id="myBtn" title="Go to top"><i class="fa fa-angle-up"></i></button>
 </footer>
 <script>
     // ===== Scroll to Top ====

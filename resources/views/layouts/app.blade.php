@@ -13,7 +13,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
     <!-- App favicon -->
-    <link rel="shortcut icon" href="{{ asset('theme/assets/images/favicon.ico') }}">
+    <link rel="shortcut icon" href="{{ asset('theme/assets/images/dora_cabs1.png') }}" height="35"  width="45">
 
     <!-- App css -->
     <link href="{{ asset('theme/assets/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
