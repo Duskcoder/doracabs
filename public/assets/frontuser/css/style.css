@@ -26,7 +26,8 @@ h6 {
 
 .nav-link:focus, .nav-link:hover{
   color: #fbb53c!important;
-  background-color: #000!important;
+  /* background-color: #000!important; */
+  /* border-bottom: 2px solid #fbb53c; */
 }
 
 img {
@@ -63,7 +64,7 @@ img {
   font-weight: 500;
 }
 #collapsibleNavbar ul li .nav-link:hover{
-  background-color: #fff!important;
+  color: #fbb53c!important;
 }
 #top_call {
   /* border: 1px solid #cdcdcd; */
@@ -2801,7 +2802,7 @@ a.addmore {
 .fixed_contact > #callicon{
   position: fixed;
   bottom: 30px;
-  left: 150px;
+  left: 157px;
   display: none;
   background-color: rgb(236, 155, 48);
   padding:6px;
@@ -3058,14 +3059,14 @@ label {
 #myBtn {
   display: none;
   position: fixed;
-  bottom: 20px;
+  bottom: 12px;
   right: 30px;
   z-index: 99;
   font-size: 22px;
-  border: none;
+  border:1px solid black;
   outline: none;
-  background-color: black;
-  color: #ffb758;
+  color:black;
+  background-color:rgb(236, 155, 48);;
   cursor: pointer;
   font-weight: bold!important;
   padding: 4px 15px;

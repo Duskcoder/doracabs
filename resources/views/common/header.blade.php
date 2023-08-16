@@ -50,7 +50,7 @@
   </button>
                 <div class="collapse navbar-collapse" id="collapsibleNavbar">
                     <ul class="navbar-nav">
-                    <li><a href="{{ route('home') }}" class="nav-link" >Home</a></li>
+                    <li><a href="{{ route('home2') }}" class="nav-link" >Home</a></li>
                     <li><a href="{{ route('about') }}" class="nav-link" >About</a></li>
                     <li><a href="{{ route('tariff') }}" class="nav-link" >Tariff</a></li>
                     <li><a href="{{ route('contact') }}" class="nav-link" >Contact</a></li>

@@ -1,6 +1,6 @@
 @include('common.header')
 {{-- <script src="https://momentjs.com/downloads/moment.min.js"></script> --}}
-<section>
+<section class>
     <div class="form bookingForm">
         <div class="container pt-4">
 
@@ -133,16 +133,18 @@
                                 <div class="col-12">
                                     <div class="row pt-lg-3">
                                         <div class="col-lg-4 col-12">
-                                            <div class="form-group">
+                                            <div class="form-group m-1">
                                                 <label for="pickup-location"> Phone Number</label>
-                                                <input type="text" class="form-control" name="cust_mbl1" autocomplete="off" id="pickup-location" aria-describedby="emailHelp" placeholder="Phone Number" pattern="[0-9]{10}" title="Please enter a numeric value with a maximum of 10 digits." required>
+                                                <input type="tel" class="form-control" name="cust_mbl1"  maxlength="10" autocomplete="off" id="pickup-location" aria-describedby="emailHelp" placeholder="Phone Number" pattern="[0-9]{10}" title="Please enter a numeric value with a maximum of 10 digits." required>
                                             </div>
                                         </div>
 
                                         <div class="col-lg-4 col-12">
                                             <div class="form-group mt-1">
                                                 <label for="pickup-location">Depart Date</label>
-                                                <input type="text" name="pickupdate" id="datepicker1" autocomplete="off" class="form-control" placeholder="dd-mm-yyy" required onchange="calc_amount();">
+                                                <input type="date" name="pickupdate" id="fromdate" class="form-control" placeholder="dd-mm-yyy" required onchange="calc_amount();">
+
+                                                <!-- <input type="text" name="pickupdate" id="datepicker1" autocomplete="off" class="form-control" placeholder="dd-mm-yyy" required onchange="calc_amount();"> -->
                                                 <!-- <input type="text" class="form-control" name="cust_mbl1" id="pickup-location" aria-describedby="emailHelp" placeholder="Phone Number" required> -->
                                             </div>
                                         </div>
@@ -294,10 +296,10 @@
                                 <div class="col-12">
                                     <div class="row">
                                         <div class="col-lg-6 col-12">
-                                            <div class="form-group ">
+                                            <div class="form-group mt-1 ">
                                                 <label for="pickup-location"> Phone Number</label>
 
-                                                <input type="text" class="form-control" name="cust_mbl1" autocomplete="off" id="pickup-location" aria-describedby="emailHelp" placeholder="Phone Number" pattern="[0-9]{10}" title="Please enter a numeric value with a maximum of 10 digits." required>
+                                                <input type="text" maxlength="10" class="form-control" name="cust_mbl1" autocomplete="off" id="pickup-location" aria-describedby="emailHelp" placeholder="Phone Number" pattern="[0-9]{10}" title="Please enter a numeric value with a maximum of 10 digits." required>
                                             </div>
                                         </div>
                                         <div class="col-lg-6 col-12">
@@ -673,8 +675,8 @@
             // document.getElementById('durationText1').innerHTML = duration;
             var charge_per_km = document.getElementById('charge_per_km1').value;
             var max_km_per_day = document.getElementById('max_km_per_day_oneway').value;
-            max_km_per_day = (max_km_per_day == "") ? 0 : parseInt(max_km_per_day);
-            charge_per_km = (charge_per_km == "") ? 0 : parseInt(charge_per_km);
+            max_km_per_day = (max_km_per_day == "") ? 0 :(max_km_per_day);
+            charge_per_km = (charge_per_km == "") ? 0 : (charge_per_km);
 
             var newDistance = distance;
             document.getElementById('days1').value = 1;
@@ -719,11 +721,11 @@
         }
 
         if (oneway_round == 'Round') {
-            var distance = parseInt(document.getElementById('distance2').value);
+            var distance = (document.getElementById('distance2').value);
             console.log(distance, 'distance');
             var firstDate = document.getElementById('fromdate').value;
             var secondDate = document.getElementById('todate').value;
-            var max_km_per_day = parseInt(document.getElementById('max_km_per_day_round').value);
+            var max_km_per_day = (document.getElementById('max_km_per_day_round').value);
             console.log(max_km_per_day, 'max_km_per_day');
             // max_km_per_day > 250 ? max_km_per_day : 250;
             document.getElementById('distanceText2').innerHTML = distance * 2 + " km";
@@ -824,8 +826,8 @@
             var minusH = document.getElementById('minusH');
             var plusM = document.getElementById('plusM');
             var minusM = document.getElementById('minusM');
-            var h = parseInt(document.getElementById('hour').value);
-            var m = parseInt(document.getElementById('minute').value);
+            var h = (document.getElementById('hour').value);
+            var m = (document.getElementById('minute').value);
             //increment hour
             plusH.onclick = function() {
                 h = isNaN(h) ? 0 : h;
@@ -907,8 +909,8 @@
             var minusH = document.getElementById('minusH');
             var plusM = document.getElementById('plusM');
             var minusM = document.getElementById('minusM');
-            var h = parseInt(document.getElementById('hour2').value);
-            var m = parseInt(document.getElementById('minute2').value);
+            var h = (document.getElementById('hour2').value);
+            var m = (document.getElementById('minute2').value);
             //increment hour
             plusH.onclick = function() {
                 h = isNaN(h) ? 0 : h;

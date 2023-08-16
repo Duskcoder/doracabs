@@ -53,6 +53,7 @@ class BookingController extends Controller
         // echo '<pre>';
         // print_r($request);
         if ($request['oneway_round']) {
+
             $data = array(
                 'from_place' => $request['from_place1'],
                 'to_place' => $request['to_place1'],
@@ -70,6 +71,7 @@ class BookingController extends Controller
                 'days' => $request['days2'],
                 'actual_amount' => $request['actualAmount1'],
                 'driver_bata' => $request['driverBata1']
+                
             );
         }
 
