@@ -33,39 +33,62 @@
 
     <form action="{{ route('cars.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
-<div class="ms-5">
-        <div class="row">
-            <div class="col-lg-3 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Model Name:</strong>
-                    <input type="text" name="model_name" class="form-control" placeholder="Model Name:" required>
+        <div class="ms-5">
+            <div class="row">
+                <div class="col-lg-3 col-sm-12 col-md-12">
+                    <div class="form-group">
+                        <strong>Model Name:</strong>
+                        <input type="text" name="model_name" class="form-control" placeholder="Model Name:" required>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-12 col-md-12">
+                    <div class="form-group">
+                        <strong>Oneway cost/km:</strong>
+                        <input type="text" name="oneway_km_cost" class="form-control" placeholder="Oneway cost/km:"
+                            required>
+                    </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Oneway cost/km:</strong>
-                    <input type="text" name="oneway_km_cost" class="form-control" placeholder="Oneway cost/km:" required>
+            <div class="row">
+                <div class="col-lg-3 col-sm-12 col-md-12">
+                    <div class="form-group">
+                        <strong>Round cost/km:</strong>
+                        <input type="text" name="round_km_cost" class="form-control" placeholder="Round cost/km:"
+                            required>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-12 col-md-6">
+                    <div class="form-group">
+                        <strong>Image:</strong>
+                        <input type="file" name="image" class="form-control" placeholder=" Image" required>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-3 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Round cost/km:</strong>
-                    <input type="text" name="round_km_cost" class="form-control" placeholder="Round cost/km:" required>
+            <div class="row ms-1">
+
+                <label for="">Select Vehicle Type :</label>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="trip_type" id="flexRadioDefault1"value="oneway">
+                    <label class="form-check-label" for="flexRadioDefault1">
+                        OneWay
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="trip_type" id="flexRadioDefault1"value="round">
+                    <label class="form-check-label" for="flexRadioDefault1">
+                        Round Trip
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="trip_type" id="flexRadioDefault2" checkedvalue="" value="both">
+                    <label class="form-check-label" for="flexRadioDefault2">
+                        Both
+                    </label>
                 </div>
             </div>
-            <div class="col-lg-3 col-sm-12 col-md-6">
-                <div class="form-group">
-                    <strong>Image:</strong>
-                    <input type="file" name="image" class="form-control" placeholder=" Image" required>
-                </div>
-            </div>
-        </div>
                 <div class="col-xs-12 col-sm-12 col-md-12 ">
                     <button type="submit" class="btn btn-primary">Submit</button>
-                </div>
-
-</div>
+            </div>
+        </div>
     </form>
 @endsection

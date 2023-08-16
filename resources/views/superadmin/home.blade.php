@@ -46,6 +46,7 @@
                                 <th>Name</th>
                                 <th>Oneway Cost/km</th>
                                 <th>Round Cost/km</th>
+                                <th>Trip Type</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -115,10 +116,16 @@
                                 name: 'oneway_km_cost',
                                 orderable: true,
                                 searchable: true
-                            },
+                            },  
                             {
                                 data: 'round_km_cost',
                                 name: 'round_km_cost',
+                                orderable: true,
+                                searchable: true
+                            },
+                            {
+                                data: 'trip_type',
+                                name: 'trip_type',
                                 orderable: true,
                                 searchable: true
                             },

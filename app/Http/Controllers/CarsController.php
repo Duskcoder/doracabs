@@ -55,6 +55,7 @@ class CarsController extends Controller
             'model_name' => 'required|max:200',
             'oneway_km_cost' => 'required|max:200',
             'round_km_cost' => 'required|max:200',
+            'trip_type'=> 'required',
             'image' => 'required',
         ]);
 
@@ -62,7 +63,9 @@ class CarsController extends Controller
             'model_name' => $request['model_name'],
             'oneway_km_cost' => $request['oneway_km_cost'],
             'round_km_cost' => $request['round_km_cost'],
+            'trip_type'=> $request['trip_type'],
         );
+
         $file_path = '';
         $file_name = '';
         $destinationPath = 'uploads/files';
