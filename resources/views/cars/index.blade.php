@@ -37,7 +37,7 @@
                         </div>
                     @endif
                     <!-- <a class=" btn btn-sm btn-primary btn-square" href="{{ route('cars.create') }}" role="button"><i
-                            class="fas fa-plus me-2"></i>Add New Vehicle</a> -->
+                                class="fas fa-plus me-2"></i>Add New Vehicle</a> -->
                     <table id="dataTableId12" class="table table-striped table-bordered dt-responsive nowrap"
                         style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                         <thead>
@@ -45,6 +45,7 @@
                                 <th>Name</th>
                                 <th>Oneway Cost/km</th>
                                 <th>Round Cost/km</th>
+                                <th>Trip Type</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -113,6 +114,12 @@
                             {
                                 data: 'round_km_cost',
                                 name: 'round_km_cost',
+                                orderable: true,
+                                searchable: true
+                            },
+                            {
+                                data: 'trip_type',
+                                name: 'trip_type',
                                 orderable: true,
                                 searchable: true
                             },
