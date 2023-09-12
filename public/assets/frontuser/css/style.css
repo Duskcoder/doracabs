@@ -2790,10 +2790,11 @@ a.addmore {
 
   .fixed_contact > #callicon{
     display: block!important;
-    bottom: 15px!important;
+    top:56px !important;
+    bottom: none;
   }
   .fixed_contact > #whatsappicon {
-   bottom: 10px!important;
+   top: 50px !important;
   }
 
 }
@@ -2801,10 +2802,8 @@ a.addmore {
 }
 .fixed_contact > #callicon{
   position: fixed;
-  bottom: 30px;
-  left: 157px;
+  right:20px;
   display: none;
-  background-color: rgb(236, 155, 48);
   padding:6px;
     border-radius: 25px;
     z-index: 1000;
@@ -2814,7 +2813,13 @@ a.addmore {
   display: block;
   bottom:30px;
   left:20px;
+}
+#whatsappicon img{
+    height: 58px  !important;
 
+}
+#callicon img{
+    height: 46px !important;
 }
 
 .proceed-btn {

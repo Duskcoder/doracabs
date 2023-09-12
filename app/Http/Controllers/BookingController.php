@@ -26,9 +26,8 @@ class BookingController extends Controller
 
     public function index(Request $request)
     {
-        $cars=Cars::orderBy('created_at', 'asc')->get();
+        $cars = Cars::orderBy('created_at', 'asc')->get();
         return view('booking.create')->with(compact('cars'));
-
     }
 
     //
@@ -48,12 +47,12 @@ class BookingController extends Controller
     public function store(Request $request)
     {
 
-
-
         // echo '<pre>';
         // print_r($request);
         if ($request['oneway_round']) {
-
+            $request->validate([
+                'car_id'=>'required'
+            ]);
             $data = array(
                 'from_place' => $request['from_place1'],
                 'to_place' => $request['to_place1'],
@@ -71,11 +70,14 @@ class BookingController extends Controller
                 'days' => $request['days2'],
                 'actual_amount' => $request['actualAmount1'],
                 'driver_bata' => $request['driverBata1']
-                
+
             );
         }
 
         if ($request['oneway_round1']) {
+            $request->validate([
+                'car_id2'=>'required'
+            ]);
             $data = array(
                 'from_place' => $request['from_place2'],
                 'to_place' => $request['to_place2'],
@@ -129,9 +131,6 @@ class BookingController extends Controller
         // Mail::to('dhivyashree.duskcoder@gmail.com', 'Admin')->send(new BookingNotificationToAdminMail($data));
 
         return redirect()->route('booking-result', [$bookings->id]);
-
-
-
 
     }
     public function bookingResult($id)

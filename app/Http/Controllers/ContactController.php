@@ -22,23 +22,26 @@ class ContactController extends Controller
             'email' => 'required|email',
             'message' => 'required',
         ]);
-        
+
         $input = $request->all();
         // print_r($input);die;
         //  Contact::create($input);
-       
+
         //  Send mail to admin
-        Mail::send('contactMail', array(
-            'name' => $input['name'],
-            'mobile_number' => $input['mobile_number'],
-            'email' => $input['email'],
-            'messages' => $input['message']
-        ),
-         function ($message) use ($request) {
-            $message->from($request->email);
-            // $message ->From($request->get('email'));
-            $message->to('dhivyashree.duskcoder@gmail.com', 'Admin')->subject($request->get('message'));
-        });
+        Mail::send(
+            'contactMail',
+            array(
+                'name' => $input['name'],
+                'mobile_number' => $input['mobile_number'],
+                'email' => $input['email'],
+                'messages' => $input['message']
+            ),
+            function ($message) use ($request) {
+                $message->from($request->email);
+                // $message ->From($request->get('email'));
+                $message->to('doracabspdy@gmail.com', 'Admin')->subject($request->get('message'));
+            }
+        );
 
         return redirect()->back()->with(['success' => 'Contact Form Submit & Email Send Successfully, We Will Contact You Shortly']);
     }

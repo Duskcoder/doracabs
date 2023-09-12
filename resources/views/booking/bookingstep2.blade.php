@@ -1,5 +1,4 @@
 @include('common.header')
-{{-- <script src="https://momentjs.com/downloads/moment.min.js"></script> --}}
 <section class>
     <div class="form bookingForm">
         <div class="container pt-4">
@@ -10,213 +9,353 @@
                 <div class="col-md-6">
                     <h3 class="py-3 text-center">Select Your Vehicle</h3>
                     @if (Request::get('trip') == 'Round')
+                        <form class="" id="roundtrip" action="{{ route('booking.store') }}" method="POST">
+                            @csrf
+                            @foreach ($cars as $car)
+    @if ($car->trip_type == 'round' || $car->trip_type == 'both')
+        <div class="mb-3 d-flex align-items-center">
+            <input type="radio" id="car1{{ $car->id }}" name="car1" required style="visibility: hidden;">
+            <label for="car1{{ $car->id }}" class="car-radio-label"
+                onclick="km_cost({{ $car->id }},{{ $car->oneway_km_cost }},{{ $car->round_km_cost }})">
+                <div class="radio-image-container">
+                    <img src="{{ URL::asset($car->file_path . '/' . $car->file_name) }}"
+                        alt="{{ $car->model_name }}" class="car-logo">
+                </div>
+                <div class="car-details">
+                    <p>
+                        <small>{{ $car->model_name }} -
+                            ({{ $car->round_km_cost }}/km)
+                        </small>
+                        <i data-toggle="tooltip" title="{{ $car->model_name }}"
+                            class="fa fa-snowflake-o"></i>
+                    </p>
+                </div>
+            </label>
+        </div>
+    @endif
+@endforeach
 
-                        @foreach ($cars as $car)
-                            @if ($car->trip_type == 'round' || $car->trip_type == 'both')
-                                <div class="mb-3 d-flex align-items-center">
-                                    <input type="radio" id="car1{{ $car->id }}" name="car1"
-                                        style="display: none;">
-                                    <label for="car1{{ $car->id }}" class="car-radio-label"
-                                        onclick="km_cost({{ $car->id }},{{ $car->oneway_km_cost }},{{ $car->round_km_cost }})">
-                                        <div class="radio-image-container">
-                                            <img src="{{ URL::asset($car->file_path . '/' . $car->file_name) }}"
-                                                alt="{{ $car->model_name }}" class="car-logo">
-                                        </div>
-                                        <div class="car-details">
-                                            <p>
-                                                <small>{{ $car->model_name }} - ({{ $car->round_km_cost }}/km)</small>
-                                                <i data-toggle="tooltip" title="{{ $car->model_name }}"
-                                                    class="fa fa-snowflake-o"></i>
-                                            </p>
-                                        </div>
-                                    </label>
-                                </div>
-                            @endif
-                        @endforeach
-                    @endif
-                    @if (Request::get('trip') == 'Oneway')
-                        @foreach ($cars as $car)
-                            @if ($car->trip_type == 'oneway' || $car->trip_type == 'both')
-                                <!-- Set the limit to 10 cars -->
-                                <div class="mb-3 d-flex align-items-center">
-                                    <input type="radio" id="car1{{ $car->id }}" name="car1"
-                                        style="display: none;">
-                                    <label for="car1{{ $car->id }}" class="car-radio-label"
-                                        onclick="km_cost({{ $car->id }},{{ $car->oneway_km_cost }},{{ $car->round_km_cost }})">
-                                        <div class="radio-image-container">
-                                            <img src="{{ URL::asset($car->file_path . '/' . $car->file_name) }}"
-                                                alt="{{ $car->model_name }}" class="car-logo">
-                                        </div>
-                                        <div class="car-details">
-                                            <p>
-                                                <small>{{ $car->model_name }} -
-                                                    ({{ $car->oneway_km_cost }}/km)
-                                                </small>
-                                                <i data-toggle="tooltip" title="{{ $car->model_name }}"
-                                                    class="fa fa-snowflake-o"></i>
-                                            </p>
-                                        </div>
-                                    </label>
-                                </div>
-                            @endif
-                            <!-- Exit the loop after the specified limit is reached -->
-                    @endforeach
-                    @endif
-                    <!-- <h2>Select Your Vehicle</h2>
-@foreach ($cars as $car)
-<div class="card mb-3 border-0 mt-5 donate-now">
-<div class="row no-gutters">
-<div class="col-3 col-md-3 carbodr{{ $car->id }} carhide">
-<input type="radio" id="car1{{ $car->id }}"  name="car1" onclick="km_cost({{ $car->id }},{{ $car->oneway_km_cost }},{{ $car->round_km_cost }})">
-<label>
-<img src="{{ URL::asset($car->file_path . '/' . $car->file_name) }}" alt="car image" class="w-100 p-lg-3 car-logo p-1" style="width:25% !important">
-</label>
-</div>
-<div class="col-5 col-md-5">
-<div class="card-body">
-<h5 class="card-title mb-0">{{ $car->model_name }}</h5>
-<p class="card-text"><small class="text-muted">({{ $car->round_km_cost }}/km)</small></p>
-</div>
-</div>
-</div>
-</div>
-@endforeach -->
                 </div>
                 <div class="col-md-6 ">
 
                     <h3 class="text-center py-3">Plan Your Trip</h3>
                     <div class="tab-content tab_section" id="myTabContent">
-                        <!----- Start first outer tab ----->
-                        <!-- <div class="one_way_trip" id="home" role="tabpanel" aria-labelledby="home-tab"  id="oneway" >One-Way Trip -->
+
+                        <input type="hidden" name="oneway_round1" id="oneway_round" value="Round">
+                        <input type="hidden" name="from_place2" id="from_place2" value="{{ Request::get('source') }}">
+                        <input type="hidden" name="to_place2" id="to_place2"
+                            value="{{ Request::get('destination') }}">
+                        <input type="hidden" name="pickupdate" id="depart_date2"
+                            value="{{ Request::get('pickupdate') }}">
+
+                        <input type="hidden" name="pickuptime" id=""
+                            value="{{ Request::get('pickuptime') }}">
+                        <input type="hidden" name="return_date" id="return_date2"
+                            value="{{ Request::get('returndate') }}">
+
+                        <input type="hidden" name="car_id2" id="car_id2" value="">
+                        <input type="hidden" name="charge_per_km2" id="charge_per_km2" value="">
+                        <input type="hidden" name="distance2" id="distance2" value="{{ Request::get('distance') }}">
+                        <input type="hidden" name="amount2" id="amount2" value="">
+                        <input type="hidden" name="days2" id="days2" value="1">
+                        <input type="hidden" name="actualAmount2" id="actualAmount2" value="">
+                        <input type="hidden" name="driverBata2" id="driverBata2"
+                            value="{{ Request::get('duration') }}">
+
+                        <div class="row py-lg-2">
+                            <div class="col-lg-6 col-12">
+                                <div class="form-group">
+                                    <label for="pickup">Pick Up Address</label>
+                                    <input type="text" class="form-control" name="pickUpAddress" id="pickUpAddress"
+                                        placeholder="" value="{{ Request::get('source') }}" readonly>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-12">
+                                <div class="form-group ">
+                                    <label for="drop">Drop Address</label>
+                                    <input type="text" class="form-control" name="dropAddress" id="dropAddress"
+                                        placeholder="" required value="{{ Request::get('destination') }}" readonly>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="row ">
+                            <div class="col-lg-6 col-12">
+                                <div class="form-group  mt-1">
+                                    <label for="name">Full Name</label>
+                                    <input type="text" class="form-control" name="cust_name" id="cust_name"
+                                        placeholder="Full Name" required>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-12">
+                                <div class="form-group mt-1">
+                                    <label for="email">Email (optional)</label>
+                                    <input type="email" name="cust_email" id="cust_email" class="form-control"
+                                        placeholder="Enter Email">
+                                </div>
+                            </div>
+
+                            <div class="col-12 mt-1">
+                                <div class="row py-lg-2">
+                                    <div class="col-lg-6 col-12">
+                                        <div class="form-group mt-1">
+                                            <label for="pickup-location">Depart Date</label>
+                                            <input type="date" name="pickupdate" id="fromdate"
+                                                class="form-control" placeholder="dd-mm-yyy" required
+                                                onchange="calc_amount();">
+                                            <!-- <input type="text" class="form-control" name="cust_mbl1" id="pickup-location" aria-describedby="emailHelp" placeholder="Phone Number" required> -->
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-12">
+                                        <div class="form-group mt-1">
+                                            <label for="pickup-location">Return Date</label>
+                                            <input type="date" name="pickupdate" id="todate"
+                                                class="form-control" placeholder="dd-mm-yyy" required
+                                                onchange="calc_amount();">
+                                            <!-- <input type="text" class="form-control" name="cust_mbl1" id="pickup-location" aria-describedby="emailHelp" placeholder="Phone Number" required> -->
+                                        </div>
+                                    </div>
+
+
+
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="row">
+                                    <div class="col-lg-6 col-12">
+                                        <div class="form-group mt-1 ">
+                                            <label for="pickup-location"> Phone Number</label>
+
+                                            <input type="text" maxlength="10" class="form-control"
+                                                name="cust_mbl1" autocomplete="off" id="pickup-location"
+                                                aria-describedby="emailHelp" placeholder="Phone Number"
+                                                pattern="[0-9]{10}"
+                                                title="Please enter a numeric value with a maximum of 10 digits."
+                                                required>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-12">
+                                        <div class="form-group mt-1">
+                                            <label for="pickup-location"> Depart time</label>
+                                            <input type="time" name="pickuptime" required=""
+                                                class="form-control timepicker" id="" placeholder="00:00">
+
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="card  my-3 calculation">
+                            <div class="row">
+                                <div class="col-md-3 col-6 col-sm-2 ">
+                                    <div class="card-body">
+                                        <p class="card-title">Total Amount</p>
+                                        <h6><span class="text-center" name="actualAmount" id="amountText2"></span>  Rs</h6>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-6 col-sm-2">
+                                    <div class="card-body">
+                                        <p class="card-title"> Trip Covers</p>
+                                        <h6 class="text-center" name="pickuptime" id="distanceText2">
+                                            {{ Request::get('distance') }} KM
+                                        </h6>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-6 col-sm-2">
+                                    <div class="card-body">
+                                        <p class="card-title">Duration</p>
+                                        <h6 class="text-center" name="returndate" id="durationText2">
+                                            {{ Request::get('duration') }}
+                                        </h6>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 col-6 col-sm-2">
+                                    <div class="card-body">
+                                        <p class="card-title">No of Days</p>
+                                        <h6 class="text-center" name="daysText2" id="daysText2">0</h6>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <div class="col-12 proceed-btn my-1">
+                            <button type="submit" onclick="carSelectround()" class="btn btn-warning text-center"
+                                style="border-radius:5px;">PLACE A BOOKING</button>
+                        </div>
+
+
+                        </form>
+                        @endif
+
+
                         @if (Request::get('trip') == 'Oneway')
-                            <form class="" id="onewaytrip" action="{{ route('booking.store') }}" method="POST">
+                            <form class="" id="onewaytrip" action="{{ route('booking.store') }}"method="POST">
                                 @csrf
-                                <input type="hidden" name="oneway_round" id="oneway_round" value="Oneway">
-                                <input type="hidden" name="from_place1" id="from_place1"
-                                    value="{{ Request::get('source') }}">
-                                <input type="hidden" name="to_place1" id="to_place1"
-                                    value="{{ Request::get('destination') }}">
-                                <input type="hidden" name="pickupdate" id="depart_date1"
-                                    value="{{ Request::get('pickupdate') }}">
-                                <input type="hidden" name="pickuptime" id=""
-                                    value="{{ Request::get('pickuptime') }}">
-                                <input type="hidden" name="car_id" id="car_id1" value="">
-                                <input type="hidden" name="charge_per_km" id="charge_per_km1" value="">
-                                <input type="hidden" name="distance" id="distance1"
-                                    value="{{ Request::get('distance') }}">
-                                <input type="hidden" name="amount" id="amount1" value="">
-                                <input type="hidden" name="days" id="days1" value="1">
-                                <input type="hidden" name="actualAmount1" id="actualAmount1">
-                                <input type="hidden" name="driverBata1" id="driverBataOneWay">
-
-                                <div class="row pt-lg-3">
-                                    <div class="col-lg-6 col-12">
-                                        <div class="form-group ">
-                                            <label for="pickup">Pick Up Address</label>
-                                            <input type="text" class="form-control" name="pickUpAddress"
-                                                autocomplete="off" id="pickUpAddress" placeholder=""
-                                                value="{{ Request::get('source') }}" readonly>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-12">
-                                        <div class="form-group">
-                                            <label for="drop">Drop Address</label>
-                                            <input type="text" class="form-control" name="dropAddress"
-                                                autocomplete="off" id="dropAddress" placeholder="" required
-                                                value="{{ Request::get('destination') }}" readonly>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="row pt-lg-3">
-                                    <div class="col-lg-6 col-12">
-                                        <div class="form-group mt-1">
-                                            <label for="name">Full Name</label>
-                                            <input type="text" class="form-control" name="cust_name"
-                                                autocomplete="off" id="cust_name" placeholder="Full Name" required>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-12">
-                                        <div class="form-group mt-1">
-                                            <label for="email">Email (optional)</label>
-                                            <input type="email" name="cust_email" id="cust_email"
-                                                autocomplete="off" class="form-control" placeholder="Enter Email">
-                                        </div>
-                                    </div>
-
-
-                                    <div class="col-12">
-                                        <div class="row pt-lg-3">
-                                            <div class="col-lg-4 col-12">
-                                                <div class="form-group m-1">
-                                                    <label for="pickup-location"> Phone Number</label>
-                                                    <input type="tel" class="form-control" name="cust_mbl1"
-                                                        maxlength="10" autocomplete="off" id="pickup-location"
-                                                        aria-describedby="emailHelp" placeholder="Phone Number"
-                                                        pattern="[0-9]{10}"
-                                                        title="Please enter a numeric value with a maximum of 10 digits."
-                                                        required>
+                                @foreach ($cars as $car)
+                                    @if ($car->trip_type == 'oneway' || $car->trip_type == 'both')
+                                        <!-- Set the limit to 10 cars -->
+                                        <div class="mb-3 d-flex align-items-center">
+                                            <input type="radio" id="car1{{ $car->id }}" name="car1"
+                                               style="visibility:hidden" required>
+                                            <label for="car1{{ $car->id }}" class="car-radio-label"
+                                                onclick="km_cost({{ $car->id }},{{ $car->oneway_km_cost }},{{ $car->round_km_cost }})">
+                                                <div class="radio-image-container">
+                                                    <img src="{{ URL::asset($car->file_path . '/' . $car->file_name) }}"
+                                                        alt="{{ $car->model_name }}" class="car-logo">
                                                 </div>
-                                            </div>
-
-                                            <div class="col-lg-4 col-12">
-                                                <div class="form-group mt-1">
-                                                    <label for="pickup-location">Depart Date</label>
-                                                    <input type="date" name="pickupdate" id="fromdate"
-                                                        class="form-control" placeholder="dd-mm-yyy" required
-                                                        onchange="calc_amount();">
-
-                                                    <!-- <input type="text" name="pickupdate" id="datepicker1" autocomplete="off" class="form-control" placeholder="dd-mm-yyy" required onchange="calc_amount();"> -->
-                                                    <!-- <input type="text" class="form-control" name="cust_mbl1" id="pickup-location" aria-describedby="emailHelp" placeholder="Phone Number" required> -->
+                                                <div class="car-details">
+                                                    <p>
+                                                        <small>{{ $car->model_name }} -
+                                                            ({{ $car->oneway_km_cost }}/km)
+                                                        </small>
+                                                        <i data-toggle="tooltip" title="{{ $car->model_name }}"
+                                                            class="fa fa-snowflake-o"></i>
+                                                    </p>
                                                 </div>
-                                            </div>
-                                            <div class="col-lg-4 col-12">
-                                                <div class="form-group mt-1">
-                                                    <label for="pickup-location"> Depart time</label>
-                                                    <input type="time" name="pickuptime" required=""
-                                                        class="form-control timepicker" id=""
-                                                        placeholder="00:00">
+                                            </label>
+                                        </div>
+                                    @endif
+                                @endforeach
 
-                                                </div>
+
+                    </div>
+                    <div class="col-md-6 ">
+
+                        <h3 class="text-center py-3">Plan Your Trip</h3>
+                        <div class="tab-content tab_section" id="myTabContent">
+
+                            <input type="hidden" name="oneway_round" id="oneway_round" value="Oneway">
+                            <input type="hidden" name="from_place1" id="from_place1"
+                                value="{{ Request::get('source') }}">
+                            <input type="hidden" name="to_place1" id="to_place1"
+                                value="{{ Request::get('destination') }}">
+                            <input type="hidden" name="pickupdate" id="depart_date1"
+                                value="{{ Request::get('pickupdate') }}">
+                            <input type="hidden" name="pickuptime" id=""
+                                value="{{ Request::get('pickuptime') }}">
+                            <input type="hidden" name="car_id" id="car_id1" value="">
+                            <input type="hidden" name="charge_per_km" id="charge_per_km1" value="">
+                            <input type="hidden" name="distance" id="distance1"
+                                value="{{ Request::get('distance') }}">
+                            <input type="hidden" name="amount" id="amount1" value="">
+                            <input type="hidden" name="days" id="days1" value="1">
+                            <input type="hidden" name="actualAmount1" id="actualAmount1">
+                            <input type="hidden" name="driverBata1" id="driverBataOneWay">
+
+                            <div class="row pt-lg-3">
+                                <div class="col-lg-6 col-12">
+                                    <div class="form-group ">
+                                        <label for="pickup">Pick Up Address</label>
+                                        <input type="text" class="form-control" name="pickUpAddress"
+                                            autocomplete="off" id="pickUpAddress" placeholder=""
+                                            value="{{ Request::get('source') }}" readonly>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-12">
+                                    <div class="form-group">
+                                        <label for="drop">Drop Address</label>
+                                        <input type="text" class="form-control" name="dropAddress"
+                                            autocomplete="off" id="dropAddress" placeholder="" required
+                                            value="{{ Request::get('destination') }}" readonly>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row pt-lg-3">
+                                <div class="col-lg-6 col-12">
+                                    <div class="form-group mt-1">
+                                        <label for="name">Full Name</label>
+                                        <input type="text" class="form-control" name="cust_name"
+                                            autocomplete="off" id="cust_name" placeholder="Full Name" required>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-12">
+                                    <div class="form-group mt-1">
+                                        <label for="email">Email (optional)</label>
+                                        <input type="email" name="cust_email" id="cust_email" autocomplete="off"
+                                            class="form-control" placeholder="Enter Email">
+                                    </div>
+                                </div>
+
+
+                                <div class="col-12">
+                                    <div class="row pt-lg-3">
+                                        <div class="col-lg-4 col-12">
+                                            <div class="form-group m-1">
+                                                <label for="pickup-location"> Phone Number</label>
+                                                <input type="tel" class="form-control" name="cust_mbl1"
+                                                    maxlength="10" autocomplete="off" id="pickup-location"
+                                                    aria-describedby="emailHelp" placeholder="Phone Number"
+                                                    pattern="[0-9]{10}"
+                                                    title="Please enter a numeric value with a maximum of 10 digits."
+                                                    required>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-4 col-12">
+                                            <div class="form-group mt-1">
+                                                <label for="pickup-location">Depart Date</label>
+                                                <input type="date" name="pickupdate" id="fromdate"
+                                                    class="form-control" placeholder="dd-mm-yyy" required
+                                                    onchange="calc_amount();">
+
+                                                <!-- <input type="text" name="pickupdate" id="datepicker1" autocomplete="off" class="form-control" placeholder="dd-mm-yyy" required onchange="calc_amount();"> -->
+                                                <!-- <input type="text" class="form-control" name="cust_mbl1" id="pickup-location" aria-describedby="emailHelp" placeholder="Phone Number" required> -->
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4 col-12">
+                                            <div class="form-group mt-1">
+                                                <label for="pickup-location"> Depart time</label>
+                                                <input type="time" name="pickuptime" required=""
+                                                    class="form-control timepicker" id=""
+                                                    placeholder="00:00">
+
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+                            </div>
 
-                                <br />
-                                <div class="card  mb-4 calculation">
-                                    <div class="row">
-                                        <div class="col-md-4 col-6">
-                                            <div class="card-body">
-                                                <p class="card-title">Total Amount</p>
-                                                <h6 class="text-center" id="amountText1"></h6>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4 col-6">
-                                            <div class="card-body">
-                                                <p class="card-title"> Trip Covers</p>
-                                                <h6 class="text-center" id="distanceText1"></h6>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4 col-12">
-                                            <div class="card-body">
-                                                <p class="card-title"> Duration</p>
-                                                <h6 class="text-center" id="durationText1">
-                                                    {{ Request::get('duration') }}
-                                                </h6>
-
-                                            </div>
+                            <br />
+                            <div class="card  mb-4 calculation">
+                                <div class="row">
+                                    <div class="col-md-4 col-6">
+                                        <div class="card-body">
+                                            <p class="card-title">Total Amount</p>
+                                            <h6 class="text-center" id="amountText1"></h6>
                                         </div>
                                     </div>
-                                    <!-- <button type="submit" class="booked w-100 border-0 p-2 mt-4">PLACE A BOOKING</button> -->
+                                    <div class="col-md-4 col-6">
+                                        <div class="card-body">
+                                            <p class="card-title"> Trip Covers</p>
+                                            <h6 class="text-center" id="distanceText1"></h6>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 col-12">
+                                        <div class="card-body">
+                                            <p class="card-title"> Duration</p>
+                                            <h6 class="text-center" id="durationText1">
+                                                {{ Request::get('duration') }}
+                                            </h6>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- <button type="submit" class="booked w-100 border-0 p-2 mt-4">PLACE A BOOKING</button> -->
 
 
-                                </div>
-                                <div class="col-12 proceed-btn">
-                                    <button type="submit" class="btn btn-warning text-center"
-                                        style="border-radius:5px;">PLACE A BOOKING</button>
-                                    <!-- <button type="submit" class="booked w-100 border-0 p-2 mt-4"></button>-->
-                                </div>
+                            </div>
+                            <div class="col-12 proceed-btn">
+                                <button type="submit" onclick="carselectone()" class="btn btn-warning text-center"
+                                    style="border-radius:5px;">PLACE A BOOKING</button>
+                                <!-- <button type="submit" class="booked w-100 border-0 p-2 mt-4"></button>-->
+                            </div>
 
 
                             </form>
@@ -244,230 +383,69 @@
                                     </div>
                                 </div>
                             </div>
-                        @endif
+                            @endif
+                            <input type="hidden" name="from_place" id="from_place"
+                                value="{{ Request::get('from') }}" placeholder="from_place">
+                            <input type="hidden" name="to_place" id="to_place" value="{{ Request::get('to') }}"
+                                placeholder="to_place">
+                            <input type="hidden" name="oneway_round" id="oneway_round"
+                                value="{{ Request::get('trip') }}" placeholder="charge_per_km">
+                            <input type="hidden" name="charge_per_km" id="charge_per_km" value="charge_per_km">
+                            <input type="hidden" name="distance" id="distance"
+                                value="{{ Request::get('distance') }}" placeholder="distance">
+                            <input type="hidden" name="duration" id="duration"
+                                value="{{ Request::get('duration') }}" placeholder="duration">
+                            <input type="hidden" name="latOrg1" id="latOrg1"
+                                value="{{ Request::get('latOrg1') }}" placeholder="latOrg1">
+                            <input type="hidden" name="lagOrg1" id="lagOrg1"
+                                value="{{ Request::get('lagOrg1') }}" placeholder="lagOrg1">
+                            <input type="hidden" name="Org2" id="Org2" value="{{ Request::get('Org2') }}"
+                                placeholder="Org2">
+                            <input type="hidden" name="desA" id="desA" value="{{ Request::get('desA') }}"
+                                placeholder="desA">
+                            <input type="hidden" name="desBlat" id="desBlat"
+                                value="{{ Request::get('desBlat') }}" placeholder="desBlat">
+                            <input type="hidden" name="desBlag" id="desBlag"
+                                value="{{ Request::get('desBlag') }}" placeholder="desBlag">
+                            <input type="hidden" name="car_id" id="car_id" value=""
+                                placeholder="car_id">
+                            <input type="hidden" name="days2" id="days2" value="">
+                            <input type="hidden" name="amount" id="amount" value=""
+                                placeholder="amount">
+                            <input type="hidden" name="depart_date_time" id="depart_date_time" value=""
+                                placeholder="depart_date_time">
+                            <input type="hidden" name="cust_name" id="cust_name" value=""
+                                placeholder="cust_name">
+                            <input type="hidden" name="cust_email" id="cust_email" value=""
+                                placeholder="cust_email">
+                            <input type="hidden" name="cust_mbl" id="cust_mbl" value=""
+                                placeholder="cust_mbl">
+                            <input type="hidden" name="max_km_per_day_oneway" id="max_km_per_day_oneway"
+                                value="130" placeholder="max_km_per_day_oneway">
+                            <input type="hidden" name="max_km_per_day_round" id="max_km_per_day_round"
+                                value="250" placeholder="max_km_per_day_round">
 
-                        <!-- </div> -->
-                        <!-- </div> -->
-
-                        @if (Request::get('trip') == 'Round')
-                            <form class="" id="roundtrip" action="{{ route('booking.store') }}"
-                                method="POST">
-                                @csrf
-                                <input type="hidden" name="oneway_round1" id="oneway_round" value="Round">
-                                <input type="hidden" name="from_place2" id="from_place2"
-                                    value="{{ Request::get('source') }}">
-                                <input type="hidden" name="to_place2" id="to_place2"
-                                    value="{{ Request::get('destination') }}">
-                                <input type="hidden" name="pickupdate" id="depart_date2"
-                                    value="{{ Request::get('pickupdate') }}">
-
-                                <input type="hidden" name="pickuptime" id=""
-                                    value="{{ Request::get('pickuptime') }}">
-                                <input type="hidden" name="return_date" id="return_date2"
-                                    value="{{ Request::get('returndate') }}">
-
-                                <input type="hidden" name="car_id2" id="car_id2" value="">
-                                <input type="hidden" name="charge_per_km2" id="charge_per_km2" value="">
-                                <input type="hidden" name="distance2" id="distance2"
-                                    value="{{ Request::get('distance') }}">
-                                <input type="hidden" name="amount2" id="amount2" value="">
-                                <input type="hidden" name="days2" id="days2" value="1">
-                                <input type="hidden" name="actualAmount2" id="actualAmount2" value="">
-                                <input type="hidden" name="driverBata2" id="driverBata2"
-                                    value="{{ Request::get('duration') }}">
-
-                                <div class="row py-lg-2">
-                                    <div class="col-lg-6 col-12">
-                                        <div class="form-group">
-                                            <label for="pickup">Pick Up Address</label>
-                                            <input type="text" class="form-control" name="pickUpAddress"
-                                                id="pickUpAddress" placeholder=""
-                                                value="{{ Request::get('source') }}" readonly>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-12">
-                                        <div class="form-group ">
-                                            <label for="drop">Drop Address</label>
-                                            <input type="text" class="form-control" name="dropAddress"
-                                                id="dropAddress" placeholder="" required
-                                                value="{{ Request::get('destination') }}" readonly>
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                                <div class="row ">
-                                    <div class="col-lg-6 col-12">
-                                        <div class="form-group  mt-1">
-                                            <label for="name">Full Name</label>
-                                            <input type="text" class="form-control" name="cust_name"
-                                                id="cust_name" placeholder="Full Name" required>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-12">
-                                        <div class="form-group mt-1">
-                                            <label for="email">Email (optional)</label>
-                                            <input type="email" name="cust_email" id="cust_email"
-                                                class="form-control" placeholder="Enter Email">
-                                        </div>
-                                    </div>
-
-                                    <div class="col-12 mt-1">
-                                        <div class="row py-lg-2">
-                                            <div class="col-lg-6 col-12">
-                                                <div class="form-group mt-1">
-                                                    <label for="pickup-location">Depart Date</label>
-                                                    <input type="date" name="pickupdate" id="fromdate"
-                                                        class="form-control" placeholder="dd-mm-yyy" required
-                                                        onchange="calc_amount();">
-                                                    <!-- <input type="text" class="form-control" name="cust_mbl1" id="pickup-location" aria-describedby="emailHelp" placeholder="Phone Number" required> -->
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-6 col-12">
-                                                <div class="form-group mt-1">
-                                                    <label for="pickup-location">Return Date</label>
-                                                    <input type="date" name="pickupdate" id="todate"
-                                                        class="form-control" placeholder="dd-mm-yyy" required
-                                                        onchange="calc_amount();">
-                                                    <!-- <input type="text" class="form-control" name="cust_mbl1" id="pickup-location" aria-describedby="emailHelp" placeholder="Phone Number" required> -->
-                                                </div>
-                                            </div>
-
-
-
-                                        </div>
-                                    </div>
-                                    <div class="col-12">
-                                        <div class="row">
-                                            <div class="col-lg-6 col-12">
-                                                <div class="form-group mt-1 ">
-                                                    <label for="pickup-location"> Phone Number</label>
-
-                                                    <input type="text" maxlength="10" class="form-control"
-                                                        name="cust_mbl1" autocomplete="off" id="pickup-location"
-                                                        aria-describedby="emailHelp" placeholder="Phone Number"
-                                                        pattern="[0-9]{10}"
-                                                        title="Please enter a numeric value with a maximum of 10 digits."
-                                                        required>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-6 col-12">
-                                                <div class="form-group mt-1">
-                                                    <label for="pickup-location"> Depart time</label>
-                                                    <input type="time" name="pickuptime" required=""
-                                                        class="form-control timepicker" id=""
-                                                        placeholder="00:00">
-
-                                                </div>
-                                            </div>
-
-
-                                        </div>
-                                    </div>
-                                </div>
-
-
-                                <div class="card  my-3 calculation">
-                                    <div class="row">
-                                        <div class="col-md-3 col-6 col-sm-2 ">
-                                            <div class="card-body">
-                                                <p class="card-title">Total Amount</p>
-                                                <h6 class="text-center" name="actualAmount" id="amountText2"></h6>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-3 col-6 col-sm-2">
-                                            <div class="card-body">
-                                                <p class="card-title"> Trip Covers</p>
-                                                <h6 class="text-center" name="pickuptime" id="distanceText2">
-                                                    {{ Request::get('distance') }} KM
-                                                </h6>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-3 col-6 col-sm-2">
-                                            <div class="card-body">
-                                                <p class="card-title">Duration</p>
-                                                <h6 class="text-center" name="returndate" id="durationText2">
-                                                    {{ Request::get('duration') }}
-                                                </h6>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-3 col-6 col-sm-2">
-                                            <div class="card-body">
-                                                <p class="card-title">No of Days</p>
-                                                <h6 class="text-center" name="daysText2" id="daysText2">0</h6>
-                                            </div>
-                                        </div>
-                                    </div>
-
-
-                                </div>
-                                <div class="col-12 proceed-btn my-1">
-                                    <button type="submit" class="btn btn-warning text-center"
-                                        style="border-radius:5px;">PLACE A BOOKING</button>
-                                </div>
-
-
-                            </form>
-                        @endif
+                        </div>
                     </div>
-                    <input type="hidden" name="from_place" id="from_place" value="{{ Request::get('from') }}"
-                        placeholder="from_place">
-                    <input type="hidden" name="to_place" id="to_place" value="{{ Request::get('to') }}"
-                        placeholder="to_place">
-                    <input type="hidden" name="oneway_round" id="oneway_round" value="{{ Request::get('trip') }}"
-                        placeholder="charge_per_km">
-                    <input type="hidden" name="charge_per_km" id="charge_per_km" value="charge_per_km">
-                    <input type="hidden" name="distance" id="distance" value="{{ Request::get('distance') }}"
-                        placeholder="distance">
-                    <input type="hidden" name="duration" id="duration" value="{{ Request::get('duration') }}"
-                        placeholder="duration">
-                    <input type="hidden" name="latOrg1" id="latOrg1" value="{{ Request::get('latOrg1') }}"
-                        placeholder="latOrg1">
-                    <input type="hidden" name="lagOrg1" id="lagOrg1" value="{{ Request::get('lagOrg1') }}"
-                        placeholder="lagOrg1">
-                    <input type="hidden" name="Org2" id="Org2" value="{{ Request::get('Org2') }}"
-                        placeholder="Org2">
-                    <input type="hidden" name="desA" id="desA" value="{{ Request::get('desA') }}"
-                        placeholder="desA">
-                    <input type="hidden" name="desBlat" id="desBlat" value="{{ Request::get('desBlat') }}"
-                        placeholder="desBlat">
-                    <input type="hidden" name="desBlag" id="desBlag" value="{{ Request::get('desBlag') }}"
-                        placeholder="desBlag">
-                    <input type="hidden" name="car_id" id="car_id" value="" placeholder="car_id">
-                    <input type="hidden" name="days2" id="days2" value="">
-                    <input type="hidden" name="amount" id="amount" value="" placeholder="amount">
-                    <input type="hidden" name="depart_date_time" id="depart_date_time" value=""
-                        placeholder="depart_date_time">
-                    <input type="hidden" name="cust_name" id="cust_name" value="" placeholder="cust_name">
-                    <input type="hidden" name="cust_email" id="cust_email" value=""
-                        placeholder="cust_email">
-                    <input type="hidden" name="cust_mbl" id="cust_mbl" value="" placeholder="cust_mbl">
-                    <input type="hidden" name="max_km_per_day_oneway" id="max_km_per_day_oneway" value="130"
-                        placeholder="max_km_per_day_oneway">
-                    <input type="hidden" name="max_km_per_day_round" id="max_km_per_day_round" value="250"
-                        placeholder="max_km_per_day_round">
+                    <div class="p-3">
+                        <h6>Tariff Information</h6>
+                        <ul>
+                            <li>One way minimum of 130 kms per calendar day</li>
+                            <li>400 rupees driver bata</li>
+                            <li>Toll Permit, Inter State Permit, Parking charges should be pay by customer,
+                            </li>
+                            <li>Round trip minimum of 250 kms per calendar day</li>
+                            <li>Hill station charges</li>
+                            <li>Waiting Charges are Applicable</li>
 
+                        </ul>
+                    </div>
                 </div>
-            </div>
-            <div class="p-3">
-                <h6>Tariff Information</h6>
-                <ul>
-                    <li>One way minimum of 130 kms per calendar day</li>
-                    <li>400 rupees driver bata</li>
-                    <li>Toll Permit, Inter State Permit, Parking charges should be pay by customer,
-                    </li>
-                    <li>Round trip minimum of 250 kms per calendar day</li>
-                    <li>Hill station charges</li>
-                    <li>Waiting Charges are Applicable</li>
-
-                </ul>
-            </div>
-        </div>
 </section>
 @include('common.footer')
 <!-- Google API -->
 <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css">
-
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDzLgce3y8jzRe5GdXksOdAqn30aFx-qv8&libraries=places,geometry&callback=initAutocomplete&v=weekly&channel=2"
     async></script>
@@ -493,7 +471,23 @@
         new google.maps.LatLng(12.97232, 77.59480),
         new google.maps.LatLng(12.89201, 77.58905));
 
+        function carSelectround(){
 
+            let noofdays = document.getElementById("daysText2").innerHTML;
+            let totalAmount = document.getElementById("amountText2").innerHTML;
+            console.log(totalAmount);
+            console.log(noofdays*400);
+            if(totalAmount==noofdays*400){
+                Swal.fire('please select a vehicle')
+            }
+
+        }
+        function carselectone(){
+            let totalAmountoneway = document.getElementById("amountText1").innerHTML;
+            if(totalAmountoneway==0){
+                Swal.fire('please select a vehicle')
+            }
+        }
     function initAutocomplete() {
         // Create the autocomplete object, restricting the search to geographical
         // location types.
@@ -783,7 +777,7 @@
             console.log(amount, 'amountamountamountamountamount');
             if (charge_per_km) {
                 document.getElementById('amount1').value = amount + driverBata;
-                document.getElementById('amountText1').innerHTML = amount + driverBata + " Rs";
+                document.getElementById('amountText1').innerHTML = amount + driverBata + "Rs";
             }
 
         }
@@ -856,7 +850,7 @@
             document.getElementById('actualAmount2').value = charge_per_km * newDistance;
             document.getElementById('driverBata2').value = driverbata2;
             document.getElementById('amount2').value = amount;
-            document.getElementById('amountText2').innerHTML = amount + " Rs";
+            document.getElementById('amountText2').innerHTML = amount;
 
             document.getElementById('days2').value = extraDays;
             document.getElementById('daysText2').innerHTML = extraDays;
