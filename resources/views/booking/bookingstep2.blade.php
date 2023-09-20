@@ -110,7 +110,7 @@
                                     <div class="col-lg-6 col-12">
                                         <div class="form-group mt-1">
                                             <label for="pickup-location">Return Date</label>
-                                            <input type="date" name="pickupdate" id="todate"
+                                            <input type="date" name="dropdate" id="todate"
                                                 class="form-control" placeholder="dd-mm-yyy" required
                                                 onchange="calc_amount();">
                                             <!-- <input type="text" class="form-control" name="cust_mbl1" id="pickup-location" aria-describedby="emailHelp" placeholder="Phone Number" required> -->
@@ -478,14 +478,26 @@
             console.log(totalAmount);
             console.log(noofdays*400);
             if(totalAmount==noofdays*400){
-                Swal.fire('please select a vehicle')
+
+                         Swal.fire({
+    title: 'Please select a vehicle',
+
+    confirmButtonColor: '#fbb53c',
+    confirmButtonText: 'OK'
+  });
+
             }
 
         }
         function carselectone(){
             let totalAmountoneway = document.getElementById("amountText1").innerHTML;
             if(totalAmountoneway==0){
-                Swal.fire('please select a vehicle')
+                Swal.fire({
+    title: 'Please select a vehicle',
+
+    confirmButtonColor: '#fbb53c',
+    confirmButtonText: 'OK'
+  });
             }
         }
     function initAutocomplete() {
@@ -756,6 +768,7 @@
 
             document.getElementById('driverBataOneWay').value = driverBata;
             if (charge_per_km > 0) {
+                document.getElementById('actualAmount1').value = charge_per_km * newDistance;
                 var amount = (charge_per_km * newDistance) + driverBata;
                 console.log(amount);
             }
@@ -765,8 +778,8 @@
             var totalAmount = document.getElementById('amountText1');
             totalAmount.innerHTML = amount + "";
             var TotalAmountBack = document.getElementById('amountText1').innerHTML;
-            console.log(TotalAmountBack);
-            document.getElementById("actualAmount1").value = TotalAmountBack;
+            // console.log(TotalAmountBack);
+            // document.getElementById("actualAmount1").value = TotalAmountBack;
             // var date = document.getElementById('depart_date2').value;
             // var time = document.getElementById('depart_time').value;
             // var datetime = document.getElementById('return_date2').value = date.time;
@@ -776,8 +789,8 @@
             document.getElementById('distanceText1').innerHTML = newDistance + " km";
             console.log(amount, 'amountamountamountamountamount');
             if (charge_per_km) {
-                document.getElementById('amount1').value = amount + driverBata;
-                document.getElementById('amountText1').innerHTML = amount + driverBata + "Rs";
+                document.getElementById('amount1').value = amount;
+                document.getElementById('amountText1').innerHTML = amount +" Rs";
             }
 
         }

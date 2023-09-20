@@ -2814,14 +2814,15 @@ a.addmore {
   bottom:30px;
   left:20px;
 }
-#whatsappicon img{
-    height: 58px  !important;
 
+#whatsappicon img {
+    width: 66px !important;
+    height: 62px !important;
 }
-#callicon img{
-    height: 46px !important;
+#callicon img {
+    height: 52px !important;
+    width: 51px !important;
 }
-
 .proceed-btn {
   /* margin-left: 240px; */
   display: flex;

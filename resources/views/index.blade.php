@@ -1,6 +1,3 @@
-
-
-
 @include('common.header')
 
 <div class="container mt-4">
@@ -71,7 +68,7 @@
                                                 </div>
                                             </div>
 
-                                               {{-- depart date and time hide START--}}
+                                            {{-- depart date and time hide START --}}
 
                                             {{-- <div class="col-md-6 col-6">
                                                 <div class='input-group date'>
@@ -93,7 +90,7 @@
                                                 </div>
                                             </div> --}}
 
-                                               {{-- depart date and time hide END--}}
+                                            {{-- depart date and time hide END --}}
 
                                             <input type="hidden" name="trip" id="tripo" class="tripo"
                                                 value="Oneway">
@@ -159,7 +156,7 @@
                                             </div>
                                         </div>
 
-                                        {{-- depart date and time hide START--}}
+                                        {{-- depart date and time hide START --}}
 
                                         {{-- <div class="col-md-4 col-6 mt0">
                                             <div class='input-group date'>
@@ -192,8 +189,8 @@
                                             </div>
                                         </div> --}}
 
-                                           {{-- depart date and time hide END--}}
-                                           
+                                        {{-- depart date and time hide END --}}
+
                                         <input type="hidden" name="trip" id="tripo" class="tripo"
                                             value="Round">
                                         <div id="roundh">
@@ -232,8 +229,12 @@
         <div class="container  about_section">
             <div class="row about_sec_text">
                 <h2 data-aos="fade-up">About Dora Cabs</h2>
-                <p>Dora Cabs &nbsp;provides safe and reliable taxi services from chennai for both local and outstation taxi service. We provide all types of car rental requirements as per the customer choice at the single platform. We are dedicated
-                    to delivering comfortable, ereliable and hassle free taxi service rides for you and always endeavor to maintain your convenience at the top most priority.&nbsp; At Dora Cabs, we ensure you the utmost punctuality in our cab
+                <p>Dora Cabs &nbsp;provides safe and reliable taxi services from chennai for both local and outstation
+                    taxi service. We provide all types of car rental requirements as per the customer choice at the
+                    single platform. We are dedicated
+                    to delivering comfortable, ereliable and hassle free taxi service rides for you and always endeavor
+                    to maintain your convenience at the top most priority.&nbsp; At Dora Cabs, we ensure you the utmost
+                    punctuality in our cab
                     services. The whole team of Dora Cabs </p>
                 <button type="submit" class="btn about_btn">
                     Know More</button>
@@ -252,7 +253,9 @@
                     <button class="accordion_btn">Are cabs available in chennai, NCR?</button>
                     <div class="accordion_text">
                         <p>
-                            Yes, there are in fact many cabs available in chennai, NCR. Depending on Where you need a cab for use, there is Doracabsoffering a cab with a driver for local, outstation and airport rentals.
+                            Yes, there are in fact many cabs available in chennai, NCR. Depending on Where you need a
+                            cab for use, there is Doracabsoffering a cab with a driver for local, outstation and airport
+                            rentals.
                         </p>
                     </div>
                 </div>
@@ -262,7 +265,8 @@
                     </button>
                     <div class="accordion_text">
                         <p>
-                            Whether a booking is made online or over the phone, a confirmation would be sent to you via e-mail, which would include your reservation number and travel details.
+                            Whether a booking is made online or over the phone, a confirmation would be sent to you via
+                            e-mail, which would include your reservation number and travel details.
                         </p>
                     </div>
                 </div>
@@ -270,7 +274,8 @@
                     <button class="accordion_btn">Can I change my booking?</button>
                     <div class="accordion_text">
                         <p>
-                            Yes. You can change the date of booking till 1 days before the booked date free of charge. After that, there will be a cancellation charge as per cancellation policy.
+                            Yes. You can change the date of booking till 1 days before the booked date free of charge.
+                            After that, there will be a cancellation charge as per cancellation policy.
                         </p>
                     </div>
                 </div>
@@ -278,7 +283,8 @@
                     <button class="accordion_btn">What is the taxi rate from chennai?</button>
                     <div class="accordion_text">
                         <p>
-                            You can rent a car in chennai with a driver for as less as Rs 9/km. or you can search on portal or do Call on 9990965965 for more details.
+                            You can rent a car in chennai with a driver for as less as Rs 9/km. or you can search on
+                            portal or do Call on 9990965965 for more details.
                         </p>
                     </div>
                 </div>
@@ -288,7 +294,8 @@
                     </button>
                     <div class="accordion_text">
                         <p>
-                            In chennai, NCR, you can book a taxi for local, outstation or airport rentals. Book your cab by calling on 9990965965 for doorstep pick up or drop or drop a mail at info@doracabs.com
+                            In chennai, NCR, you can book a taxi for local, outstation or airport rentals. Book your cab
+                            by calling on 9990965965 for doorstep pick up or drop or drop a mail at info@doracabs.com
                         </p>
                     </div>
                 </div>
@@ -296,7 +303,9 @@
                     <button class="accordion_btn">Are cabs available in chennai, NCR?</button>
                     <div class="accordion_text">
                         <p>
-                            Yes, there are in fact many cabs available in chennai, NCR. Depending on Where you need a cab for use, there is Doracabsoffers a cab with a driver for local, outstation, and airport rentals.
+                            Yes, there are in fact many cabs available in chennai, NCR. Depending on Where you need a
+                            cab for use, there is Doracabsoffers a cab with a driver for local, outstation, and airport
+                            rentals.
                         </p>
                     </div>
                 </div>
@@ -308,7 +317,9 @@
         <div class="car_detail_section pb-4" id="fleet">
             <div class="container car_sec_text">
                 <h2>Fleet For Every Occasion</h2>
-                <p>Dedicated team of Dora Cabs feels delighted to provide a fleet for every occasion whether it is your planned holiday trip or business trip. You can pick your demanded car as per your need in just a few clicks.
+                <p>Dedicated team of Dora Cabs feels delighted to provide a fleet for every occasion whether it is your
+                    planned holiday trip or business trip. You can pick your demanded car as per your need in just a few
+                    clicks.
                 </p>
             </div>
         </div>
@@ -320,10 +331,11 @@
 
                 <div class="col-md-6 mobile_section_1 p-5">
                     <h2>Book an <br> Outstation Cab <br> from the App</h2>
-                    <p>Launching our all new Android application with completely redesigned user interface. Now book your cab in just 20 seconds. Book Outstation cabs, pay only for Oneway. Download Dora Cabs app now.</p>
+                    <p>Launching our all new Android application with completely redesigned user interface. Now book
+                        your cab in just 20 seconds. Book Outstation cabs, pay only for Oneway. Download Dora Cabs app
+                        now.</p>
                     <div class="row">
                         <div class="col-md-4 col-6 mobile_sec_text">
-                            <!-- <a href="https://play.google.com/store/apps/details?id=com.hiremetaxi"> -->
                             <img src="./assets/frontuser/images/gpay.png">
                             </a>
                         </div>
@@ -344,17 +356,24 @@
 <section id="about_people">
     <div class="row people_cont">
         <h2>What people say about us</h2>
-        <p>We are well known for our best taxi hire service provider as we are always ready to offer you to choose a car from our large fleet with experienced drivers on time. Our most valuable earning is our happy clients which are connected with
-            us from their first trip with Hire me Taxi just because of our wonderful management team &amp; excellent car hire services offered to them.</p>
-        <div class="row peopple_in owl-theme owl-carousel  pt-4 owl-loaded owl-drag" style="width: 90%; margin: auto;">
+        <p>We are well known for our best taxi hire service provider as we are always ready to offer you to choose a car
+            from our large fleet with experienced drivers on time. Our most valuable earning is our happy clients which
+            are connected with
+            us from their first trip with Dora Taxi just because of our wonderful management team &amp; excellent car
+            hire services offered to them.</p>
+        <div class="row peopple_in owl-theme owl-carousel  pt-4 owl-loaded owl-drag"
+            style="width: 90%; margin: auto;">
 
 
             <div class="owl-stage-outer">
-                <div class="owl-stage" style="transition: all 0.25s ease 0s; width: 9196px; transform: translate3d(-3344px, 0px, 0px);">
+                <div class="owl-stage"
+                    style="transition: all 0.25s ease 0s; width: 9196px; transform: translate3d(-3344px, 0px, 0px);">
                     <div class="owl-item cloned" style="width: 821px; margin-right: 15px;">
                         <div class="card_people">
                             <div class="card">
-                                Best car rental service in Delhi at affordable rates. I have feel a very safe and secure ride one way taxi from Delhi to Chandigarh with your expert drivers and well maintained cars.
+                                Best car rental service in Delhi at affordable rates. I have feel a very safe and secure
+                                ride one way taxi from Delhi to Chandigarh with your expert drivers and well maintained
+                                cars.
                                 <!--					  <div class="youtube-container">
                                                   <div class="youtube-player" data-id=""></div>
                           </div>-->
@@ -368,7 +387,9 @@
                     <div class="owl-item cloned" style="width: 821px; margin-right: 15px;">
                         <div class="card_people">
                             <div class="card">
-                                I have hired a round trip car rental service from Delhi to Pune. It was a very memorable experience with your friendly drivers. There are no additional charges the pricing policy is too transparent
+                                I have hired a round trip car rental service from Delhi to Pune. It was a very memorable
+                                experience with your friendly drivers. There are no additional charges the pricing
+                                policy is too transparent
                                 <!--					  <div class="youtube-container">
                                                   <div class="youtube-player" data-id=""></div>
                           </div>-->
@@ -382,7 +403,9 @@
                     <div class="owl-item cloned" style="width: 821px; margin-right: 15px;">
                         <div class="card_people">
                             <div class="card">
-                                The service is great the driver is really humble and helpful. Last year before the pandemic, I had 3-4 visits to Outstation. Choosing a cab from airport in a big task, specially in Pune and Mumbai.
+                                The service is great the driver is really humble and helpful. Last year before the
+                                pandemic, I had 3-4 visits to Outstation. Choosing a cab from airport in a big task,
+                                specially in Pune and Mumbai.
                                 <!--					  <div class="youtube-container">
                                                   <div class="youtube-player" data-id=""></div>
                           </div>-->
@@ -396,7 +419,9 @@
                     <div class="owl-item" style="width: 821px; margin-right: 15px;">
                         <div class="card_people">
                             <div class="card">
-                                The best taxi service for Airport pick and drop in Chandigarh. I have booked a taxi service from Chandigarh to Delhi with effortless booking experience. Your drivers are too friendly. 
+                                The best taxi service for Airport pick and drop in Chandigarh. I have booked a taxi
+                                service from Chandigarh to Delhi with effortless booking experience. Your drivers are
+                                too friendly.
                                 <!--					  <div class="youtube-container">
                                                   <div class="youtube-player" data-id=""></div>
                           </div>-->
@@ -410,7 +435,8 @@
                     <div class="owl-item active center" style="width: 821px; margin-right: 15px;">
                         <div class="card_people">
                             <div class="card">
-                                Our flight was delayed by two hours, so we arrived at airport at 2am. I emailed the support address, and received a prompt reply saying the agent would update my driver. 
+                                Our flight was delayed by two hours, so we arrived at airport at 2am. I emailed the
+                                support address, and received a prompt reply saying the agent would update my driver.
                                 <!--					  <div class="youtube-container">
                                                   <div class="youtube-player" data-id=""></div>
                           </div>-->
@@ -424,7 +450,9 @@
                     <div class="owl-item" style="width: 821px; margin-right: 15px;">
                         <div class="card_people">
                             <div class="card">
-                                Best car rental service in Delhi at affordable rates. I have feel a very safe and secure ride one way taxi from Delhi to Chandigarh with your expert drivers and well maintained cars.
+                                Best car rental service in Delhi at affordable rates. I have feel a very safe and secure
+                                ride one way taxi from Delhi to Chandigarh with your expert drivers and well maintained
+                                cars.
                                 <!--					  <div class="youtube-container">
                                                   <div class="youtube-player" data-id=""></div>
                           </div>-->
@@ -438,7 +466,9 @@
                     <div class="owl-item" style="width: 821px; margin-right: 15px;">
                         <div class="card_people">
                             <div class="card">
-                                I have hired a round trip car rental service from Delhi to Pune. It was a very memorable experience with your friendly drivers. There are no additional charges the pricing policy is too transparent 
+                                I have hired a round trip car rental service from Delhi to Pune. It was a very memorable
+                                experience with your friendly drivers. There are no additional charges the pricing
+                                policy is too transparent
                                 <!--					  <div class="youtube-container">
                                                   <div class="youtube-player" data-id=""></div>
                           </div>-->
@@ -452,7 +482,9 @@
                     <div class="owl-item" style="width: 821px; margin-right: 15px;">
                         <div class="card_people">
                             <div class="card">
-                                The service is great the driver is really humble and helpful. Last year before the pandemic, I had 3-4 visits to Outstation. Choosing a cab from airport in a big task, specially in Pune and Mumbai. 
+                                The service is great the driver is really humble and helpful. Last year before the
+                                pandemic, I had 3-4 visits to Outstation. Choosing a cab from airport in a big task,
+                                specially in Pune and Mumbai.
                                 <!--					  <div class="youtube-container">
                                                   <div class="youtube-player" data-id=""></div>
                           </div>-->
@@ -466,7 +498,9 @@
                     <div class="owl-item cloned" style="width: 821px; margin-right: 15px;">
                         <div class="card_people">
                             <div class="card">
-                                The best taxi service for Airport pick and drop in Chandigarh. I have booked a taxi service from Chandigarh to Delhi with effortless booking experience. Your drivers are too friendly.
+                                The best taxi service for Airport pick and drop in Chandigarh. I have booked a taxi
+                                service from Chandigarh to Delhi with effortless booking experience. Your drivers are
+                                too friendly.
                                 <!--					  <div class="youtube-container">
                                                   <div class="youtube-player" data-id=""></div>
                           </div>-->
@@ -480,7 +514,8 @@
                     <div class="owl-item cloned" style="width: 821px; margin-right: 15px;">
                         <div class="card_people">
                             <div class="card">
-                                Our flight was delayed by two hours, so we arrived at airport at 2am. I emailed the support address, and received a prompt reply saying the agent would update my driver. 
+                                Our flight was delayed by two hours, so we arrived at airport at 2am. I emailed the
+                                support address, and received a prompt reply saying the agent would update my driver.
                                 <!--					  <div class="youtube-container">
                                                   <div class="youtube-player" data-id=""></div>
                           </div>-->
@@ -494,7 +529,9 @@
                     <div class="owl-item cloned" style="width: 821px; margin-right: 15px;">
                         <div class="card_people">
                             <div class="card">
-                                Best car rental service in Delhi at affordable rates. I have feel a very safe and secure ride one way taxi from Delhi to Chandigarh with your expert drivers and well maintained cars.
+                                Best car rental service in Delhi at affordable rates. I have feel a very safe and secure
+                                ride one way taxi from Delhi to Chandigarh with your expert drivers and well maintained
+                                cars.
                                 <!--					  <div class="youtube-container">
                                                   <div class="youtube-player" data-id=""></div>
                           </div>-->
@@ -520,9 +557,9 @@
                 </button>
                 <button role="button" class="owl-dot"><span></span></button><button role="button" class="owl-dot"><span></span></button>
             </div> -->
-        <!-- </div> -->
-        <button type="submit" class="btn people_btn mt-5"> View All</button>
-    </div>
+            <!-- </div> -->
+            <button type="submit" class="btn people_btn mt-5"> View All</button>
+        </div>
 </section>
 </div>
 
@@ -534,8 +571,11 @@
             <div class="col-md-12 serviceText px-lg-0 px-4">
                 <h2>India's best online car hire service</h2>
                 <p>
-                    Dora Cabs is one of the best car hire service providers in chennai which offers you to book your car/cab online for your desired destinations whether it is local or outstation and confirm your booking by making online payment instantly. We have brought
-                    online cab bookings or car hire services for you so that you can enjoy your journey with pleasant mind with our hassle free cab booking services provided by us at Dora Cabs
+                    Dora Cabs is one of the best car hire service providers in chennai which offers you to book your
+                    car/cab online for your desired destinations whether it is local or outstation and confirm your
+                    booking by making online payment instantly. We have brought
+                    online cab bookings or car hire services for you so that you can enjoy your journey with pleasant
+                    mind with our hassle free cab booking services provided by us at Dora Cabs
                 </p>
             </div>
 
@@ -569,19 +609,20 @@
             </div>
         </div>
     </section>
-  
+
     </body>
 
     </html>
     @include('common.footer')
     <!-- Google API -->
-    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css">
-    
-   
-   <script>
-    
-   </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDzLgce3y8jzRe5GdXksOdAqn30aFx-qv8&libraries=places,geometry&callback=initAutocomplete&v=weekly&channel=2" async></script>
+    <link rel="stylesheet"
+        href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css">
+
+
+    <script></script>
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDzLgce3y8jzRe5GdXksOdAqn30aFx-qv8&libraries=places,geometry&callback=initAutocomplete&v=weekly&channel=2"
+        async></script>
     <script type="text/javascript">
         var placeSearch, autocomplete, autocomplete2;
         var componentForm = {

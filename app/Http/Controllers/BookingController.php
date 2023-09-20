@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Validator;
 use Mail;
 use DB;
 use Session;
-
+use Carbon\Carbon;
 
 
 class BookingController extends Controller
@@ -26,8 +26,9 @@ class BookingController extends Controller
 
     public function index(Request $request)
     {
-        $cars = Cars::orderBy('created_at', 'asc')->get();
+        $cars=Cars::orderBy('created_at', 'asc')->get();
         return view('booking.create')->with(compact('cars'));
+
     }
 
     //
@@ -52,7 +53,9 @@ class BookingController extends Controller
         if ($request['oneway_round']) {
             $request->validate([
                 'car_id'=>'required'
-            ]);
+                ]);
+            $date=$request['pickupdate'];
+            $time=$request['pickuptime'];
             $data = array(
                 'from_place' => $request['from_place1'],
                 'to_place' => $request['to_place1'],
@@ -61,7 +64,7 @@ class BookingController extends Controller
                 'charge_per_km' => $request['charge_per_km'],
                 'distance' => $request['distance'],
                 'amount' => $request['amount'],
-                'depart_date_time' => date("Y-m-d H:i:s", strtotime($request['depart_date1'] . " " . $request['depart_time1'])),
+                'depart_date_time' => $date . ' ' . $time,
                 'cust_name' => $request['cust_name'],
                 'cust_email' => $request['cust_email'],
                 'cust_mbl' => $request['cust_mbl1'],
@@ -75,9 +78,12 @@ class BookingController extends Controller
         }
 
         if ($request['oneway_round1']) {
-            $request->validate([
-                'car_id2'=>'required'
-            ]);
+                 $request->validate([
+                    'car_id2'=>'required'
+                ]);
+            $date=$request['pickupdate'];
+            $time=$request['pickuptime'];
+            $returndate=$request['dropdate'];
             $data = array(
                 'from_place' => $request['from_place2'],
                 'to_place' => $request['to_place2'],
@@ -86,17 +92,19 @@ class BookingController extends Controller
                 'charge_per_km' => $request['charge_per_km2'],
                 'distance' => $request['distance2'],
                 'amount' => $request['amount2'],
-                'depart_date_time' => date("Y-m-d H:i:s", strtotime($request['depart_date2'] . " " . $request['depart_time2'])),
                 'cust_name' => $request['cust_name'],
+                'depart_date_time' => $date . ' ' . $time,
                 'cust_email' => $request['cust_email'],
                 'cust_mbl' => $request['cust_mbl1'],
                 'pickup_add' => $request['pickUpAddress'],
                 'drop_add' => $request['dropAddress'],
-                'return_date_time' => $request['return_date'],
+                'return_date_time' => $returndate,
                 'days' => $request['days2'],
                 'actual_amount' => $request['actualAmount2'],
                 'driver_bata' => $request['driverBata2']
+
             );
+
             // print_r($data); die;
         }
         $bookings = new Booking($data);
@@ -120,19 +128,21 @@ class BookingController extends Controller
 
         // Notifying Users
 
-        if (!empty($request['cust_email'])) {
-            // print_r($request['cust_email']); die;
-            Mail::to($request['cust_email'])->send(new BookingNotificationMail($data));
-        }
-        // Notifying Admin
-        $adminMailAddress = env('MAIL_FROM_ADDRESS');
-        // print_r($adminMailAddress); die;
-        Mail::to($adminMailAddress)->send(new BookingNotificationToAdminMail($data));
-        // Mail::to('dhivyashree.duskcoder@gmail.com', 'Admin')->send(new BookingNotificationToAdminMail($data));
+        // if (!empty($request['cust_email'])) {
+        //     // print_r($request['cust_email']); die;
+        //     Mail::to($request['cust_email'])->send(new BookingNotificationMail($data));
+        // }
+        // // Notifying Admin
+        // $adminMailAddress = env('MAIL_FROM_ADDRESS');
+        // // print_r($adminMailAddress); die;
+        // Mail::to($adminMailAddress)->send(new BookingNotificationToAdminMail($data));
+        // // Mail::to('dhivyashree.duskcoder@gmail.com', 'Admin')->send(new BookingNotificationToAdminMail($data));
 
         return redirect()->route('booking-result', [$bookings->id]);
-
     }
+
+
+
     public function bookingResult($id)
     {
         //  $bookedData = Booking::with('driver')->with('vehicle')->find($id);
